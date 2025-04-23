@@ -4,12 +4,28 @@
     {
       "src": "dist/fpico-latest/server/server.mjs",
       "use": "@vercel/node"
+    },
+    {
+      "src": "dist/fpico-latest/browser/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/assets/(.*)",
+      "dest": "/dist/fpico-latest/browser/assets/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/dist/fpico-latest/browser/favicon.ico"
+    },
+    {
+      "src": "/(.+\\.[a-zA-Z0-9]+$)",
+      "dest": "/dist/fpico-latest/browser/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "dist/fpico-latest/server/server.mjs"
+      "dest": "/dist/fpico-latest/server/server.mjs"
     }
   ]
 }
