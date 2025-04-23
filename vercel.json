@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/server/server.mjs",
+      "src": "dist/fpico-latest/server/server.mjs",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/server/server.mjs"
+      "dest": "dist/fpico-latest/server/server.mjs"
     }
   ]
 }
