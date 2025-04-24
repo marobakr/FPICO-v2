@@ -1,41 +1,55 @@
-<section class="text-capitalize my-5 text-center">
-  <div class="container">
+<section class="capitalize my-20 text-center">
+  <div class="container mx-auto">
     <header [innerHTML]="'home.services-title' | translate | safeHtml">
-      <!-- <h2 class="text-light"><span class="text-main">our</span> services</h2>
-      <p class="text-lighter">
+      <!-- <h2 class="text-white"><span class="text-primary">our</span> services</h2>
+      <p class="text-gray-300">
         we offer a comprehensive range of construction services designed to meet
-        <span class="d-block">your needs</span>
+        <span class="block">your needs</span>
       </p> -->
     </header>
     @if (Service()) {
     <div>
       @if (isRTL()) {
-      <owl-carousel-o [options]="customOptions" (dragging)="onDragStart()" (translated)="onDragEnd()">
+      <owl-carousel-o
+        [options]="customOptions"
+        (dragging)="onDragStart()"
+        (translated)="onDragEnd()"
+      >
         @for (slider of Service(); track slider.id) {
         <ng-template carouselSlide [id]="slider.id + ''">
           <div>
             <a
-              class="text-decoration-none text-dark"
+              class="no-underline text-gray-900"
               accordion
               [routerLink]="
                 shouldNavigate()
-                  ? ['/', languageService.selectedLanguage$ | async, 'services-details', slider.id]
+                  ? [
+                      '/',
+                      languageService.selectedLanguage$ | async,
+                      'services-details',
+                      slider.id
+                    ]
                   : null
               "
               [class.disabled]="!shouldNavigate()"
-              href="#">
+              href="#"
+            >
               <div class="images_carousel">
                 <img
                   (load)="imageLoaded(img)"
                   #img
                   loading="lazy"
-                  class="w-100 h-100"
-                  [src]="'https://fpico.org/fipcoapi/service/' + slider.main_image"
-                  [alt]="slider.en_meta_title" />
-                <span class="placeholder bg-opacity-100 position-absolute top-0 start-0 end-0 bottom-0"></span>
+                  class="w-full h-full"
+                  [src]="
+                    'https://fpico.org/fipcoapi/service/' + slider.main_image
+                  "
+                  [alt]="slider.en_meta_title"
+                />
                 <span
-                  style="width: 80%;style='13px'"
-                  class="bg-white rounded-3 overflow-hidden position-absolute bottom-0 start-50 translate-middle-x text-nowrap px-3 py-2 fs-5 mb-3 fw-bold"
+                  class="placeholder bg-opacity-100 absolute inset-0"
+                ></span>
+                <span
+                  class="w-4/5 bg-white rounded-xl overflow-hidden absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-2 text-lg font-bold mb-3"
                   >{{ slider.ar_service_title }}</span
                 >
               </div>
@@ -45,35 +59,52 @@
         }
       </owl-carousel-o>
       } @else {
-      <owl-carousel-o [options]="customOptions" (dragging)="onDragStart()" (translated)="onDragEnd()">
+      <owl-carousel-o
+        [options]="customOptions"
+        (dragging)="onDragStart()"
+        (translated)="onDragEnd()"
+      >
         @for (slider of Service(); track slider.id) {
         <ng-template carouselSlide [id]="slider.id + ''">
           <div>
             <a
-              class="text-decoration-none text-dark"
+              class="no-underline text-gray-900"
               [routerLink]="
                 shouldNavigate()
-                  ? ['/', languageService.selectedLanguage$ | async, 'services-details', slider.id]
+                  ? [
+                      '/',
+                      languageService.selectedLanguage$ | async,
+                      'services-details',
+                      slider.id
+                    ]
                   : null
               "
               [class.disabled]="!shouldNavigate()"
-              href="#">
+              href="#"
+            >
               <div class="images_carousel">
                 <img
                   (load)="imageLoaded(img)"
                   #img
                   loading="lazy"
-                  class="w-100 h-100"
-                  [src]="'https://fpico.org/fipcoapi/service/' + slider.main_image"
-                  [alt]="slider.en_meta_title" />
-                <span class="placeholder bg-opacity-100 position-absolute top-0 start-0 end-0 bottom-0"></span>
+                  class="w-full h-full"
+                  [src]="
+                    'https://fpico.org/fipcoapi/service/' + slider.main_image
+                  "
+                  [alt]="slider.en_meta_title"
+                />
                 <span
-                  style="width: 80%;style='13px'"
-                  class="bg-white rounded-3 position-absolute bottom-0 start-50 translate-middle-x text-nowrap px-3 py-2 fs-13 mb-3 fw-bold"
-                  ><span class="overflow-hidden d-inline-block w-100 line-clamp-1">
-                    {{ slider.en_service_title }}
-                  </span></span
+                  class="placeholder bg-opacity-100 absolute inset-0"
+                ></span>
+                <span
+                  class="w-4/5 bg-white rounded-xl absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-2 text-sm mb-3 font-bold"
                 >
+                  <span
+                    class="overflow-hidden inline-block w-full line-clamp-1"
+                  >
+                    {{ slider.en_service_title }}
+                  </span>
+                </span>
               </div>
             </a>
           </div>

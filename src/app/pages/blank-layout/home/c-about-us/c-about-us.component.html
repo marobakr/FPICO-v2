@@ -1,12 +1,12 @@
 @if (aboutData) {
 <section>
-  <div class="container text-white text-capitalize">
-    <div class="row g-4">
-      <div class="col-md-4 position-relative d-flex justify-content-center align-items-center">
+  <div class="container mx-auto text-white capitalize">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="relative flex justify-center items-center">
         <div>
           <div>
-            <h2 class="mb-5">
-              <span class="rounded-1 p-3 fs-18" style="background: #303030">{{
+            <h2 class="mb-20">
+              <span class="rounded p-3 text-lg bg-[#303030]">{{
                 aboutData.aboutUsContent.mainTitle | translate
               }}</span>
             </h2>
@@ -17,7 +17,7 @@
               {{ AboutData().en_stand_for_title }}
               }
             </h3>
-            <p class="text-lighter">
+            <p class="text-gray-300">
               @if (isRTL()) {
               {{ AboutData().ar_stand_for_text }}
               }@else {
@@ -27,22 +27,31 @@
           </div>
           <img
             loading="lazy"
-            [class]="{ 'start-0': isRTL(), 'end-0': !isRTL() }"
-            class="position-absolute top-0 m-3"
+            [class]="{ 'left-0': isRTL(), 'right-0': !isRTL() }"
+            class="absolute top-0 m-3"
             src="/images/DownloadSection/logo-light.png"
-            alt="FPICO" />
+            alt="FPICO"
+          />
         </div>
       </div>
-      <div class="col-md-4 d-flex justify-content-center align-items-center">
+      <div class="flex justify-center items-center">
         <div>
-          <video #videoElement autoplay loop muted playsinline preload="metadata" class="video-like-image">
+          <video
+            #videoElement
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            class="video-like-image"
+          >
             <source src="/images/DownloadSection/1VF.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
-      <div class="col-md-4 position-relative d-flex justify-content-center align-items-center flex-column">
+      <div class="relative flex justify-center items-center flex-col">
         <div>
-          <div class="mb-5">
+          <div class="mb-20">
             <h3 class="mb-3">
               @if (isRTL()) {
               {{ AboutData().ar_mission_title }}
@@ -50,7 +59,7 @@
               {{ AboutData().en_mission_title }}
               }
             </h3>
-            <p class="text-lighter">
+            <p class="text-gray-300">
               @if (isRTL()) {
               {{ AboutData().ar_mission_text }}
               }@else {
@@ -66,7 +75,7 @@
               {{ AboutData().en_vision_title }}
               }
             </h3>
-            <p class="text-lighter">
+            <p class="text-gray-300">
               @if (isRTL()) {
               {{ AboutData().ar_stand_for_text }}
               }@else {
@@ -79,5 +88,4 @@
     </div>
   </div>
 </section>
-
 }

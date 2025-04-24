@@ -1,43 +1,79 @@
 <section>
-  <div class="container">
-    <div class="position-relative">
-      <div class="row g-0">
-        <div class="col-md-3">
-          <img loading="lazy" height="500px" class="w-100" src="/images/DownloadSection/1.png" alt="FPICO" />
-        </div>
-        <div class="col-md-3 d-none d-md-block">
-          <img loading="lazy" height="500px" class="w-100" src="/images/DownloadSection/2.png" alt="FPICO" />
-        </div>
-        <div class="col-md-3 d-none d-md-block">
-          <img loading="lazy" height="500px" class="w-100" src="/images/DownloadSection/3.png" alt="FPICO" />
-        </div>
-        <div class="col-md-3 d-none d-md-block">
-          <img loading="lazy" height="500px" class="w-100" src="/images/DownloadSection/4.png" alt="FPICO" />
-        </div>
-      </div>
-      <span class="bg-black bg-opacity-50 position-absolute top-0 start-0 end-0 bottom-0"></span>
-      <div
-        class="position-absolute text-center top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center text-capitalize">
+  <div class="container mx-auto">
+    <div class="relative">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-0">
         <div>
-          <h2
-            class="text-white display-5 fw-bold"
-            [innerHTML]="'Pages.Home.download-pdf-section.title' | translate | safeHtml"></h2>
-          <!-- <img src="/images/DownloadSection/see_more.png" alt="FPICO" /> -->
-          <div [innerHTML]="'Pages.Home.download-pdf-section.see-more-pic' | translate | safeHtml"></div>
           <img
             loading="lazy"
-            class="d-block my-2"
+            height="500"
+            class="w-full"
+            src="/images/DownloadSection/1.png"
+            alt="FPICO"
+          />
+        </div>
+        <div class="hidden md:block">
+          <img
+            loading="lazy"
+            height="500"
+            class="w-full"
+            src="/images/DownloadSection/2.png"
+            alt="FPICO"
+          />
+        </div>
+        <div class="hidden md:block">
+          <img
+            loading="lazy"
+            height="500"
+            class="w-full"
+            src="/images/DownloadSection/3.png"
+            alt="FPICO"
+          />
+        </div>
+        <div class="hidden md:block">
+          <img
+            loading="lazy"
+            height="500"
+            class="w-full"
+            src="/images/DownloadSection/4.png"
+            alt="FPICO"
+          />
+        </div>
+      </div>
+      <span class="bg-black bg-opacity-50 absolute inset-0"></span>
+      <div
+        class="absolute inset-0 text-center flex justify-center items-center capitalize"
+      >
+        <div>
+          <h2
+            class="text-white text-5xl font-bold"
+            [innerHTML]="
+              'Pages.Home.download-pdf-section.title' | translate | safeHtml
+            "
+          ></h2>
+          <!-- <img src="/images/DownloadSection/see_more.png" alt="FPICO" /> -->
+          <div
+            [innerHTML]="
+              'Pages.Home.download-pdf-section.see-more-pic'
+                | translate
+                | safeHtml
+            "
+          ></div>
+          <img
+            loading="lazy"
+            class="block my-2"
             style="transform: translateX(85%)"
             src="/images/DownloadSection/arrow.svg"
-            alt="FPICO" />
+            alt="FPICO"
+          />
           <div>
             <a
-              class="btn btn-main rounded-1 px-5 py-3 btn-animation custom-btn"
+              class="bg-primary text-white rounded px-5 py-3 inline-block hover:bg-primary-dark transition-colors duration-300 custom-btn"
               href="https://drive.google.com/file/d/1oH8rIe8oZq1aGJm01nndjpOjVyFiAGZz/view"
               target="_blank"
               download
               rel="noopener noreferrer"
-              aria-label="Download PDF">
+              aria-label="Download PDF"
+            >
               {{ "Pages.Home.download-pdf-section.click-btn" | translate }}
             </a>
           </div>

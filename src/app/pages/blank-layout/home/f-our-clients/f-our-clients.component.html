@@ -1,11 +1,12 @@
-<section class="text-capitalize my-4 my-md-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
+<section class="capitalize mx-auto my-4 md:my-20">
+  <div class="container mx-auto">
+    <div class="">
+      <div class="">
         <header
           [class]="{ 'text-lg-end': isRTL(), 'text-lg-start': !isRTL() }"
           class="text-center"
-          [innerHTML]="'home.clients.text' | translate | safeHtml">
+          [innerHTML]="'home.clients.text' | translate | safeHtml"
+        >
           <!-- <h2 class="text-light"><span class="text-main">our</span> clients</h2>
           <p class="text-lighter">
             some of the clients who trusted us and we provided them with
@@ -13,68 +14,72 @@
           </p> -->
         </header>
       </div>
-      <div class="col-md-8 row row-cols-md-2 row-cols-xl-5 justify-content-start mt-0">
-        @for (item of Client(); track item.id) {
-        <div
-          class="text-center d-flex justify-content-center align-items-center d-md-block text-wrap g-3 border-radius-10">
+      <div class="">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3">
+          @for (item of Client(); track item.id) {
           <div
-            class="image_container w-100 h-100 d-flex justify-content-center align-items-center bg-white p-2"
-            style="border-radius: 50px">
-            <img
-              loading="lazy"
-              [src]="'https://fpico.org/fipcoapi/Partner/' + item.main_image"
-              class="d-block mb-3 object-fit-contain w-100"
-              alt="FPICO" />
+            class="text-center flex justify-center items-center md:block rounded-lg"
+          >
+            <div
+              class="image_container w-full h-full flex justify-center items-center bg-white p-2 rounded-[50px]"
+            >
+              <img
+                loading="lazy"
+                [src]="'https://fpico.org/fipcoapi/Partner/' + item.main_image"
+                class="block mb-3 object-contain w-full"
+                alt="FPICO"
+              />
+            </div>
+            <!-- <img src="/images/clients/6.png" class="d-block" alt="FPICO" /> -->
           </div>
-          <!-- <img src="/images/clients/6.png" class="d-block" alt="FPICO" /> -->
+          }
+          <!-- <div
+            class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
+          >
+            <img
+              src="/images/clients/2.png"
+              class="d-block mb-3"
+              alt="FPICO"
+            />
+            <img src="/images/clients/7.png" class="d-block" alt="FPICO" />
+          </div>
+          <div
+            class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
+          >
+            <img
+              src="/images/clients/3.png"
+              class="d-block mb-3"
+              alt="FPICO"
+            />
+            <img src="/images/clients/8.png" class="d-block" alt="FPICO" />
+          </div>
+          <div
+            class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
+          >
+            <img
+              src="/images/clients/4.png"
+              class="d-block mb-3"
+              alt="FPICO"
+            />
+            <img src="/images/clients/9.png" class="d-block" alt="FPICO" />
+          </div>
+          <div
+            class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
+          >
+            <img
+              src="/images/clients/5.png"
+              class="d-block mb-3"
+              alt="FPICO"
+            />
+            <img
+              src="/images/clients/10.png"
+              class="d-block"
+              alt="FPICO"
+            />
+          </div> -->
         </div>
-        }
-        <!-- <div
-          class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
-        >
-          <img
-            src="/images/clients/2.png"
-            class="d-block mb-3"
-            alt="FPICO"
-          />
-          <img src="/images/clients/7.png" class="d-block" alt="FPICO" />
-        </div>
-        <div
-          class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
-        >
-          <img
-            src="/images/clients/3.png"
-            class="d-block mb-3"
-            alt="FPICO"
-          />
-          <img src="/images/clients/8.png" class="d-block" alt="FPICO" />
-        </div>
-        <div
-          class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
-        >
-          <img
-            src="/images/clients/4.png"
-            class="d-block mb-3"
-            alt="FPICO"
-          />
-          <img src="/images/clients/9.png" class="d-block" alt="FPICO" />
-        </div>
-        <div
-          class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
-        >
-          <img
-            src="/images/clients/5.png"
-            class="d-block mb-3"
-            alt="FPICO"
-          />
-          <img
-            src="/images/clients/10.png"
-            class="d-block"
-            alt="FPICO"
-          />
-        </div> -->
       </div>
-      <div class="col-md-2"></div>
+      <div class="md:col-span-2"></div>
     </div>
   </div>
 </section>

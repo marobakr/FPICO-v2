@@ -1,20 +1,30 @@
-import { AsyncPipe } from "@angular/common";
-import { Component, inject, input } from "@angular/core";
-import { RouterLink } from "@angular/router";
-import { LangChangeEvent, TranslateModule, TranslateService } from "@ngx-translate/core";
-import { CarouselModule, OwlOptions } from "ngx-owl-carousel-o";
-import { Service } from "../../../../core/interfaces/IHomeData";
-import { SafeHtmlPipe } from "../../../../core/pipes/safe-html.pipe";
-import { HomeDataService } from "../../../../core/services/home/home-data.service";
-import { OurServicesContentService } from "../../../../core/services/our-services-content.service";
-import { LanguageService } from "../../../../core/services/services/language.service";
+import { AsyncPipe } from '@angular/common';
+import { Component, inject, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import {
+  LangChangeEvent,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { Service } from '../../../../core/interfaces/IHomeData';
+import { SafeHtmlPipe } from '../../../../core/pipes/safe-html.pipe';
+import { HomeDataService } from '../../../../core/services/home/home-data.service';
+import { OurServicesContentService } from '../../../../core/services/our-services-content.service';
+import { LanguageService } from '../../../../core/services/services/language.service';
 
 @Component({
-  selector: "app-d-our-services",
+  selector: 'app-d-our-services',
   standalone: true,
-  imports: [CarouselModule, TranslateModule, SafeHtmlPipe, AsyncPipe, RouterLink],
-  templateUrl: "./d-our-services.component.html",
-  styleUrl: "./d-our-services.component.scss",
+  imports: [
+    CarouselModule,
+    TranslateModule,
+    SafeHtmlPipe,
+    AsyncPipe,
+    RouterLink,
+  ],
+  templateUrl: './d-our-services.component.html',
+  styleUrl: './d-our-services.component.css',
 })
 export class DOurServicesComponent {
   isRTL = input(false);
@@ -34,7 +44,7 @@ export class DOurServicesComponent {
     dotsData: true,
     dotsSpeed: 700,
     navSpeed: 700,
-    navText: ["", ""],
+    navText: ['', ''],
     margin: 10,
     responsive: {
       0: {
@@ -68,7 +78,7 @@ export class DOurServicesComponent {
   ngOnInit(): void {
     this.homeServices.footerServices.next(this.Service());
     this._TranslateService.onLangChange.subscribe((params: LangChangeEvent) => {
-      if (params.lang === "ar") {
+      if (params.lang === 'ar') {
         this.customOptions = {
           ...this.customOptions,
           rtl: true,
@@ -80,7 +90,7 @@ export class DOurServicesComponent {
         };
       }
     });
-    if (this._TranslateService.currentLang === "ar") {
+    if (this._TranslateService.currentLang === 'ar') {
       this.customOptions = {
         ...this.customOptions,
         rtl: true,

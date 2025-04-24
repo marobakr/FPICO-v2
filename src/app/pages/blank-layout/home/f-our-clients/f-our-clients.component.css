@@ -1,0 +1,9 @@
+.image_container {
+  height: 300px !important;
+}
+
+@media screen and (min-width: 992px) {
+  .image_container {
+    height: 170px !important;
+  }
+}

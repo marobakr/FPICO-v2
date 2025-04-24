@@ -1,13 +1,19 @@
-import { isPlatformBrowser, NgOptimizedImage } from "@angular/common";
-import { Component, HostListener, inject, Input, PLATFORM_ID } from "@angular/core";
-import { TranslateModule } from "@ngx-translate/core";
+import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
+import {
+  Component,
+  HostListener,
+  inject,
+  Input,
+  PLATFORM_ID,
+} from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: "app-a-hero-section",
+  selector: 'app-a-hero-section',
   standalone: true,
   imports: [TranslateModule, NgOptimizedImage],
-  templateUrl: "./a-hero-section.component.html",
-  styleUrl: "./a-hero-section.component.scss",
+  templateUrl: './a-hero-section.component.html',
+  styleUrl: './a-hero-section.component.css',
 })
 export class AHeroSectionComponent {
   @Input() isRTL: boolean = false;
@@ -23,7 +29,7 @@ export class AHeroSectionComponent {
   }
 
   isDesktop: number = 0;
-  @HostListener("window:resize", ["$event"])
+  @HostListener('window:resize', ['$event'])
   onResize() {
     this.isDesktop = window.innerWidth;
   }

@@ -1,12 +1,19 @@
-<div class="hero">
+<div class="min-h-screen">
   <app-a-hero-section [isRTL]="isRTL"></app-a-hero-section>
 </div>
 @if (allHomeData) {
-<app-b-manager-message [isRTL]="isRTL" [ChairMessage]="allHomeData.chairMessage" />
+<app-b-manager-message
+  [isRTL]="isRTL"
+  [ChairMessage]="allHomeData.chairMessage"
+/>
 <app-c-about-us [AboutData]="allHomeData.aboutData" [isRTL]="isRTL" />
 <app-d-our-services [Service]="allHomeData.services" [isRTL]="isRTL" />
 <app-e-about-us [Whyus]="allHomeData.whyus" [isRTL]="isRTL" />
-<app-f-our-clients [Client]="allHomeData.clients" [isRTL]="isRTL" [isRTL]="isRTL" />
+<app-f-our-clients
+  [Client]="allHomeData.clients"
+  [isRTL]="isRTL"
+  [isRTL]="isRTL"
+/>
 <app-g-our-projects [Project]="allHomeData.projects" [isRTL]="isRTL" />
 <app-k-our-partners [Partner]="allHomeData.partners" [isRTL]="isRTL" />
 <app-h-download-pdf-section />

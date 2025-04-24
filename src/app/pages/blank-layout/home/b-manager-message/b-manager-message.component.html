@@ -1,44 +1,48 @@
 <section class="overflow-hidden">
-  <div class="container my-5">
-    <div class="row justify-content-between">
-      <div class="col-lg-5 col-xl-4">
-        <div class="position-relative">
+  <div class="container mx-auto my-20">
+    <div class="flex flex-wrap justify-between">
+      <div class="lg:w-5/12 xl:w-4/12">
+        <div class="relative">
           <img
             loading="lazy"
             [class]="{ rotateImage: isRTL() }"
-            style="height: 500px; width: 400px"
+            class="relative z-20 mb-4 ml-4 manager_image h-[500px] w-[400px]"
             src="/images/hero/master.png"
             alt="fipco manager"
-            class="position-relative z-2 mb-4 ms-4 manager_image" />
+          />
           <span
-            style="height: 449px; width: 379px; border: 3px solid #e7bf8c"
-            class="d-block border-radius-10 position-absolute bottom-0 start-0 mb-4 ms-4 z-1"></span>
+            class="absolute bottom-0 left-0 mb-4 ml-4 z-10 h-[449px] w-[379px] border-[3px] border-[#e7bf8c] rounded-[10px]"
+          ></span>
           <span
-            style="height: 449px; width: 379px; background-color: #2b2b2b"
-            class="d-block border-radius-10 position-absolute bottom-0 start-0 z-n1"></span>
+            class="absolute bottom-0 left-0 -z-10 h-[449px] w-[379px] bg-[#2b2b2b] rounded-[10px]"
+          ></span>
         </div>
       </div>
       <!-- <div
         class="col-lg-7 col-xl-7 mt-5 master_message"
         [innerHTML]="'home.message.firsttitle' | translate"
       ></div> -->
-      <div class="col-lg-7 col-xl-7 mt-5 master_message">
-        <div class="text-capitalize pt-2">
-          <h2 class="text-light ms-0 ms-md-4">
+      <div class="lg:w-7/12 xl:w-7/12 mt-20 master_message">
+        <div class="capitalize pt-2">
+          <h2 class="text-white md:ml-4">
             {{ "home.chairman.message" | translate }}
           </h2>
-          <div class="border-radius-10 p-3 h5 position-relative z-3 manager_title">
-            <h3 class="text-light">
+          <div class="rounded-[10px] p-3 text-xl relative z-30 manager_title">
+            <h3 class="text-white">
               @if (isRTL()) {
-              <span class="text-main">{{ "chairmanMessage.title.desc" | translate }}</span>
+              <span class="text-primary">{{
+                "chairmanMessage.title.desc" | translate
+              }}</span>
               {{ ChairMessage().ar_name }}
               }@else {
-              <span class="text-main">{{ "chairmanMessage.title.desc" | translate }}</span>
+              <span class="text-primary">{{
+                "chairmanMessage.title.desc" | translate
+              }}</span>
               {{ ChairMessage().en_name }}
               }
             </h3>
 
-            <div class="text-lighter mb-0">
+            <div class="text-gray-300">
               @if (isRTL()) {
               {{ ChairMessage().ar_small_title }}
               }@else {
@@ -46,9 +50,9 @@
               }
             </div>
           </div>
-          <div class="ms-0 ms-md-5">
-            <h4 class="text-light my-3">
-              <div class="text-lighter mb-0">
+          <div class="md:ml-20">
+            <h4 class="text-white my-3">
+              <div class="text-gray-300">
                 @if (isRTL()) {
                 {{ ChairMessage().ar_title }}
                 }@else {
@@ -57,9 +61,15 @@
               </div>
             </h4>
             @if (isRTL()) {
-            <div class="text-lighter" [innerHTML]="ChairMessage().ar_text"></div>
+            <div
+              class="text-gray-300"
+              [innerHTML]="ChairMessage().ar_text"
+            ></div>
             }@else {
-            <div class="text-lighter" [innerHTML]="ChairMessage().en_text"></div>
+            <div
+              class="text-gray-300"
+              [innerHTML]="ChairMessage().en_text"
+            ></div>
             }
           </div>
         </div>

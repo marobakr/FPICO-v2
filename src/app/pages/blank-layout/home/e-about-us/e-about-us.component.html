@@ -1,19 +1,25 @@
 <section>
-  <div class="container position-relative overflow-hidden z-1 text-capitalize rounded-1">
-    <header [innerHTML]="'home.about.us.two.title' | translate | safeHtml" class="text-center pb-2 pt-5 py-md-5">
-      <!-- <h2 class="text-light">
-        why choose <span class="text-main">fpico</span> ?
+  <div
+    class="container mx-auto relative overflow-hidden z-10 capitalize rounded"
+  >
+    <header
+      [innerHTML]="'home.about.us.two.title' | translate | safeHtml"
+      class="text-center pb-2 pt-5 md:py-20"
+    >
+      <!-- <h2 class="text-white">
+        why choose <span class="text-primary">fpico</span> ?
       </h2>
-      <p class="text-lighter">
+      <p class="text-gray-300">
         we offer a comprehensive range of construction services designed to meet
-        <span class="d-block">your needs</span>
+        <span class="block">your needs</span>
       </p> -->
     </header>
     <div class="pb-4">
       @defer {
-      <div class="pb-5 mb-5 col-11 mx-auto">
+      <div class="pb-20 mb-20 w-11/12 mx-auto">
         <owl-carousel-o [options]="customOptions">
-          @for (item of Whyus(); track item.id) { @if (item.active_status == 1) {
+          @for (item of Whyus(); track item.id) { @if (item.active_status == 1)
+          {
           <ng-template carouselSlide>
             <div class="wrapper">
               <div class="images_carousel">
@@ -24,21 +30,21 @@
                       " -->
                 <div>
                   <div class="images_carousel">
-                    <p class="text-lighter fs-3 fw-semibold mb-0">0{{ $index + 1 }}</p>
-                    <h2 class="text-light h4">
+                    <p class="text-gray-300 text-3xl font-semibold mb-0">
+                      0{{ $index + 1 }}
+                    </p>
+                    <h2 class="text-white text-2xl">
                       @if (isRTL()) {
                       {{ item.ar_why_us_title }}
                       }@else {
                       {{ item.en_why_us_title }}
                       }
                     </h2>
-                    <p class="text-lighter">
+                    <p class="text-gray-300">
                       @if (isRTL()) {
                       {{ item.ar_why_us_text }}
-
                       }@else {
                       {{ item.en_why_us_text }}
-
                       }
                     </p>
                     <!-- <p class="text-lighter">
@@ -55,8 +61,16 @@
       </div>
       }
     </div>
-    <div style="inset: -2px !important" class="position-absolute top-0 bottom-0 start-0 end-0 z-n1 h-100">
-      <video #videoElement autoplay loop muted playsinline preload="metadata" class="video-like-image">
+    <div class="absolute inset-[-2px] -z-10 h-full">
+      <video
+        #videoElement
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        class="video-like-image"
+      >
         <source src="/images/DownloadSection/2VVVVFFF.mp4" type="video/mp4" />
       </video>
     </div>

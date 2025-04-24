@@ -7,6 +7,6 @@ import { SafeHtmlPipe } from '../../../../core/pipes/safe-html.pipe';
   standalone: true,
   imports: [TranslateModule, SafeHtmlPipe],
   templateUrl: './h-download-pdf-section.component.html',
-  styleUrl: './h-download-pdf-section.component.scss',
+  styleUrl: './h-download-pdf-section.component.css',
 })
 export class HDownloadPdfSectionComponent {}

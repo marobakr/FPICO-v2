@@ -2,30 +2,30 @@
   color: #a9a9a9;
   font-size: 16px;
   font-weight: 400;
-
-  span {
-    color: #fff;
-  }
 }
+
+.first_title span {
+  color: #fff;
+}
+
 .hero_image {
   position: absolute;
   bottom: 70%;
   left: -115px;
   z-index: -1;
 }
+
 :root,
 html[dir="rtl"] {
-  // direction: rtl !important;
-  // text-align: right !important;
   font-family: "Cairo", Tahoma, sans-serif !important;
-  body {
-    .flex-lg-row {
-      flex-direction: row-reverse !important;
-    }
-    .text-md-start {
-      text-align: right !important;
-    }
-  }
+}
+
+html[dir="rtl"] body .flex-lg-row {
+  flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] body .text-md-start {
+  text-align: right !important;
 }
 
 .w-hero-fast {
@@ -38,6 +38,7 @@ html[dir="rtl"] {
   top: 0;
   transform: translateX(-50%);
 }
+
 .images_parent {
   padding-top: 6rem;
 }

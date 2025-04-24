@@ -1,63 +1,80 @@
 <section>
-  <h1 class="d-none">FPICO</h1>
-  <div class="container text-nowrap overflow-hidden">
+  <h1 class="sr-only">FPICO</h1>
+  <div class="container mx-auto whitespace-nowrap overflow-hidden">
     <div
       [class]="{
-        'flex-lg-row-reverse': isRTL,
-        'flex-lg-row': !isRTL,
-        'text-md-start': !isRTL,
-        'text-md-end': isRTL,
+        'lg:flex-row-reverse': isRTL,
+        'lg:flex-row': !isRTL,
+        'md:text-start': !isRTL,
+        'md:text-end': isRTL
       }"
-      class="d-flex flex-column text-center align-items-center gap-3 justify-content-center col-8 mx-auto">
-      <h2 class="first_title text-capitalize">
-        <p class="d-block mb-0">
+      class="flex flex-col text-center items-center gap-3 justify-center w-4/5 mx-auto"
+    >
+      <h2 class="text-gray-400 text-base font-normal capitalize">
+        <p class="block mb-0">
           {{ "Pages.Home.hero-section.col01.T01" | translate }}
         </p>
         {{ "Pages.Home.hero-section.col01.T02" | translate }}
-        <span>{{ "Pages.Home.hero-section.col01.T03" | translate }}</span>
+        <span class="text-white">{{
+          "Pages.Home.hero-section.col01.T03" | translate
+        }}</span>
       </h2>
       <h3>
-        <span class="text-main display-4 fw-semibold text-capitalize"
+        <span class="text-primary text-4xl font-semibold capitalize"
           >{{ "Pages.Home.hero-section.col01.main01" | translate }}
         </span>
-        <span class="text-light display-4 fw-semibold text-capitalize">{{
+        <span class="text-white text-4xl font-semibold capitalize">{{
           "Pages.Home.hero-section.col01.main02" | translate
         }}</span>
       </h3>
     </div>
     <div
       [class]="{
-        'flex-lg-row-reverse': isRTL,
-        'flex-lg-row': !isRTL,
-        'text-md-start': !isRTL,
-        'text-md-end': isRTL,
+        'lg:flex-row-reverse': isRTL,
+        'lg:flex-row': !isRTL,
+        'md:text-start': !isRTL,
+        'md:text-end': isRTL
       }"
-      class="d-flex flex-column text-center align-items-center gap-4 justify-content-end col-8 mx-auto">
-      <h2 class="d-flex gap-3">
-        <span class="text-light display-4 fw-semibold text-capitalize">{{
+      class="flex flex-col text-center items-center gap-4 justify-end w-4/5 mx-auto"
+    >
+      <h2 class="flex gap-3">
+        <span class="text-white text-4xl font-semibold capitalize">{{
           "Pages.Home.hero-section.col02.main01" | translate
         }}</span>
-        <span class="text-main display-4 fw-semibold text-capitalize"
+        <span class="text-primary text-4xl font-semibold capitalize"
           >{{ "Pages.Home.hero-section.col02.main02" | translate }}
         </span>
       </h2>
-      <h3 class="first_title text-capitalize">
-        <span class="d-block" style="color: #a9a9a9">{{ "Pages.Home.hero-section.col02.T01" | translate }} </span>
-        <span class="d-block" style="color: #a9a9a9">{{ "Pages.Home.hero-section.col02.T02" | translate }}</span>
-        <span style="color: #a9a9a9">{{ "Pages.Home.hero-section.col02.T03" | translate }}</span>
+      <h3 class="text-gray-400 text-base font-normal capitalize">
+        <span class="block"
+          >{{ "Pages.Home.hero-section.col02.T01" | translate }}
+        </span>
+        <span class="block">{{
+          "Pages.Home.hero-section.col02.T02" | translate
+        }}</span>
+        <span>{{ "Pages.Home.hero-section.col02.T03" | translate }}</span>
       </h3>
     </div>
-    <div class="position-relative images_parent text-center">
-      <img class="w-hero-fast" src="/images/rush.webp" height="120" role="presentation" />
-      <img class="mx-auto w-100" [src]="'/images/hero/Kingdom Centre_1200x500.webp'" alt="fibco hero image" />
-
+    <div class="relative pt-24 text-center">
+      <img
+        class="absolute z-10 w-[300px] left-1/2 top-0 -translate-x-1/2"
+        src="/images/rush.webp"
+        height="120"
+        role="presentation"
+      />
+      <img
+        class="mx-auto w-full"
+        [src]="'/images/hero/Kingdom Centre_1200x500.webp'"
+        alt="fibco hero image"
+      />
       <img
         width="795"
         height="242"
         priority="true"
-        class="hero_image"
+        class="absolute -bottom-[70%] -left-[115px] -z-10"
         [ngSrc]="'/images/hero/Projects_Logo 1.webp'"
-        role="presentation" />
+        role="presentation"
+      />
     </div>
   </div>
 </section>
