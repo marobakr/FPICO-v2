@@ -6,8 +6,7 @@ import { IAllLinks } from "./../../../core/interfaces/ILinks";
   selector: "app-social-media-links",
   standalone: true,
   imports: [],
-  templateUrl: "./social-media-links.component.html",
-  styleUrl: "./social-media-links.component.scss",
+  templateUrl: "./social-media-links.component.html"
 })
 export class SocialMediaLinksComponent {
   allLinks!: IAllLinks;

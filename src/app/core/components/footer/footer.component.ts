@@ -14,8 +14,7 @@ import { WEB_SITE_BASE_URL } from "../../constants/WEB_SITE_BASE_URL";
   selector: "app-footer",
   standalone: true,
   imports: [SocialMediaLinksComponent, TranslateModule, RouterLink, AsyncPipe],
-  templateUrl: "./footer.component.html",
-  styleUrl: "./footer.component.scss",
+  templateUrl: "./footer.component.html"
 })
 export class FooterComponent {
   allLinks!: IAllLinks;

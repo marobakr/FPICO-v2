@@ -1,90 +1,52 @@
-<ul class="navbar-nav m-auto mb-2 mb-lg-0">
-  <li class="nav-item">
+<!-- Navigation Menu -->
+<ul class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+  <li class="w-full md:w-auto">
     <a
-      class="text-capitalize nav-link active"
-      aria-current="page"
+      class="block py-2 px-3 text-white capitalize hover:text-gray-300 transition-colors w-full"
+      [class.text-gray-300]="true"
       [routerLink]="['/', languageService.selectedLanguage$ | async]"
-      routerLinkActive="active"
+      routerLinkActive="text-primary-500"
       [routerLinkActiveOptions]="{ exact: true }"
+      (click)="mobileMenuService.closeMobileMenu()"
       >{{ "Pages.Home.navbar.navigations.home" | translate }}</a
     >
   </li>
-
-  <li class="nav-item">
+  <li class="w-full md:w-auto">
     <a
-      class="text-capitalize nav-link"
+      class="block py-2 px-3 text-white capitalize hover:text-gray-300 transition-colors w-full"
       [routerLink]="['/', languageService.selectedLanguage$ | async, 'about-us']"
-      routerLinkActive="active"
+      routerLinkActive="text-primary-500"
+      (click)="mobileMenuService.closeMobileMenu()"
       >{{ "Pages.Home.navbar.navigations.aboutUs" | translate }}</a
     >
   </li>
-
-  <li class="nav-item">
+  <li class="w-full md:w-auto">
     <a
-      class="text-capitalize nav-link"
+      class="block py-2 px-3 text-white capitalize hover:text-gray-300 transition-colors w-full"
       [routerLink]="['/', languageService.selectedLanguage$ | async, 'projects']"
-      routerLinkActive="active"
+      routerLinkActive="text-primary-500"
+      (click)="mobileMenuService.closeMobileMenu()"
       >{{ "Pages.Home.navbar.navigations.projects" | translate }}</a
     >
   </li>
-
-  <li class="nav-item">
+  <li class="w-full md:w-auto">
     <a
-      class="text-capitalize nav-link"
+      class="block py-2 px-3 text-white capitalize hover:text-gray-300 transition-colors w-full"
       [routerLink]="['/', languageService.selectedLanguage$ | async, 'services']"
-      routerLinkActive="active"
+      routerLinkActive="text-primary-500"
+      (click)="mobileMenuService.closeMobileMenu()"
       >{{ "Pages.Home.navbar.navigations.services" | translate }}</a
     >
   </li>
-
   @if (isRTL) {
-  <li class="nav-item">
+  <li class="w-full md:w-auto">
     <a
-      class="text-capitalize nav-link"
+      class="block py-2 px-3 text-white capitalize hover:text-gray-300 transition-colors w-full"
       [routerLink]="['/', languageService.selectedLanguage$ | async, 'blogs']"
-      routerLinkActive="active"
+      routerLinkActive="text-primary-500"
+      (click)="mobileMenuService.closeMobileMenu()"
       >{{ "Pages.Home.navbar.navigations.blogs" | translate }}</a
     >
   </li>
   }
-
-  <!-- <li class="nav-item dropdown">
-    <a
-      class="text-capitalize nav-link dropdown-toggle"
-      href="#"
-      role="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      {{ "Pages.Home.navbar.navigations.services" | translate }}
-    </a>
-    <ul
-      [class]="{ 'text-end': isRTL }"
-      [style]="{ left: !isRTL ? 'auto' : '0', right: !isRTL ? '0' : 'auto' }"
-      class="dropdown-menu bg-black"
-    >
-      @if (allServices) { @for (item of allServices.services; track $index) {
-      <li class="px-3">
-        <a
-          [routerLink]="['/services-details', item.id]"
-          class="text-capitalize nav-link dropdown-item"
-          href="#"
-          >@if (isRTL) {
-          {{ item.ar_service_title }}
-          } @else {
-          {{ item.en_service_title }}
-          }</a
-        >
-      </li>
-      } }
-      <li class="px-3">
-        <a
-          routerLink="/services"
-          class="text-capitalize nav-link dropdown-item"
-          href="#"
-          >{{ "all services" | translate }}</a
-        >
-      </li>
-    </ul>
-  </li> -->
 </ul>

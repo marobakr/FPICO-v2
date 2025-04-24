@@ -36,7 +36,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.flowbiteService.loadFlowbite((flowbite) => {
-      flowbite.default.initFlowbite();
+      flowbite.default?.initFlowbite();
     });
 
     this.spinner.show();

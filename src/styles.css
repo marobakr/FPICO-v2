@@ -44,3 +44,21 @@ img {
 .col-4.bg-info {
   overflow: visible !important;
 }
+
+@theme {
+  --color-main: #e7bf8c;
+  --color-secondary: #edbd7e;
+  --color-third: #2b2b2b;
+  --color-fourth: #1c1c1c;
+  --border-radius: 10px;
+  --text-lighter: #a9a9a9;
+  --text-light: #989898;
+}
+
+.btn-main {
+  background-color: var(--color-main);
+  color: var(--color-fourth);
+  border: none;
+  border-radius: var(--border-radius);
+}
+
