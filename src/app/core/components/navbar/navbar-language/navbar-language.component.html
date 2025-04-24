@@ -1,0 +1,10 @@
+<label for="language-select" class="d-none">Select Language:</label>
+<select
+  aria-label="Language Selector"
+  id="language-select"
+  [(ngModel)]="selectedLanguage"
+  (change)="onLanguageChange()"
+  class="language-select">
+  <option value="en">EN</option>
+  <option value="ar">AR</option>
+</select>

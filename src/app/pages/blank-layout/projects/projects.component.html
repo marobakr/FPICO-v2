@@ -1,0 +1,92 @@
+@if (allProjectsData) {
+<section class="text-capitalize my-5">
+  <h1 class="d-none">FIPCO OUR PROJECTS</h1>
+  <div class="container text-white">
+    <!-- section and title -->
+    <div class="row justify-content-center">
+      <div class="col-12 row align-items-center">
+        <app-pages-header
+          [title]="'Pages.projects.title'"
+          [title02]="'Pages.projects.title02'"
+          [desc01]="'Pages.projects.title-desc01'"
+          [desc02]="'Pages.projects.title-desc02'"></app-pages-header>
+      </div>
+
+      <!-- Home Main Image -->
+      <div class="col-12">
+        <div class="my-5">
+          <img
+            loading="lazy"
+            class="w-100 banner-animation"
+            src="/images/projects/page/main_banner.png"
+            alt="FPICO" />
+        </div>
+      </div>
+    </div>
+
+    <!-- about us banner -->
+    <app-about-banner-section [isRTL]="isRTL" [features]="allProjectsData.features"></app-about-banner-section>
+
+    <!-- Projects -->
+    <div class="text-center my-5">
+      <!-- header -->
+      <div>
+        <h3 class="text-light" [innerHTML]="'Pages.Home.our-projects-section.title' | translate | safeHtml"></h3>
+        <p class="text-lighter">
+          {{ "Pages.Home.our-projects-section.title-desc" | translate }}
+          <span class="d-block">{{ "Pages.Home.our-projects-section.title-desc02" | translate }}</span>
+        </p>
+      </div>
+
+      <!-- all Projects -->
+      <div class="row g-3">
+        @for (project of allProjectsData.projects; track project.id) {
+        <div
+          [class]="{
+            'col-md-8': $index === 6
+          }"
+          class="col-md-4 bg-transparent">
+          <div class="card bg-transparent h-100">
+            <a
+              class="text-decoration-none h-100"
+              [routerLink]="['/', languageService.selectedLanguage$ | async, 'projects-details', project.id]"
+              href="#">
+              <figure class="m-0 p-0 border-radius-10 bg-transparent h-100" style="height: 250px !important">
+                <img
+                  loading="lazy"
+                  class="w-100 h-100 rounded-2 main_image border-radius-10 object-fit-cover"
+                  [src]="'https://fpico.org/fipcoapi/service/' + project.main_image"
+                  [alt]="project.en_service_title" />
+                <figcaption
+                  class="card-img-overlay d-flex justify-content-center align-items-center bg-dark bg-opacity-50 text-white fw-bold display-4">
+                  @if (isRTL) {
+                  <h4>
+                    {{ project.ar_service_title }}
+                  </h4>
+                  }@else {
+                  <h4>
+                    {{ project.en_service_title }}
+                  </h4>
+                  }
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Download PDF section -->
+    <div class="my-5">
+      <app-h-download-pdf-section></app-h-download-pdf-section>
+    </div>
+
+    <!-- Contact Us Section With Map -->
+    <div>
+      <app-contact-us-map></app-contact-us-map>
+    </div>
+  </div>
+</section>
+
+}

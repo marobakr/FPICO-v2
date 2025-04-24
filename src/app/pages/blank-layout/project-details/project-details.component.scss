@@ -1,0 +1,74 @@
+
+
+.lightBoxContnet {
+  animation: animation_slider 0.5s forwards;
+  img {
+    min-width: 500px;
+  }
+}
+.cr {
+  cursor: pointer;
+}
+@keyframes animation_slider {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::ng-deep .owl-dot-text span {
+  transition: all 0.5s ease !important; /* Transition on all properties */
+  background-color: #ccc !important; /* Default background color */
+  // width: 20px !important; /* Initial width */
+  // height: 20px !important; /* Initial height to make dots circular */
+  border-radius: 50% !important; /* Make dots round */
+  margin: 6px 3px !important;
+}
+
+::ng-deep .owl-dot-text.ng-star-inserted.active span {
+  background-color: var(--main-color) !important; /* Active dot background color */
+  width: 30px !important; /* Increased width for active dot */
+  border-radius: 10px !important; /* Optional border radius for active dot */
+}
+
+::ng-deep .owl-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep .owl-prev,
+::ng-deep .owl-next {
+  background-color: var(--main-color) !important;
+  color: #000 !important;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+::ng-deep .owl-prev:hover,
+::ng-deep .owl-next:hover {
+  background-color: var(--main-color);
+}
+
+.imageContainer-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  opacity: 0;
+  transition: 0.5s all;
+}
+.imageContainer-hover {
+  position: relative;
+  // overflow: hidden;
+  border-radius: 10px;
+  cursor: zoom-in;
+}
+
+.imageContainer-hover:hover::after {
+  opacity: 0.5;
+}

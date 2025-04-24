@@ -1,0 +1,38 @@
+<section class="text-capitalize my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <header
+          [class]="{ 'text-lg-end': isRTL(), 'text-lg-start': !isRTL() }"
+          [innerHTML]="'home.partners.text' | translate | safeHtml"
+          class="text-center">
+          <!-- <h2 class="text-light">
+            <span class="text-main">our</span> partners
+          </h2>
+          <p class="text-lighter">
+            our partners who contributed to the distinguished success we have
+            achieved and who trusted us
+          </p> -->
+        </header>
+      </div>
+      <div
+        [class]="{
+          images_holder: isAddBackgroundColor(),
+          'rtl_after_position':isRTL(),
+          'ltr_after_position':!isRTL(),
+        }"
+        class="images_holder py-3 col-md-8 d-flex justify-content-between mt-0 flex-column align-items-center flex-lg-row">
+        @for (item of Partner(); track item.id) {
+        <div class="col-8 col-md-3">
+          <img
+            loading="lazy"
+            [src]="'https://fpico.org/fipcoapi/Partner/' + item.main_image"
+            class="d-block w-100 mx-auto mb-3 mb-md-0"
+            alt="FPICO" />
+        </div>
+        }
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</section>

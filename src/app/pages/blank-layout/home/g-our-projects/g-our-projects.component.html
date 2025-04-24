@@ -1,0 +1,39 @@
+<section class="text-capitalize">
+  <div class="container text-center">
+    <header>
+      <h2 class="text-light" [innerHTML]="'Pages.Home.our-projects-section.title' | translate | safeHtml"></h2>
+      <p class="text-lighter">
+        {{ "Pages.Home.our-projects-section.title-desc" | translate }}
+        <span class="d-block">{{ "Pages.Home.our-projects-section.title-desc02" | translate }}</span>
+      </p>
+    </header>
+    <div class="row g-3">
+      @for (project of Project(); track project.id) {
+      <div class="col-md-4">
+        <a [routerLink]="['/', languageService.selectedLanguage$ | async, 'projects-details', project.id]" href="#">
+          <div class="card bg-transparent">
+            <img
+              loading="lazy"
+              class="border-radius-10 w-100"
+              height="250px"
+              [src]="'https://fpico.org/fipcoapi/service/' + project.main_image"
+              [alt]="'FPICO ' + project.en_service_title" />
+            <div
+              class="card-img-overlay w-100 h-100 d-flex justify-content-center align-items-center bg-black bg-opacity-50">
+              @if (isRTL()) {
+              <h3 class="text-white">
+                {{ project.ar_service_title | translate }}
+              </h3>
+              }@else {
+              <h3 class="text-white">
+                {{ project.en_service_title | translate }}
+              </h3>
+              }
+            </div>
+          </div>
+        </a>
+      </div>
+      }
+    </div>
+  </div>
+</section>

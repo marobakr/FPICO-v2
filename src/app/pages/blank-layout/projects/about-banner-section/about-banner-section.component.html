@@ -1,0 +1,28 @@
+<div class="my-5">
+  <div class="row g-4">
+    @for (data of features; track data.id) {
+    <div class="col-md-3">
+      <div class="bg-fourth rounded-2 p-4 h-100">
+        <img
+          loading="lazy"
+          [src]="'https://fpico.org/fipcoapi/features/' + data.icon_image"
+          [alt]="data.en_title | translate" />
+        <p class="my-3">
+          @if (isRTL) {
+          {{ data.ar_title }}
+          } @else {
+          {{ data.en_title }}
+          }
+        </p>
+        <p class="m-0 text-lighter fs-13">
+          @if (isRTL) {
+          {{ data.ar_text }}
+          }@else {
+          {{ data.en_text }}
+          }
+        </p>
+      </div>
+    </div>
+    }
+  </div>
+</div>

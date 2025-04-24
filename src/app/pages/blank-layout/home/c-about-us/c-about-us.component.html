@@ -1,0 +1,83 @@
+@if (aboutData) {
+<section>
+  <div class="container text-white text-capitalize">
+    <div class="row g-4">
+      <div class="col-md-4 position-relative d-flex justify-content-center align-items-center">
+        <div>
+          <div>
+            <h2 class="mb-5">
+              <span class="rounded-1 p-3 fs-18" style="background: #303030">{{
+                aboutData.aboutUsContent.mainTitle | translate
+              }}</span>
+            </h2>
+            <h3 class="mb-3">
+              @if (isRTL()) {
+              {{ AboutData().ar_stand_for_title }}
+              }@else {
+              {{ AboutData().en_stand_for_title }}
+              }
+            </h3>
+            <p class="text-lighter">
+              @if (isRTL()) {
+              {{ AboutData().ar_stand_for_text }}
+              }@else {
+              {{ AboutData().en_stand_for_text }}
+              }
+            </p>
+          </div>
+          <img
+            loading="lazy"
+            [class]="{ 'start-0': isRTL(), 'end-0': !isRTL() }"
+            class="position-absolute top-0 m-3"
+            src="/images/DownloadSection/logo-light.png"
+            alt="FPICO" />
+        </div>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <div>
+          <video #videoElement autoplay loop muted playsinline preload="metadata" class="video-like-image">
+            <source src="/images/DownloadSection/1VF.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="col-md-4 position-relative d-flex justify-content-center align-items-center flex-column">
+        <div>
+          <div class="mb-5">
+            <h3 class="mb-3">
+              @if (isRTL()) {
+              {{ AboutData().ar_mission_title }}
+              }@else {
+              {{ AboutData().en_mission_title }}
+              }
+            </h3>
+            <p class="text-lighter">
+              @if (isRTL()) {
+              {{ AboutData().ar_mission_text }}
+              }@else {
+              {{ AboutData().en_mission_text }}
+              }
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3">
+              @if (isRTL()) {
+              {{ AboutData().ar_vision_title }}
+              }@else {
+              {{ AboutData().en_vision_title }}
+              }
+            </h3>
+            <p class="text-lighter">
+              @if (isRTL()) {
+              {{ AboutData().ar_stand_for_text }}
+              }@else {
+              {{ AboutData().en_stand_for_text }}
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+}

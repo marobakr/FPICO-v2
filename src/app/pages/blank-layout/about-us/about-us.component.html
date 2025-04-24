@@ -1,0 +1,65 @@
+@if (allAboutData) {
+<section class="text-capitalize my-5 bg-section-image overflow-hidden">
+  <h1 class="d-none">FIPCO ABOUT US</h1>
+  <div class="container text-white">
+    <!-- section and title -->
+    <div class="row justify-content-center">
+      <div class="col-12 row align-items-center">
+        <app-pages-header
+          [title]="'Pages.About.title'"
+          [title02]="'Pages.About.title02'"
+          [desc01]="'Pages.About.title-desc01'"
+          [desc02]="'Pages.About.title-desc02'"
+          [order]="true"></app-pages-header>
+      </div>
+
+      <!-- Home Main Image -->
+      <div class="col-12">
+        <div class="my-5 position-relative images_parent">
+          <img class="w-hero-fast" src="/images/rush.png" role="presentation" />
+          <img class="w-100 banner-animation" src="/images/hero/Kingdom Centre_1200x500.webp" alt="FPICO" />
+          <div class="main-text translate-middle-y col-11 ms-auto">
+            <h2 class="d-inline h6 me-1">
+              {{ "Page.about.title01" | translate }}
+              <span class="text-main">FPICO</span>
+            </h2>
+            <h2 class="d-inline h6">
+              {{ "Page.about.title02" | translate }}
+              <!-- @if (isRTL) {
+              } @else {
+              {{ allAboutData.aboutdata.en_main_text }}
+              } -->
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about us banner -->
+    <app-about-banner-section [features]="allAboutData.features" [isRTL]="isRTL"></app-about-banner-section>
+
+    <!-- Master Message -->
+    <app-b-manager-message [isRTL]="isRTL" [ChairMessage]="allAboutData.chairmessage"></app-b-manager-message>
+
+    <!-- our Partners -->
+    <app-k-our-partners
+      [isRTL]="isRTL"
+      [isAddBackgroundColor]="true"
+      [Partner]="allAboutData.clients"></app-k-our-partners>
+
+    <!-- About us last banner -->
+    <app-about-us-last-banner [isRTL]="isRTL" [allAboutData]="allAboutData"></app-about-us-last-banner>
+
+    <!-- Download PDF section -->
+    <div class="my-5">
+      <app-h-download-pdf-section></app-h-download-pdf-section>
+    </div>
+
+    <!-- Contact Us -->
+    <div class="mb-5">
+      <app-about-us-contact-form></app-about-us-contact-form>
+    </div>
+  </div>
+</section>
+
+}

@@ -1,0 +1,23 @@
+<section class="my-5">
+  <div class="container">
+    <div style="min-height: 500px" class="section_bg p-3 my-5 d-flex align-items-center">
+      <div class="text-capitalize">
+        <h2 [innerHTML]="'home.contactus' | translate | safeHtml" class="display-1 text-white fw-light mt-5">
+          <!-- Ready To
+          <span class="d-block"> Build Together </span> -->
+        </h2>
+        <div class="text-capitalize mt-4">
+          <button
+            [routerLink]="['/', languageService.selectedLanguage$ | async, 'contact-us']"
+            class="text-capitalize btn-third btn mx-2 mb-3">
+            {{ "home.contact-us.btn01" | translate }}
+            <!-- build a project with us -->
+          </button>
+          <!-- <button class="text-capitalize btn-third btn mx-2 mb-3">
+            {{ "home.contact-us.btn02" | translate }}
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

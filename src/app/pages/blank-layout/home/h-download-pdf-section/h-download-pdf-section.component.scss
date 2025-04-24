@@ -1,0 +1,10 @@
+img {
+  margin: auto;
+}
+::ng-deep .d-block.my-2 {
+  margin: 20px auto !important ;
+  transform: translateX(85%) !important;
+}
+.custom-btn {
+  border-radius: 5px !important;
+}

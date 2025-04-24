@@ -1,0 +1,13 @@
+
+
+.card {
+  figcaption {
+    opacity: 0;
+    transition: 0.5s all;
+  }
+  &:hover {
+    figcaption {
+      opacity: 1;
+    }
+  }
+}

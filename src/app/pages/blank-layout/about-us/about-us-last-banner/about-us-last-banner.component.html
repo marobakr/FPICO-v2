@@ -1,0 +1,56 @@
+<div class="row my-5">
+  <div class="col-md-4">
+    <div class="p-3">
+      <h2 class="text-white h4 mb-3">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_stand_for_title }}
+        } @else {
+        {{ allAboutData.aboutdata.en_stand_for_title }}
+        }
+      </h2>
+      <p class="text-lighter fs-15">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_stand_for_text }}
+        } @else {
+        {{ allAboutData.aboutdata.en_stand_for_text }}
+        }
+      </p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="p-3">
+      <h2 class="text-white h4 mb-3">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_mission_title }}
+        } @else {
+        {{ allAboutData.aboutdata.en_mission_title }}
+        }
+      </h2>
+      <p class="text-lighter fs-15">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_mission_text }}
+        } @else {
+        {{ allAboutData.aboutdata.en_mission_text }}
+        }
+      </p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="p-3">
+      <h2 class="text-white h4 mb-3">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_vision_title }}
+        } @else {
+        {{ allAboutData.aboutdata.en_vision_title }}
+        }
+      </h2>
+      <p class="text-lighter fs-15">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_vision_text }}
+        } @else {
+        {{ allAboutData.aboutdata.en_vision_text }}
+        }
+      </p>
+    </div>
+  </div>
+</div>

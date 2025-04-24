@@ -1,0 +1,64 @@
+<section>
+  <div class="container position-relative overflow-hidden z-1 text-capitalize rounded-1">
+    <header [innerHTML]="'home.about.us.two.title' | translate | safeHtml" class="text-center pb-2 pt-5 py-md-5">
+      <!-- <h2 class="text-light">
+        why choose <span class="text-main">fpico</span> ?
+      </h2>
+      <p class="text-lighter">
+        we offer a comprehensive range of construction services designed to meet
+        <span class="d-block">your needs</span>
+      </p> -->
+    </header>
+    <div class="pb-4">
+      @defer {
+      <div class="pb-5 mb-5 col-11 mx-auto">
+        <owl-carousel-o [options]="customOptions">
+          @for (item of Whyus(); track item.id) { @if (item.active_status == 1) {
+          <ng-template carouselSlide>
+            <div class="wrapper">
+              <div class="images_carousel">
+                <!-- [innerHTML]="
+                        'home.about.carousel.about.carousel.slide01'
+                          | translate
+                          | safeHtml
+                      " -->
+                <div>
+                  <div class="images_carousel">
+                    <p class="text-lighter fs-3 fw-semibold mb-0">0{{ $index + 1 }}</p>
+                    <h2 class="text-light h4">
+                      @if (isRTL()) {
+                      {{ item.ar_why_us_title }}
+                      }@else {
+                      {{ item.en_why_us_title }}
+                      }
+                    </h2>
+                    <p class="text-lighter">
+                      @if (isRTL()) {
+                      {{ item.ar_why_us_text }}
+
+                      }@else {
+                      {{ item.en_why_us_text }}
+
+                      }
+                    </p>
+                    <!-- <p class="text-lighter">
+                        thus, we are always committed to delivering the highest
+                        quality the first time around
+                      </p> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          } }
+        </owl-carousel-o>
+      </div>
+      }
+    </div>
+    <div style="inset: -2px !important" class="position-absolute top-0 bottom-0 start-0 end-0 z-n1 h-100">
+      <video #videoElement autoplay loop muted playsinline preload="metadata" class="video-like-image">
+        <source src="/images/DownloadSection/2VVVVFFF.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>

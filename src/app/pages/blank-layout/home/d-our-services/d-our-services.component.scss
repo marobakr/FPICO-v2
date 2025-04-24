@@ -1,0 +1,23 @@
+
+
+.images_carousel {
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+::ng-deep .owl-dot-text span {
+  transition: all 0.5s ease !important; /* Transition on all properties */
+  background-color: #ccc !important; /* Default background color */
+  // width: 20px !important; /* Initial width */
+  // height: 20px !important; /* Initial height to make dots circular */
+  border-radius: 50% !important; /* Make dots round */
+  margin: 6px 3px !important;
+}
+
+::ng-deep .owl-dot-text.ng-star-inserted.active span {
+  background-color: var(--main-color) !important; /* Active dot background color */
+  width: 30px !important; /* Increased width for active dot */
+  border-radius: 10px !important; /* Optional border radius for active dot */
+}

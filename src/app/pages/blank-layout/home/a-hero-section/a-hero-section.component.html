@@ -1,0 +1,95 @@
+<section>
+  <h1 class="d-none">FPICO</h1>
+  <div class="container text-nowrap overflow-hidden">
+    <div
+      [class]="{
+        'flex-lg-row-reverse': isRTL,
+        'flex-lg-row': !isRTL,
+        'text-md-start': !isRTL,
+        'text-md-end': isRTL,
+      }"
+      class="d-flex flex-column text-center align-items-center gap-3 justify-content-center col-8 mx-auto">
+      <h2 class="first_title text-capitalize">
+        <p class="d-block mb-0">
+          {{ "Pages.Home.hero-section.col01.T01" | translate }}
+        </p>
+        {{ "Pages.Home.hero-section.col01.T02" | translate }}
+        <span>{{ "Pages.Home.hero-section.col01.T03" | translate }}</span>
+      </h2>
+      <h3>
+        <span class="text-main display-4 fw-semibold text-capitalize"
+          >{{ "Pages.Home.hero-section.col01.main01" | translate }}
+        </span>
+        <span class="text-light display-4 fw-semibold text-capitalize">{{
+          "Pages.Home.hero-section.col01.main02" | translate
+        }}</span>
+      </h3>
+    </div>
+    <div
+      [class]="{
+        'flex-lg-row-reverse': isRTL,
+        'flex-lg-row': !isRTL,
+        'text-md-start': !isRTL,
+        'text-md-end': isRTL,
+      }"
+      class="d-flex flex-column text-center align-items-center gap-4 justify-content-end col-8 mx-auto">
+      <h2 class="d-flex gap-3">
+        <span class="text-light display-4 fw-semibold text-capitalize">{{
+          "Pages.Home.hero-section.col02.main01" | translate
+        }}</span>
+        <span class="text-main display-4 fw-semibold text-capitalize"
+          >{{ "Pages.Home.hero-section.col02.main02" | translate }}
+        </span>
+      </h2>
+      <h3 class="first_title text-capitalize">
+        <span class="d-block" style="color: #a9a9a9">{{ "Pages.Home.hero-section.col02.T01" | translate }} </span>
+        <span class="d-block" style="color: #a9a9a9">{{ "Pages.Home.hero-section.col02.T02" | translate }}</span>
+        <span style="color: #a9a9a9">{{ "Pages.Home.hero-section.col02.T03" | translate }}</span>
+      </h3>
+    </div>
+    <div class="position-relative images_parent text-center">
+      <img class="w-hero-fast" src="/images/rush.webp" height="120" role="presentation" />
+      <img class="mx-auto w-100" [src]="'/images/hero/Kingdom Centre_1200x500.webp'" alt="fibco hero image" />
+      <!-- @if (isDesktop > 1400) {
+      <img
+        width="1200"
+        height="500"
+        priority="true"
+        class="mx-auto"
+        [ngSrc]="'/images/hero/Kingdom Centre_1200x500.webp'"
+        alt="fibco hero image" />
+      } @if (isDesktop < 1400 && isDesktop > 1200) {
+      <img
+        width="1200"
+        height="500"
+        priority="true"
+        class="mx-auto"
+        [ngSrc]="'/images/hero/Kingdom_Centre_900x400.webp'"
+        alt="fibco hero image" />
+      } @if (isDesktop < 1200 && isDesktop > 767) {
+      <img
+        width="600"
+        height="250"
+        priority="true"
+        class="mx-auto"
+        [ngSrc]="'/images/hero/Kingdom_Centre_600x250.webp'"
+        alt="fibco hero image" />
+      } @if (isDesktop < 767) {
+      <img
+        width="360"
+        height="150"
+        priority="true"
+        class="mx-auto"
+        [ngSrc]="'/images/hero/Kingdom_Centre_900x400.webp'"
+        alt="fibco hero image" />
+      } -->
+      <img
+        width="795"
+        height="242"
+        priority="true"
+        class="hero_image"
+        [ngSrc]="'/images/hero/Projects_Logo 1.webp'"
+        role="presentation" />
+    </div>
+  </div>
+</section>

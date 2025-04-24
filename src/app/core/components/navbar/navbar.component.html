@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-transparent">
+  <div class="container my-4">
+    <a class="navbar-brand" [routerLink]="['/', languageService.selectedLanguage$ | async]">
+      <img
+        loading="lazy"
+        width="130"
+        height="38"
+        fetchpriority="high"
+        ng-img="true"
+        style="max-width: 100%; height: auto"
+        src="/images/my-fav.ico/web-app-manifest-192x192.png"
+        alt="FPICO" />
+      <img loading="lazy" src="/images/first_class.webp" class="w-first-image" alt="FPICO" />
+    </a>
+    <div class="collapse navbar-collapse justify-content-center order-1 order-lg-0" id="navbarSupportedContent">
+      <app-navbar-routing />
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <div class="d-none d-md-block">
+        <app-social-media-links />
+      </div>
+      <a
+        [routerLink]="['/', languageService.selectedLanguage$ | async, 'contact-us']"
+        href="#"
+        class="btn btn-main py-2 d-block text-dark"
+        >{{ "Pages.Home.navbar.contactUs-button" | translate }}</a
+      >
+      <app-navbar-language />
+    </div>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars text-white fs-3"></i>
+    </button>
+  </div>
+</nav>

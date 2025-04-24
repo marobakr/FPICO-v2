@@ -4,3 +4,43 @@
 @import "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
+@import "../node_modules/intl-tel-input/build/css/intlTelInput.css";
+
+
+
+/* Import our converted CSS files */
+@import "./styles-css/variables.css";
+@import "./styles-css/ball-scale-multiple.css";
+@import "./styles-css/ball-beat.css";
+@import "./styles-css/base.css";
+@import "./styles-css/buttons.css";
+@import "./styles-css/typography.css";
+@import "./styles-css/utilities.css";
+
+:root,
+html[dir="ltr"] {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+body {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+:root,
+:host[dir="rtl"] {
+  font-family: "Cairo", Tahoma, sans-serif !important;
+}
+body {
+  font-family: "Cairo", Tahoma, sans-serif !important;
+}
+
+img {
+  pointer-events: none !important; /* Disable all interactions with the image */
+}
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+.Details_related_images_bg,
+.row.bg-success,
+.col-4.bg-info {
+  overflow: visible !important;
+}

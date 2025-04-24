@@ -1,0 +1,150 @@
+@if (allLinks) {
+<footer class="text-capitalize">
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-2">
+        <div class="h-100 d-flex flex-column justify-content-between">
+          <img loading="lazy" src="/images/my-fav.ico/fipco.webp" style="max-width: 130px" alt="FPICO" />
+
+          <div>
+            <img loading="lazy" class="iso-images mb-2" src="/images/iso1.webp" alt="FPICO" />
+            <img loading="lazy" class="iso-images mb-2" src="/images/iso2.webp" alt="FPICO" />
+            <img loading="lazy" class="iso-images mb-2" src="/images/iso3.webp" alt="FPICO" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div>
+          <div>
+            <h2 class="text-light h5">
+              {{ "footer.col02.title" | translate }}
+            </h2>
+            <ul class="list-unstyled p-0 m-0">
+              <li class="mb-2">
+                <a
+                  class="text-decoration-none text-lighter"
+                  [routerLink]="['/', languageService.selectedLanguage$ | async]"
+                  href="#">
+                  {{ "Pages.Home.navbar.navigations.home" | translate }}
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-decoration-none text-lighter"
+                  [routerLink]="['/', languageService.selectedLanguage$ | async, 'about-us']"
+                  href="#">
+                  {{ "footer.col02.row01" | translate }}
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-decoration-none text-lighter"
+                  [routerLink]="['/', languageService.selectedLanguage$ | async, 'projects']"
+                  href="#">
+                  {{ "footer.col02.row03" | translate }}
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-decoration-none text-lighter"
+                  [routerLink]="['/', languageService.selectedLanguage$ | async, 'services']"
+                  href="#">
+                  {{ "footer.col02.row02" | translate }}
+                </a>
+              </li>
+
+              <li class="mb-2">
+                <a
+                  class="text-decoration-none text-lighter"
+                  [routerLink]="['/', languageService.selectedLanguage$ | async, 'contact-us']"
+                  href="#">
+                  {{ "footer.col02.row04" | translate }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div>
+          <h2 class="text-light h5">{{ "footer.col-3.title" | translate }}</h2>
+          @if (services) {
+          <ul class="list-unstyled p-0 m-0">
+            @for (item of services; track item.id) {
+            <li class="text-lighter mb-2 text-capitalize">
+              <a
+                [routerLink]="['/', languageService.selectedLanguage$ | async, 'services-details', item.id]"
+                class="text-decoration-none text-lighter">
+                @if (isRTL) {
+                {{ item.ar_service_title }}
+                } @else {
+                {{ item.en_service_title }}
+                }
+              </a>
+            </li>
+            }
+          </ul>
+          }
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div>
+          <div class="d-flex justify-content-between flex-column">
+            <div>
+              <h2 class="text-light h5">
+                {{ "footer.col04.title" | translate }}
+              </h2>
+              <!-- contact us -->
+              <div>
+                <p class="text-lighter mb-2">
+                  <a
+                    [href]="'tel:' + allLinks.contact.contat_first_phone"
+                    class="text-lighter fs-13 text-decoration-none"
+                    aria-label="Call +966 055 820 0003">
+                    <!-- {{ "footer.col04.mobile01" | translate }} -->
+                    @if (isRTL) {
+                    {{ allLinks.contact.contat_first_phone }}
+                    }@else {
+
+                    {{ allLinks.contact.contat_first_phone }}
+                    }
+                  </a>
+                </p>
+                <p class="text-lighter mb-2">
+                  <a
+                    [href]="'tel:' + allLinks.contact.contact_second_phone"
+                    class="text-lighter fs-13 text-decoration-none"
+                    aria-label="Call +966 053 410 3237">
+                    <!-- {{ "footer.col04.mobile02" | translate }} -->
+                    {{ allLinks.contact.contact_second_phone }}
+                  </a>
+                </p>
+              </div>
+              <p class="text-lighter mb-2">
+                @if (isRTL) {
+                {{ allLinks.contact.ar_address }}
+                }@else {
+                {{ allLinks.contact.en_address }}
+                }
+              </p>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <app-social-media-links />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-lighter text-center py-3">
+    <span>{{ "footer.db-copy-rights.title" | translate }}</span>
+    &commat;2025
+    <a target="_blank" href="https://digitalbondmena.com/en"
+      ><img src="/images/footer/db.webp" style="width: 40px" alt="digital bond"
+    /></a>
+    digital bond
+  </div>
+</footer>
+
+}

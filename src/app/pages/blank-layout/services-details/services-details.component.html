@@ -1,0 +1,187 @@
+@if (servicesDetails) {
+<section class="text-capitalize my-5 position-relative z-1 overflow-hidden">
+  <!-- video -->
+  <div class="position-absolute start-0 end-0 top-0 bg-dark text-center bg-opacity-75">
+    <!-- <video
+        class="object-fit-cover position-relative z-n1 h-100"
+        src="/images/details/NVideo.mp4"
+        autoplay
+        muted
+        loop
+      ></video> -->
+
+    <video
+      #videoElement
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      class="object-fit-cover position-relative z-n1 h-100">
+      <source src="/images/1.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="container text-white">
+    <!-- section and title -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-12 row align-items-center">
+        <app-pages-header
+          [title]="'Pages.services.title'"
+          [title02]="'Pages.services.title02'"
+          [desc01]="'Pages.services.title-desc01'"
+          [desc02]="'Pages.services.title-desc02'"></app-pages-header>
+      </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="Details_related_images_bg">
+      <div class="row">
+        <!-- section Text -->
+        <div class="col-md-7 d-flex justify-content-center align-items-center">
+          <div>
+            <h1>
+              @if (isRTL) {
+              {{ servicesDetails.service.ar_service_title }}
+              } @else {
+              {{ servicesDetails.service.en_service_title }}
+              }
+            </h1>
+            <!-- <h3
+              class="text-lighter fs-15 lh-lg mb-3"
+              [innerHTML]="
+                'Pages.services.second-section.first-text'
+                  | translate
+                  | safeHtml
+              "
+            ></h3> -->
+
+            @if (isRTL) {
+            <div
+              class="text-lighter fs-15 lh-lg"
+              [innerHTML]="servicesDetails.service.ar_service_text | safeHtml"></div>
+            }@else {
+            <div
+              class="text-lighter fs-15 lh-lg"
+              [innerHTML]="servicesDetails.service.en_service_text | safeHtml"></div>
+            }
+          </div>
+        </div>
+        <!-- section Image -->
+        <div class="col-md-5">
+          <div>
+            <figure class="image_border main_Image_Animation p-2">
+              <img
+                loading="lazy"
+                [src]="'https://fpico.org/fipcoapi/service/' + servicesDetails.service.main_image"
+                class="w-100 h-500 object-fit-cover"
+                alt="FPICO" />
+            </figure>
+          </div>
+        </div>
+
+        <!-- Details Image -->
+        <owl-carousel-o [options]="customOptions">
+          @for (imageGroup of groupedImages; track $index) {
+          <ng-template carouselSlide>
+            <!-- Details Image -->
+            <div class="my-5">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row overflow-hidden g-4">
+                    @if (imageGroup[4]) {
+                    <div style="height: 250px" class="col-md-6 flex-grow-1">
+                      <div
+                        (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[4].main_image)"
+                        class="h-100 imageContainer-hover">
+                        <img
+                          loading="lazy"
+                          class="w-100 object-fit-cover h-100 border-radius-10"
+                          [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[4].main_image"
+                          alt="FPICO" />
+                      </div>
+                    </div>
+                    } @if (imageGroup[3]) {
+                    <div style="height: 250px" class="col-md-6 flex-grow-1">
+                      <div
+                        (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[3].main_image)"
+                        class="h-100 imageContainer-hover">
+                        <img
+                          loading="lazy"
+                          class="w-100 object-fit-cover h-100 border-radius-10"
+                          [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[3].main_image"
+                          alt="FPICO" />
+                      </div>
+                    </div>
+                    } @if (imageGroup[2]) {
+                    <div style="height: 250px" class="col-md-6 flex-grow-1">
+                      <div
+                        (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[2].main_image)"
+                        class="h-100 imageContainer-hover">
+                        <img
+                          loading="lazy"
+                          class="w-100 object-fit-cover h-100 border-radius-10"
+                          [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[2].main_image"
+                          alt="FPICO" />
+                      </div>
+                    </div>
+                    } @if (imageGroup[1]) {
+                    <div style="height: 250px" class="col-md-6 flex-grow-1">
+                      <div
+                        (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[1].main_image)"
+                        class="h-100 imageContainer-hover">
+                        <img
+                          loading="lazy"
+                          class="w-100 object-fit-cover h-100 border-radius-10"
+                          [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[1].main_image"
+                          alt="FPICO" />
+                      </div>
+                    </div>
+                    }
+                  </div>
+                </div>
+                <div
+                  [class]="{
+                  'col-12': imageGroup.length == 1,
+                  'col-6': imageGroup.length != 1,
+                }">
+                  <div
+                    class="imageContainer-hover"
+                    (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[0].main_image)">
+                    @if (imageGroup[0]) {
+
+                    <img
+                      loading="lazy"
+                      height="524px"
+                      class="w-100 object-fit-cover border-radius-10"
+                      [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[0].main_image"
+                      alt="FPICO" />
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          }
+        </owl-carousel-o>
+      </div>
+    </div>
+
+    <!-- Download PDF section -->
+    <div class="my-5">
+      <app-h-download-pdf-section></app-h-download-pdf-section>
+    </div>
+  </div>
+</section>
+
+}
+
+<!-- Modal -->
+@if (selectedImage.length > 0) {
+<div
+  (click)="closeModal()"
+  class="LightBoxContainer p-5 position-fixed z-3 top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-flex justify-content-center align-items-center">
+  <div class="lightBoxContnet">
+    <img loading="lazy" [src]="selectedImage" class="img-fluid" role="presentation" />
+  </div>
+</div>
+}
