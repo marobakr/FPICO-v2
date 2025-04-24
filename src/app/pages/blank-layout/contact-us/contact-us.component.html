@@ -4,22 +4,27 @@
       <div class="col-12 row">
         <div class="col-lg-6">
           <div>
-            <header class="d-flex align-items-center gap-2">
+            <header class="flex align-items-center gap-2">
               <img
                 loading="lazy"
                 width="130px"
                 height="130px"
                 src="/images/DownloadSection/logo-light.png"
-                alt="FPICO" />
+                alt="FPICO"
+              />
               <h2>
-                <span class="text-main" style="font-size: 45px">{{ "Pages.contact-us-page.title" | translate }}</span>
-                <span class="d-flex align-items-center gap-2">
-                  <span style="font-size: 45px">{{ "Pages.contact-us-page.title02" | translate }}</span>
+                <span class="text-main" style="font-size: 45px">{{
+                  "Pages.contact-us-page.title" | translate
+                }}</span>
+                <span class="flex align-items-center gap-2">
+                  <span style="font-size: 45px">{{
+                    "Pages.contact-us-page.title02" | translate
+                  }}</span>
                   <div class="fs-13 text-lighter">
-                    <span class="d-block">
+                    <span class="block">
                       {{ "Pages.contact-us-page.title-desc01" | translate }}
                     </span>
-                    <span class="d-block">
+                    <span class="block">
                       {{ "Pages.contact-us-page.title-desc02" | translate }}
                     </span>
                   </div>
@@ -28,9 +33,11 @@
             </header>
           </div>
         </div>
-        <div class="col-lg-6 position-relative d-flex justify-content-center">
+        <div class="col-lg-6 relative flex justify-content-center">
           <div>
-            <div class="p-4 py-5 bg-third top-0 start-50 form_Wrapper rounded-2 bg-fourth">
+            <div
+              class="p-4 py-5 bg-third top-0 start-50 form_Wrapper rounded-2 bg-fourth"
+            >
               <div class="form_container">
                 <app-contact-us-form></app-contact-us-form>
               </div>
@@ -40,21 +47,35 @@
       </div>
       <div class="col-12">
         <div class="my-5">
-          <img loading="lazy" class="w-100" src="/images/contact_us_page/hero_header.png" alt="FPICO" />
+          <img
+            loading="lazy"
+            class="w-100"
+            src="/images/contact_us_page/hero_header.png"
+            alt="FPICO"
+          />
         </div>
       </div>
     </div>
     <div class="my-5">
       <h3 class="text-lighter display-6 fw-semibold">
         {{ "Pages.contact-us-page.map-section.title03" | translate }}
-        <span class="text-white">{{ "Pages.contact-us-page.map-section.title02" | translate }}</span>
+        <span class="text-white">{{
+          "Pages.contact-us-page.map-section.title02" | translate
+        }}</span>
         {{ "Pages.contact-us-page.map-section.title" | translate }}
       </h3>
-      <div class="d-flex align-items-center gap-2">
+      <div class="flex align-items-center gap-2">
         <h4 class="text-white display-6 fw-semibold">
           {{ "Pages.contact-us-page.map-section.title04" | translate }}
         </h4>
-        <button class="btn btn-main" [routerLink]="['/', languageService.selectedLanguage$ | async, 'services']">
+        <button
+          class="btn btn-main"
+          [routerLink]="[
+            '/',
+            languageService.selectedLanguage$ | async,
+            'services'
+          ]"
+        >
           {{ "Pages.contact-us-page.map-section.button" | translate }}
         </button>
       </div>

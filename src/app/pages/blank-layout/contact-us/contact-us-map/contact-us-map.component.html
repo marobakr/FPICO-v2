@@ -2,7 +2,9 @@
 <div class="row g-3">
   <div class="col-lg-4">
     <div class="p-4 py-5 bg-third rounded-2">
-      <div class="border-bottom border-1 mb-4 pb-4 border-light border-opacity-10">
+      <div
+        class="border-bottom border-1 mb-4 pb-4 border-light border-opacity-10"
+      >
         <p>{{ "Pages.contact-us-page.contact.email" | translate }}</p>
         <div class="mb-2">
           <!-- href="mailto:info@fpico.org" -->
@@ -29,7 +31,8 @@
             <a
               [href]="'tel:' + allLinks.contact.contact_second_phone"
               class="text-lighter fs-13 text-decoration-none"
-              aria-label="Call +966 053 410 3237">
+              aria-label="Call +966 053 410 3237"
+            >
               {{ allLinks.contact.contact_second_phone }}</a
             >
           </div>
@@ -38,7 +41,7 @@
       <div class="row align-items-center">
         <p class="col-9 text-white fs-15">
           {{ "Pages.contact-us-page.contact.text01" | translate }}
-          <span class="d-block">
+          <span class="block">
             {{ "Pages.contact-us-page.contact.text02" | translate }}
           </span>
         </p>
@@ -54,8 +57,15 @@
   </div>
   <div class="col-lg-8">
     <div>
-      <div class="border-bottom border-1 mb-2 pb-2 border-light border-opacity-10">
-        <img loading="lazy" class="w-100 rounded-1" src="/images/contact_us_page/map.png" alt="FPICO MAP" />
+      <div
+        class="border-bottom border-1 mb-2 pb-2 border-light border-opacity-10"
+      >
+        <img
+          loading="lazy"
+          class="w-100 rounded-1"
+          src="/images/contact_us_page/map.png"
+          alt="FPICO MAP"
+        />
         <p class="my-2 text-lighter fw-semibold">
           {{ "Pages.contact-us-page.map-section.title05" | translate }}
         </p>
@@ -70,7 +80,12 @@
           "Pages.contact-us-page.map-section.title07" | translate
         }}</span> -->
       </p>
-      <a [href]="allLinks.contact.map_link" target="_blank" class="btn btn-outline-main" style="max-width: 300px">
+      <a
+        [href]="allLinks.contact.map_link"
+        target="_blank"
+        class="btn btn-outline-main"
+        style="max-width: 300px"
+      >
         {{ "Pages.contact-us-page.map-section.title08" | translate }}
       </a>
     </div>

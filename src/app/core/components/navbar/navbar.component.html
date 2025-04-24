@@ -3,7 +3,10 @@
   <div class="container mx-auto px-4 py-6">
     <div class="flex items-center justify-between">
       <!-- Logo Section -->
-      <a [routerLink]="['/', languageService.selectedLanguage$ | async]" class="flex items-center">
+      <a
+        [routerLink]="['/', languageService.selectedLanguage$ | async]"
+        class="flex items-center"
+      >
         <img
           loading="lazy"
           width="130"
@@ -12,8 +15,14 @@
           ng-img="true"
           class="max-w-full h-auto"
           src="/images/my-fav.ico/web-app-manifest-192x192.png"
-          alt="FPICO" />
-        <img loading="lazy" src="/images/first_class.webp" class="w-first-image" alt="FPICO" />
+          alt="FPICO"
+        />
+        <img
+          loading="lazy"
+          src="/images/first_class.webp"
+          class="w-first-image"
+          alt="FPICO"
+        />
       </a>
 
       <!-- Mobile Menu Button -->
@@ -21,9 +30,14 @@
         type="button"
         (click)="toggleMobileMenu()"
         class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200"
-        [attr.aria-expanded]="isMobileMenuOpen">
+        [attr.aria-expanded]="isMobileMenuOpen"
+      >
         <span class="sr-only">Open main menu</span>
-        <i class="fa-solid" [ngClass]="isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'" class="text-2xl"></i>
+        <i
+          class="fa-solid"
+          [ngClass]="isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'"
+          class="text-2xl"
+        ></i>
       </button>
 
       <!-- Navigation Links - Desktop -->
@@ -40,8 +54,13 @@
 
         <!-- Contact Us Button -->
         <a
-          [routerLink]="['/', languageService.selectedLanguage$ | async, 'contact-us']"
-          class="inline-flex btn-main items-center px-4 py-2 text-dark bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm">
+          [routerLink]="[
+            '/',
+            languageService.selectedLanguage$ | async,
+            'contact-us'
+          ]"
+          class="inline-flex btn-main items-center px-4 py-2 text-dark bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm"
+        >
           {{ "Pages.Home.navbar.contactUs-button" | translate }}
         </a>
 
@@ -55,24 +74,31 @@
   <div
     class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-gray-800 w-64"
     [ngClass]="isMobileMenuOpen ? 'transform-none' : '-translate-x-full'"
-    tabindex="-1">
-
-    <div class="flex justify-between items-center mb-6 pb-3 border-b border-gray-700">
+    tabindex="-1"
+  >
+    <div
+      class="flex justify-between items-center mb-6 pb-3 border-b border-gray-700"
+    >
       <!-- Logo -->
-      <a [routerLink]="['/', languageService.selectedLanguage$ | async]" class="flex items-center">
+      <a
+        [routerLink]="['/', languageService.selectedLanguage$ | async]"
+        class="flex items-center"
+      >
         <img
           loading="lazy"
           width="100"
           height="30"
           class="max-w-full h-auto"
           src="/images/my-fav.ico/web-app-manifest-192x192.png"
-          alt="FPICO" />
+          alt="FPICO"
+        />
       </a>
       <!-- Close button -->
       <button
         type="button"
         (click)="toggleMobileMenu()"
-        class="text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center hover:bg-gray-700">
+        class="text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center hover:bg-gray-700"
+      >
         <i class="fa-solid fa-xmark text-xl"></i>
         <span class="sr-only">Close menu</span>
       </button>
@@ -93,5 +119,6 @@
   <div
     *ngIf="isMobileMenuOpen"
     (click)="toggleMobileMenu()"
-    class="fixed inset-0 z-30 bg-gray-900 bg-opacity-50 transition-opacity"></div>
+    class="fixed inset-0 z-30 bg-gray-900 bg-opacity-50 transition-opacity"
+  ></div>
 </nav>

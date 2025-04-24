@@ -6,8 +6,6 @@
 @source "../node_modules/flowbite";
 @import "../node_modules/intl-tel-input/build/css/intlTelInput.css";
 
-
-
 /* Import our converted CSS files */
 @import "./styles-css/variables.css";
 @import "./styles-css/ball-scale-multiple.css";
@@ -53,6 +51,7 @@ img {
   --border-radius: 10px;
   --text-lighter: #a9a9a9;
   --text-light: #989898;
+  --text-main-font: 32px;
 }
 
 .btn-main {
@@ -62,3 +61,29 @@ img {
   border-radius: var(--border-radius);
 }
 
+/* display.css - Bootstrap-like heading styles with responsiveness */
+
+/* Responsive Font Sizes */
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.75rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+}

@@ -1,39 +1,42 @@
-<div class="col-12 my-5 my-lg-0 row align-items-center position-relative main">
+<div class="col-12 my-5 my-lg-0 row align-items-center relative main">
   <!-- Header -->
   <div class="col-lg-8">
     <div>
-      <header class="d-flex align-items-center gap-2">
+      <header class="flex align-items-center gap-2">
         <img
           loading="lazy"
           class="transform_logo_animation"
           width="130px"
           height="130px"
           src="/images/DownloadSection/logo-light.png"
-          alt="FPICO" />
+          alt="FPICO"
+        />
 
         <h2>
-          <div class="d-flex align-items-center gap-2">
-            <span class="text-main" style="font-size: 45px">{{ title | translate }}</span>
+          <div class="flex align-items-center gap-2">
+            <span class="text-main" style="font-size: 45px">{{
+              title | translate
+            }}</span>
 
             @if (!order) {
             <div class="fs-13 text-lighter mt-2">
-              <span class="d-block">
+              <span class="block">
                 {{ desc01 | translate }}
               </span>
-              <span class="d-block">
+              <span class="block">
                 {{ desc02 | translate }}
               </span>
             </div>
             }
           </div>
-          <span class="d-flex align-items-center gap-2">
+          <span class="flex align-items-center gap-2">
             <span style="font-size: 45px">{{ title02 | translate }}</span>
             @if (order) {
             <div class="fs-13 text-lighter mt-2">
-              <span class="d-block">
+              <span class="block">
                 {{ desc01 | translate }}
               </span>
-              <span class="d-block">
+              <span class="block">
                 {{ desc02 | translate }}
               </span>
             </div>
@@ -45,20 +48,30 @@
   </div>
 
   <!-- button -->
-  <div class="col-lg-4 d-flex justify-content-end">
+  <div class="col-lg-4 flex justify-content-end">
     <div>
       @if ( !isProjects) {
       <a
         class="btn btn-pages text-decoration-none"
-        [routerLink]="['/', languageService.selectedLanguage$ | async, 'services']"
-        href="#">
+        [routerLink]="[
+          '/',
+          languageService.selectedLanguage$ | async,
+          'services'
+        ]"
+        href="#"
+      >
         {{ "Pages.projects.main-btn" | translate }}
       </a>
       } @else {
       <a
         class="btn btn-pages text-decoration-none"
-        [routerLink]="['/', languageService.selectedLanguage$ | async, 'projects']"
-        href="#">
+        [routerLink]="[
+          '/',
+          languageService.selectedLanguage$ | async,
+          'projects'
+        ]"
+        href="#"
+      >
         {{ "Pages.Projects.main-btn" | translate }}
       </a>
 

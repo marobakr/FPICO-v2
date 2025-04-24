@@ -1,16 +1,25 @@
 <section>
   <div class="container">
     <img
-      class="col-12 col-md-4 mx-auto d-block"
+      class="col-12 col-md-4 mx-auto block"
       src="/images/not-found/not-found.svg"
-      alt="fpico not found page" />
-    <div class="d-flex justify-content-center gap-2">
-      <button [routerLink]="['/', languageService.selectedLanguage$ | async]" class="btn btn-main py-3 px-5">
+      alt="fpico not found page"
+    />
+    <div class="flex justify-content-center gap-2">
+      <button
+        [routerLink]="['/', languageService.selectedLanguage$ | async]"
+        class="btn btn-main py-3 px-5"
+      >
         back to home
       </button>
       <button
-        [routerLink]="['/', languageService.selectedLanguage$ | async, 'contact-us']"
-        class="btn btn-main py-3 px-5">
+        [routerLink]="[
+          '/',
+          languageService.selectedLanguage$ | async,
+          'contact-us'
+        ]"
+        class="btn btn-main py-3 px-5"
+      >
         contact us
       </button>
     </div>

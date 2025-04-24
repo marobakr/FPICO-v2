@@ -10,14 +10,19 @@
           [title02]="'Pages.About.title02'"
           [desc01]="'Pages.About.title-desc01'"
           [desc02]="'Pages.About.title-desc02'"
-          [order]="true"></app-pages-header>
+          [order]="true"
+        ></app-pages-header>
       </div>
 
       <!-- Home Main Image -->
       <div class="col-12">
-        <div class="my-5 position-relative images_parent">
+        <div class="my-5 relative images_parent">
           <img class="w-hero-fast" src="/images/rush.png" role="presentation" />
-          <img class="w-100 banner-animation" src="/images/hero/Kingdom Centre_1200x500.webp" alt="FPICO" />
+          <img
+            class="w-100 banner-animation"
+            src="/images/hero/Kingdom Centre_1200x500.webp"
+            alt="FPICO"
+          />
           <div class="main-text translate-middle-y col-11 ms-auto">
             <h2 class="d-inline h6 me-1">
               {{ "Page.about.title01" | translate }}
@@ -36,19 +41,29 @@
     </div>
 
     <!-- about us banner -->
-    <app-about-banner-section [features]="allAboutData.features" [isRTL]="isRTL"></app-about-banner-section>
+    <app-about-banner-section
+      [features]="allAboutData.features"
+      [isRTL]="isRTL"
+    ></app-about-banner-section>
 
     <!-- Master Message -->
-    <app-b-manager-message [isRTL]="isRTL" [ChairMessage]="allAboutData.chairmessage"></app-b-manager-message>
+    <app-b-manager-message
+      [isRTL]="isRTL"
+      [ChairMessage]="allAboutData.chairmessage"
+    ></app-b-manager-message>
 
     <!-- our Partners -->
     <app-k-our-partners
       [isRTL]="isRTL"
       [isAddBackgroundColor]="true"
-      [Partner]="allAboutData.clients"></app-k-our-partners>
+      [Partner]="allAboutData.clients"
+    ></app-k-our-partners>
 
     <!-- About us last banner -->
-    <app-about-us-last-banner [isRTL]="isRTL" [allAboutData]="allAboutData"></app-about-us-last-banner>
+    <app-about-us-last-banner
+      [isRTL]="isRTL"
+      [allAboutData]="allAboutData"
+    ></app-about-us-last-banner>
 
     <!-- Download PDF section -->
     <div class="my-5">

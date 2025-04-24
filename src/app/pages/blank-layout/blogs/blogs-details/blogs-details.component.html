@@ -1,5 +1,5 @@
 @if (blogDetails) {
-<section class="text-capitalize my-5 position-relative z-1 blog-details">
+<section class="text-capitalize my-5 relative z-1 blog-details">
   <!-- video -->
   <div class="container text-white">
     <!-- Second Section -->
@@ -22,34 +22,61 @@
                 <figure class="h-500 image_border main_Image_Animation p-2">
                   <picture>
                     <source
-                      [srcset]="'https://fpico.org/fipcoapi/blogs/' + blogDetails.blog.main_image + '?w=1200'"
-                      media="(min-width: 992px)" />
+                      [srcset]="
+                        'https://fpico.org/fipcoapi/blogs/' +
+                        blogDetails.blog.main_image +
+                        '?w=1200'
+                      "
+                      media="(min-width: 992px)"
+                    />
                     <source
-                      [srcset]="'https://fpico.org/fipcoapi/blogs/' + blogDetails.blog.main_image + '?w=768'"
-                      media="(min-width: 576px)" />
+                      [srcset]="
+                        'https://fpico.org/fipcoapi/blogs/' +
+                        blogDetails.blog.main_image +
+                        '?w=768'
+                      "
+                      media="(min-width: 576px)"
+                    />
                     <img
-                      [src]="'https://fpico.org/fipcoapi/blogs/' + blogDetails.blog.main_image + '?w=576'"
+                      [src]="
+                        'https://fpico.org/fipcoapi/blogs/' +
+                        blogDetails.blog.main_image +
+                        '?w=576'
+                      "
                       class="w-100 h-500 object-fit-cover rounded"
                       alt="FPICO"
                       fetchpriority="high"
                       decoding="async"
                       width="1200"
-                      height="500" />
+                      height="500"
+                    />
                   </picture>
                 </figure>
               </div>
             </div>
             <!-- section Text -->
-            <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="col-12 flex justify-content-center align-items-center">
               <div class="content">
                 @if (isRTL) {
                 <div
                   class="fs-15 lh-lg"
-                  [innerHTML]="blogDetails.blog.ar_blog_text | removeInlineStyles | insertAd | safeHtml"></div>
+                  [innerHTML]="
+                    blogDetails.blog.ar_blog_text
+                      | removeInlineStyles
+                      | insertAd
+                      | safeHtml
+                  "
+                ></div>
                 }@else {
                 <div
                   class="fs-15 lh-lg"
-                  [innerHTML]="blogDetails.blog.en_blog_text | removeInlineStyles | insertAd | safeHtml"></div>
+                  [innerHTML]="
+                    blogDetails.blog.en_blog_text
+                      | removeInlineStyles
+                      | insertAd
+                      | safeHtml
+                  "
+                ></div>
                 }
               </div>
             </div>
@@ -57,38 +84,54 @@
         </div>
         <div class="col-lg-4 order-1">
           <div class="h-100">
-            <div class="row sticky-parent position-sticky align-items-start align-content-start" style="top: 50px">
+            <div
+              class="row sticky-parent position-sticky align-items-start align-content-start"
+              style="top: 50px"
+            >
               <h2>المزيد من المواضيع</h2>
-              @for (blog of blogDetails.blogs | slice:0:isDesktop?5:10; track blog.id) {
+              @for (blog of blogDetails.blogs | slice:0:isDesktop?5:10; track
+              blog.id) {
               <div class="col-6 col-lg-12 cr">
                 <!-- [routerLink]="[ '/', languageService.selectedLanguage$ | async, 'blogs', 'blogs-details', isRTL ?
                 blog.ar_slug : blog.en_slug ]"> -->
                 <a
-                  class="text-white text-decoration-none d-flex justify-content-start align-items-end"
+                  class="text-white text-decoration-none flex justify-content-start align-items-end"
                   [routerLink]="[
                     '/',
                     languageService.selectedLanguage$ | async,
                     'blogs',
                     'blogs-details',
                     blog.ar_slug
-                  ]">
+                  ]"
+                >
                   <!-- improve SEO -->
                   <figure
                     style="width: 140px; height: 80px"
-                    class="image_border main_Image_Animation p-2 flex-shrink-0">
+                    class="image_border main_Image_Animation p-2 flex-shrink-0"
+                  >
                     <picture>
                       <source
-                        [srcset]="'https://fpico.org/fipcoapi/blogs/' + blog.main_image + '?w=280'"
-                        media="(min-width: 576px)" />
+                        [srcset]="
+                          'https://fpico.org/fipcoapi/blogs/' +
+                          blog.main_image +
+                          '?w=280'
+                        "
+                        media="(min-width: 576px)"
+                      />
                       <img
                         loading="lazy"
                         fetchpriority="low"
                         decoding="async"
-                        [src]="'https://fpico.org/fipcoapi/blogs/' + blog.main_image + '?w=140'"
+                        [src]="
+                          'https://fpico.org/fipcoapi/blogs/' +
+                          blog.main_image +
+                          '?w=140'
+                        "
                         class="w-100 h-100 object-fit-cover rounded"
                         alt="FPICO"
                         width="140"
-                        height="80" />
+                        height="80"
+                      />
                     </picture>
                   </figure>
 
@@ -111,7 +154,13 @@
 </section>
 
 @if (isRTL) {
-<div class="test-meta-tags bg-danger" [innerHtml]="blogDetails.blog.ar_script_text | safeHtml"></div>
+<div
+  class="test-meta-tags bg-danger"
+  [innerHtml]="blogDetails.blog.ar_script_text | safeHtml"
+></div>
 } @else {
-<div class="test-meta-tags bg-danger" [innerHtml]="blogDetails.blog.en_script_text | safeHtml"></div>
+<div
+  class="test-meta-tags bg-danger"
+  [innerHtml]="blogDetails.blog.en_script_text | safeHtml"
+></div>
 } }

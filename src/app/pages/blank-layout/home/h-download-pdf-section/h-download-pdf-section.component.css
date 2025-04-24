@@ -2,7 +2,7 @@ img {
   margin: auto;
 }
 
-::ng-deep .d-block.my-2 {
+::ng-deep .block.my-2 {
   margin: 20px auto !important;
   transform: translateX(85%) !important;
 }

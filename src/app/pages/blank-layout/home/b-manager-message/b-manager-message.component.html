@@ -30,7 +30,7 @@
           <div class="rounded-[10px] p-3 text-xl relative z-30 manager_title">
             <h3 class="text-white">
               @if (isRTL()) {
-              <span class="text-primary">{{
+              <span class="text-main">{{
                 "chairmanMessage.title.desc" | translate
               }}</span>
               {{ ChairMessage().ar_name }}
@@ -42,7 +42,7 @@
               }
             </h3>
 
-            <div class="text-gray-300">
+            <div class="text-lighter">
               @if (isRTL()) {
               {{ ChairMessage().ar_small_title }}
               }@else {
@@ -52,7 +52,7 @@
           </div>
           <div class="md:ml-20">
             <h4 class="text-white my-3">
-              <div class="text-gray-300">
+              <div class="text-lighter">
                 @if (isRTL()) {
                 {{ ChairMessage().ar_title }}
                 }@else {
@@ -62,12 +62,12 @@
             </h4>
             @if (isRTL()) {
             <div
-              class="text-gray-300"
+              class="text-lighter"
               [innerHTML]="ChairMessage().ar_text"
             ></div>
             }@else {
             <div
-              class="text-gray-300"
+              class="text-lighter"
               [innerHTML]="ChairMessage().en_text"
             ></div>
             }

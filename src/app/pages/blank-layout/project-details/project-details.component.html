@@ -1,7 +1,7 @@
 @if (projectDetails) {
-<section class="text-capitalize my-5 position-relative z-1 overflow-hidden">
+<section class="text-capitalize my-5 relative z-1 overflow-hidden">
   <!-- video -->
-  <div class="position-absolute start-0 end-0 top-0 bg-dark text-center bg-opacity-75">
+  <div class="absolute start-0 end-0 top-0 bg-dark text-center bg-opacity-75">
     <!-- #videoElement -->
     <video
       #videoElement
@@ -10,7 +10,8 @@
       muted
       playsinline
       preload="metadata"
-      class="object-fit-cover position-relative z-n1 h-100">
+      class="object-fit-cover relative z-n1 h-100"
+    >
       <source src="/images/1.mp4" type="video/mp4" />
     </video>
   </div>
@@ -22,7 +23,8 @@
           [title]="'Pages.projects.title'"
           [title02]="'Pages.projects.title02'"
           [desc01]="'Pages.projects.title-desc01'"
-          [desc02]="'Pages.projects.title-desc02'"></app-pages-header>
+          [desc02]="'Pages.projects.title-desc02'"
+        ></app-pages-header>
       </div>
     </div>
 
@@ -30,7 +32,7 @@
       <!-- Second Section -->
       <div class="row">
         <!-- section Text -->
-        <div class="col-md-7 d-flex justify-content-start align-items-center">
+        <div class="col-md-7 flex justify-content-start align-items-center">
           <div>
             <!-- <h1>{{ currentProject.project_name | translate }}</h1> -->
             <h1>
@@ -42,9 +44,15 @@
             </h1>
             <h3 class="text-white fs-15 lh-lg mb-3"></h3>
             @if (isRTL) {
-            <div class="text-lighter fs-15 lh-lg" [innerHTML]="projectDetails.project.ar_service_text | safeHtml"></div>
+            <div
+              class="text-lighter fs-15 lh-lg"
+              [innerHTML]="projectDetails.project.ar_service_text | safeHtml"
+            ></div>
             } @else {
-            <div class="text-lighter fs-15 lh-lg" [innerHTML]="projectDetails.project.en_service_text | safeHtml"></div>
+            <div
+              class="text-lighter fs-15 lh-lg"
+              [innerHTML]="projectDetails.project.en_service_text | safeHtml"
+            ></div>
 
             }
           </div>
@@ -56,10 +64,14 @@
             <figure class="image_border main_Image_Animation p-2">
               <img
                 loading="lazy"
-                [src]="'https://fpico.org/fipcoapi/service/' + projectDetails.project.main_image"
+                [src]="
+                  'https://fpico.org/fipcoapi/service/' +
+                  projectDetails.project.main_image
+                "
                 class="w-100 object-fit-cover"
                 height="500px"
-                alt="FPICO" />
+                alt="FPICO"
+              />
             </figure>
           </div>
         </div>
@@ -75,49 +87,89 @@
                   @if (imageGroup[4]) {
                   <div style="height: 250px" class="col-md-6 flex-grow-1">
                     <div
-                      (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[4].main_image)"
-                      class="h-100 imageContainer-hover">
+                      (click)="
+                        openModal(
+                          'https://fpico.org/fipcoapi/service/' +
+                            imageGroup[4].main_image
+                        )
+                      "
+                      class="h-100 imageContainer-hover"
+                    >
                       <img
                         loading="lazy"
                         class="w-100 object-fit-cover h-100 border-radius-10"
-                        [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[4].main_image"
-                        alt="FPICO" />
+                        [src]="
+                          'https://fpico.org/fipcoapi/service/' +
+                          imageGroup[4].main_image
+                        "
+                        alt="FPICO"
+                      />
                     </div>
                   </div>
                   } @if (imageGroup[3]) {
                   <div style="height: 250px" class="col-md-6 flex-grow-1">
                     <div
-                      (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[3].main_image)"
-                      class="h-100 imageContainer-hover">
+                      (click)="
+                        openModal(
+                          'https://fpico.org/fipcoapi/service/' +
+                            imageGroup[3].main_image
+                        )
+                      "
+                      class="h-100 imageContainer-hover"
+                    >
                       <img
                         loading="lazy"
                         class="w-100 object-fit-cover h-100 border-radius-10"
-                        [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[3].main_image"
-                        alt="FPICO" />
+                        [src]="
+                          'https://fpico.org/fipcoapi/service/' +
+                          imageGroup[3].main_image
+                        "
+                        alt="FPICO"
+                      />
                     </div>
                   </div>
                   } @if (imageGroup[2]) {
                   <div style="height: 250px" class="col-md-6 flex-grow-1">
                     <div
-                      (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[2].main_image)"
-                      class="h-100 imageContainer-hover">
+                      (click)="
+                        openModal(
+                          'https://fpico.org/fipcoapi/service/' +
+                            imageGroup[2].main_image
+                        )
+                      "
+                      class="h-100 imageContainer-hover"
+                    >
                       <img
                         loading="lazy"
                         class="w-100 object-fit-cover h-100 border-radius-10"
-                        [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[2].main_image"
-                        alt="FPICO" />
+                        [src]="
+                          'https://fpico.org/fipcoapi/service/' +
+                          imageGroup[2].main_image
+                        "
+                        alt="FPICO"
+                      />
                     </div>
                   </div>
                   } @if (imageGroup[1]) {
                   <div style="height: 250px" class="col-md-6 flex-grow-1">
                     <div
-                      (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[1].main_image)"
-                      class="h-100 imageContainer-hover">
+                      (click)="
+                        openModal(
+                          'https://fpico.org/fipcoapi/service/' +
+                            imageGroup[1].main_image
+                        )
+                      "
+                      class="h-100 imageContainer-hover"
+                    >
                       <img
                         loading="lazy"
                         class="w-100 object-fit-cover h-100 border-radius-10"
-                        [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[1].main_image"
-                        alt="FPICO" />
+                        [src]="
+                          'https://fpico.org/fipcoapi/service/' +
+                          imageGroup[1].main_image
+                        "
+                        alt="FPICO"
+                      />
                     </div>
                   </div>
                   }
@@ -127,18 +179,29 @@
                 [class]="{
                   'col-12': imageGroup.length == 1,
                   'col-6': imageGroup.length != 1,
-                }">
+                }"
+              >
                 <div
                   class="imageContainer-hover"
-                  (click)="openModal('https://fpico.org/fipcoapi/service/' + imageGroup[0].main_image)">
+                  (click)="
+                    openModal(
+                      'https://fpico.org/fipcoapi/service/' +
+                        imageGroup[0].main_image
+                    )
+                  "
+                >
                   @if (imageGroup[0]) {
 
                   <img
                     loading="lazy"
                     height="524px"
                     class="w-100 object-fit-cover border-radius-10"
-                    [src]="'https://fpico.org/fipcoapi/service/' + imageGroup[0].main_image"
-                    alt="FPICO" />
+                    [src]="
+                      'https://fpico.org/fipcoapi/service/' +
+                      imageGroup[0].main_image
+                    "
+                    alt="FPICO"
+                  />
                   }
                 </div>
               </div>
@@ -162,9 +225,15 @@
 @if (selectedImage.length > 0) {
 <div
   (click)="closeModal()"
-  class="LightBoxContainer p-5 position-fixed z-3 top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-flex justify-content-center align-items-center">
+  class="LightBoxContainer p-5 fixed z-3 top-0 start-0 w-100 h-100 bg-black bg-opacity-75 flex justify-content-center align-items-center"
+>
   <div class="lightBoxContnet">
-    <img loading="lazy" [src]="selectedImage" class="img-fluid" role="presentation" />
+    <img
+      loading="lazy"
+      [src]="selectedImage"
+      class="img-fluid"
+      role="presentation"
+    />
   </div>
 </div>
 }

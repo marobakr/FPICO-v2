@@ -1,13 +1,13 @@
 <section class="capitalize">
   <div class="container mx-auto text-center">
-    <header>
+    <header class="mb-4">
       <h2
         class="text-white"
         [innerHTML]="
           'Pages.Home.our-projects-section.title' | translate | safeHtml
         "
       ></h2>
-      <p class="text-gray-300">
+      <p class="text-lighter">
         {{ "Pages.Home.our-projects-section.title-desc" | translate }}
         <span class="block">{{
           "Pages.Home.our-projects-section.title-desc02" | translate
@@ -29,8 +29,7 @@
           <div class="card bg-transparent">
             <img
               loading="lazy"
-              class="rounded-[10px] w-full"
-              height="250"
+              class="rounded-[10px] w-full h-[250px]"
               [src]="'https://fpico.org/fipcoapi/service/' + project.main_image"
               [alt]="'FPICO ' + project.en_service_title"
             />

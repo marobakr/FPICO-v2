@@ -1,7 +1,7 @@
 <section class="capitalize mx-auto my-4 md:my-20">
   <div class="container mx-auto">
-    <div class="">
-      <div class="">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div class="md:col-span-4">
         <header
           [class]="{ 'text-lg-end': isRTL(), 'text-lg-start': !isRTL() }"
           class="text-center"
@@ -14,7 +14,7 @@
           </p> -->
         </header>
       </div>
-      <div class="">
+      <div class="md:col-span-8">
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3">
           @for (item of Client(); track item.id) {
           <div
@@ -30,56 +30,55 @@
                 alt="FPICO"
               />
             </div>
-            <!-- <img src="/images/clients/6.png" class="d-block" alt="FPICO" /> -->
+            <!-- <img src="/images/clients/6.png" class="block" alt="FPICO" /> -->
           </div>
           }
           <!-- <div
-            class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
+            class="mt-0 mb-4 text-center flex justify-content-center gap-4 d-mblock"
           >
             <img
               src="/images/clients/2.png"
-              class="d-block mb-3"
+              class="block mb-3"
               alt="FPICO"
             />
-            <img src="/images/clients/7.png" class="d-block" alt="FPICO" />
+            <img src="/images/clients/7.png" class="block" alt="FPICO" />
           </div>
           <div
-            class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
+            class="mt-0 mb-4 text-center flex justify-content-center gap-4 d-mblock"
           >
             <img
               src="/images/clients/3.png"
-              class="d-block mb-3"
+              class="block mb-3"
               alt="FPICO"
             />
-            <img src="/images/clients/8.png" class="d-block" alt="FPICO" />
+            <img src="/images/clients/8.png" class="block" alt="FPICO" />
           </div>
           <div
-            class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
+            class="mt-0 mb-4 text-center flex justify-content-center gap-4 d-mblock"
           >
             <img
               src="/images/clients/4.png"
-              class="d-block mb-3"
+              class="block mb-3"
               alt="FPICO"
             />
-            <img src="/images/clients/9.png" class="d-block" alt="FPICO" />
+            <img src="/images/clients/9.png" class="block" alt="FPICO" />
           </div>
           <div
-            class="mt-0 mb-4 text-center d-flex justify-content-center gap-4 d-md-block"
+            class="mt-0 mb-4 text-center flex justify-content-center gap-4 d-mblock"
           >
             <img
               src="/images/clients/5.png"
-              class="d-block mb-3"
+              class="block mb-3"
               alt="FPICO"
             />
             <img
               src="/images/clients/10.png"
-              class="d-block"
+              class="block"
               alt="FPICO"
             />
           </div> -->
         </div>
       </div>
-      <div class="md:col-span-2"></div>
     </div>
   </div>
 </section>
