@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   inject,
@@ -47,6 +48,7 @@ import { MContactUsComponent } from './m-contact-us/m-contact-us.component';
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
   isRTL: boolean = false;
@@ -64,23 +66,19 @@ export class HomeComponent {
   activatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
+    // Set RTL status once at initialization
+    this.isRTL = this._TranslateService.currentLang === 'ar';
+
+    // Subscribe to language changes
     this.Subscription = this._TranslateService.onLangChange.subscribe(
       (params: LangChangeEvent) => {
-        if (
-          params.lang === 'ar' ||
-          this._TranslateService.currentLang === 'ar'
-        ) {
-          this.isRTL = true;
-        } else {
-          this.isRTL = false;
-        }
+        this.isRTL =
+          params.lang === 'ar' || this._TranslateService.currentLang === 'ar';
+        this.cr.markForCheck();
       }
     );
-    if (this._TranslateService.currentLang === 'ar') {
-      this.isRTL = true;
-    } else {
-      this.isRTL = false;
-    }
+
+    // Load home data
     this.getHomeData();
   }
 
@@ -93,27 +91,29 @@ export class HomeComponent {
   AboutData!: AboutData;
   Whyus!: Whyus[];
   ChairMessage!: ChairMessage;
+
   getHomeData(): void {
-    this.Subscription = this.homeData.getHomeData().subscribe((data) => {
-      if (data) {
-        this.allHomeData = data;
-        this.ArrigationSystem = data.arrigationSystems;
-        this.Partner = data.partners;
-        this.Project = data.projects;
-        this.Service = data.services;
-        this.Clients = data.clients;
-        this.AboutData = data.aboutData;
-        this.Whyus = data.whyus;
-        this.ChairMessage = data.chairMessage;
-      }
-    });
+    this.Subscription.add(
+      this.homeData.getHomeData().subscribe((data) => {
+        if (data) {
+          this.allHomeData = data;
+          this.ArrigationSystem = data.arrigationSystems;
+          this.Partner = data.partners;
+          this.Project = data.projects;
+          this.Service = data.services;
+          this.Clients = data.clients;
+          this.AboutData = data.aboutData;
+          this.Whyus = data.whyus;
+          this.ChairMessage = data.chairMessage;
+          this.cr.markForCheck();
+        }
+      })
+    );
   }
 
   ngOnDestroy(): void {
     if (this.Subscription) {
       this.Subscription.unsubscribe();
-    } else {
-      return;
     }
   }
 }
