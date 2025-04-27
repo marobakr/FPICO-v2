@@ -1,14 +1,38 @@
-.card .card-img-overlay {
-  opacity: 0;
-  transition: 0.5s all;
+.card {
+  overflow: hidden;
   cursor: pointer;
 }
-.card:hover .card-img-overlay {
+
+.card-overlay {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover .card-overlay {
   opacity: 1;
+}
+
+.card-overlay h3 {
+  z-index: 10;
 }
 
 section {
   background-image: url("/images/DownloadSection/fi_logo.webp");
   background-repeat: no-repeat;
   background-position: top left;
+}
+
+.project-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.project-overlay {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
 }

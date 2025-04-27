@@ -14,7 +14,7 @@
         }}</span>
       </p>
     </header>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       @for (project of Project(); track project.id) {
       <div>
         <a
@@ -26,7 +26,7 @@
           ]"
           href="#"
         >
-          <div class="card bg-transparent">
+          <div class="project-card relative bg-transparent rounded-xl">
             <img
               loading="lazy"
               class="rounded-[10px] w-full h-[250px]"
@@ -34,7 +34,7 @@
               [alt]="'FPICO ' + project.en_service_title"
             />
             <div
-              class="card-img-overlay w-full h-full flex justify-center items-center bg-black bg-opacity-50"
+              class="project-overlay absolute inset-0 w-full h-full flex justify-center items-center bg-black/50"
             >
               @if (isRTL()) {
               <h3 class="text-white">
