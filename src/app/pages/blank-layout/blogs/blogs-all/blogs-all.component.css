@@ -1,0 +1,68 @@
+/* Custom base styles that aren't available in Tailwind */
+
+.image_border {
+  box-shadow: 0 0 0 8px var(--main-color) inset;
+  border-radius: 0.625rem;
+}
+
+/* Blog card hover effects */
+.blog-card:hover .blog-image {
+  transform: scale(1);
+}
+
+.blog-image {
+  transform: scale(1.5);
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .card-hidden-content {
+  opacity: 1;
+}
+
+/* Pagination custom styles */
+:host ::ng-deep .ngx-pagination a {
+  border-radius: 50% !important;
+  background-color: white !important;
+  color: black;
+  margin-inline: 5px;
+}
+
+:host ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color) !important;
+  border-radius: 50%;
+}
+
+:host ::ng-deep .ngx-pagination a:hover:not(:first-child, :last-child) {
+  background-color: var(--main-color) !important;
+  border-radius: 50%;
+  color: white !important;
+}
+
+:host ::ng-deep .ngx-pagination li:last-child:hover a,
+:host ::ng-deep .ngx-pagination li:first-child:hover a {
+  border-radius: 100vh !important;
+  background-color: white !important;
+  color: black;
+}
+
+:host ::ng-deep .ngx-pagination .disabled {
+  border-radius: 50% !important;
+  background-color: white !important;
+  color: black;
+  margin-inline: 5px;
+}
+
+:host ::ng-deep .ngx-pagination li:last-child a,
+:host ::ng-deep .ngx-pagination li:first-child a,
+:host ::ng-deep .ngx-pagination .disabled,
+:host ::ng-deep .ngx-pagination .pagination-next a {
+  border-radius: 100vh !important;
+}
+
+/* Line clamp utilities if not available in your Tailwind config */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

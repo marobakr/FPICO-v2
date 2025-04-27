@@ -57,6 +57,10 @@ a:focus {
   border-radius: 100px;
   color: white;
   padding: 33px 35px;
+  &:hover {
+    background-color: #2b2b2b !important;
+    color: white !important;
+  }
 }
 
 .btn-pages:hover {

@@ -3,15 +3,6 @@
   cursor: pointer;
 }
 
-.card-overlay {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.card:hover .card-overlay {
-  opacity: 1;
-}
-
 .card-overlay h3 {
   z-index: 10;
 }

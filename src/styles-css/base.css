@@ -158,3 +158,39 @@ img {
   background-repeat: no-repeat;
   background-position: left 70%;
 }
+
+.line-clamp-2 {
+  display: -webkit-box;
+  line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: start !important;
+  line-height: 1.4; /* Adjust for better readability */
+  max-height: calc(1.4em * 2); /* Ensure it doesn't exceed two lines */
+}
+.line-clamp-1 {
+  display: -webkit-box;
+  line-clamp: 1; /* Limit text to 1 lines */
+  -webkit-line-clamp: 1; /* Limit text to 1 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center !important;
+  line-height: 2; /* Adjust for better readability */
+  max-height: calc(1.4em * 2); /* Ensure it doesn't exceed two lines */
+}
+
+.line-clamp-blogs-2 {
+  display: -webkit-box;
+  line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: start !important;
+  line-height: 1.4; /* Adjust for better readability */
+  min-height: 3.8em; /* Ensure it doesn't exceed two lines */
+  max-height: 3.8em; /* Ensure it doesn't exceed two lines */
+}

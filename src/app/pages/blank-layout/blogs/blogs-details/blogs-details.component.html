@@ -1,5 +1,5 @@
 @if (blogDetails) {
-<section class="text-capitalize my-5 relative z-1 blog-details">
+<section class="text-capitalize my-5 position-relative z-1 blog-details">
   <!-- video -->
   <div class="container text-white">
     <!-- Second Section -->
@@ -55,7 +55,9 @@
               </div>
             </div>
             <!-- section Text -->
-            <div class="col-12 flex justify-content-center align-items-center">
+            <div
+              class="col-12 d-flex justify-content-center align-items-center"
+            >
               <div class="content">
                 @if (isRTL) {
                 <div
@@ -93,9 +95,9 @@
               blog.id) {
               <div class="col-6 col-lg-12 cr">
                 <!-- [routerLink]="[ '/', languageService.selectedLanguage$ | async, 'blogs', 'blogs-details', isRTL ?
-                blog.ar_slug : blog.en_slug ]"> -->
+                  blog.ar_slug : blog.en_slug ]"> -->
                 <a
-                  class="text-white text-decoration-none flex justify-content-start align-items-end"
+                  class="text-white text-decoration-none d-flex justify-content-start align-items-end"
                   [routerLink]="[
                     '/',
                     languageService.selectedLanguage$ | async,
