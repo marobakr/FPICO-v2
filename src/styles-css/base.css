@@ -179,7 +179,7 @@ img {
   text-overflow: ellipsis;
   text-align: center !important;
   line-height: 2; /* Adjust for better readability */
-  max-height: calc(1.4em * 2); /* Ensure it doesn't exceed two lines */
+  max-height: 2; /* Ensure it doesn't exceed two lines */
 }
 
 .line-clamp-blogs-2 {
@@ -193,4 +193,9 @@ img {
   line-height: 1.4; /* Adjust for better readability */
   min-height: 3.8em; /* Ensure it doesn't exceed two lines */
   max-height: 3.8em; /* Ensure it doesn't exceed two lines */
+}
+
+/* 01-Edit By Marwan */
+figure {
+  margin: 0 0 1rem;
 }

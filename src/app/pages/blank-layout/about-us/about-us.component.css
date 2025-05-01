@@ -1,12 +1,9 @@
-
-
 .main-text {
-  //background-color: $third-color;
   border-radius: var(--border-radius);
   padding: 30px;
   padding-bottom: 35px;
-  //box-shadow: -10px 10px 0px $main-color;
-  background-image: url("/images/about-us-page/1.png"),    url("/images/about-us-page/2.png");
+  background-image: url("/images/about-us-page/1.png"),
+    url("/images/about-us-page/2.png");
   background-size: 99% 90%, 98% 85%;
   background-position: top right, bottom left;
   background-repeat: no-repeat;

@@ -7,37 +7,37 @@
   [ChairMessage]="allHomeData.chairMessage"
 />
 
-@defer (on viewport) {
+@defer (on idle) {
 <app-c-about-us [AboutData]="allHomeData.aboutData" [isRTL]="isRTL" />
 } @placeholder {
 <div
   class="min-h-[200px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
 ></div>
-} @defer (on viewport) {
+} @defer (on idle) {
 <app-d-our-services [Service]="allHomeData.services" [isRTL]="isRTL" />
 } @placeholder {
 <div
   class="min-h-[200px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
 ></div>
-} @defer (on viewport) {
+} @defer (on idle) {
 <app-e-about-us [Whyus]="allHomeData.whyus" [isRTL]="isRTL" />
 } @placeholder {
 <div
   class="min-h-[200px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
 ></div>
-} @defer (on viewport) {
+} @defer (on idle) {
 <app-f-our-clients [Client]="allHomeData.clients" [isRTL]="isRTL" />
 } @placeholder {
 <div
   class="min-h-[150px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
 ></div>
-} @defer (on viewport) {
+} @defer (on idle) {
 <app-g-our-projects [Project]="allHomeData.projects" [isRTL]="isRTL" />
 } @placeholder {
 <div
   class="min-h-[200px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
 ></div>
-} @defer (on viewport) {
+} @defer (on idle) {
 <app-k-our-partners [Partner]="allHomeData.partners" [isRTL]="isRTL" />
 } @placeholder {
 <div

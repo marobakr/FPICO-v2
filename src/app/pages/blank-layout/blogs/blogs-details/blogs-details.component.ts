@@ -1,5 +1,16 @@
-import { AsyncPipe, isPlatformBrowser, SlicePipe } from '@angular/common';
-import { Component, HostListener, inject, PLATFORM_ID } from '@angular/core';
+import {
+  AsyncPipe,
+  isPlatformBrowser,
+  NgStyle,
+  SlicePipe,
+} from '@angular/common';
+import {
+  Component,
+  HostListener,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import {
@@ -24,30 +35,25 @@ import { LanguageService } from '../../../../core/services/services/language.ser
     AsyncPipe,
     RemoveInlineStylesPipe,
     InsertAdPipe,
+    NgStyle,
   ],
   templateUrl: './blogs-details.component.html',
-  styleUrl: './blogs-details.component.scss',
+  styleUrl: './blogs-details.component.css',
 })
-export class BlogsDetailsComponent {
+export class BlogsDetailsComponent implements OnInit {
   isRTL: boolean = true;
-
   title = inject(Title);
-
   languageService = inject(LanguageService);
-
   private _PLATFORM_ID = inject(PLATFORM_ID);
-
   meta = inject(Meta);
-
   activatedRoute = inject(ActivatedRoute);
-
   route = inject(Router);
-
   translateService = inject(TranslateService);
-
   blogDetails!: IGetBlogById;
-
   processedContent: any[] = [];
+  isMainImageLoaded = false;
+  isRelatedImageLoaded: { [key: number]: boolean } = {};
+  isDesktop = true;
 
   ngOnInit(): void {
     this.getBlogDetails();
@@ -71,7 +77,7 @@ export class BlogsDetailsComponent {
   }
 
   handleMeta(blogDetails: IGetBlogById): void {
-    console.log(blogDetails);
+    console.log('blogDetails', blogDetails);
     if (blogDetails?.blog) {
       const blog = blogDetails.blog;
       const title = this.isRTL ? blog.ar_meta_title : blog.en_meta_title;
@@ -196,12 +202,27 @@ export class BlogsDetailsComponent {
 
   getBlogDetails(): void {
     this.activatedRoute.data.subscribe(({ blogDetails }) => {
+      // Reset loading states when new data is received
+      this.isMainImageLoaded = false;
+      this.isRelatedImageLoaded = {};
+
       this.handleMeta(blogDetails);
       this.blogDetails = blogDetails;
     });
   }
 
-  isDesktop = true;
+  onMainImageLoad() {
+    setTimeout(() => {
+      this.isMainImageLoaded = true;
+    }, 300);
+  }
+
+  onRelatedImageLoad(blogId: number) {
+    setTimeout(() => {
+      this.isRelatedImageLoaded[blogId] = true;
+    }, 300);
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.isDesktop = window.innerWidth > 992;

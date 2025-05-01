@@ -1,22 +1,38 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from "@angular/core";
-import { Meta, Title } from "@angular/platform-browser";
-import { ActivatedRoute } from "@angular/router";
-import { LangChangeEvent, TranslateModule, TranslateService } from "@ngx-translate/core";
-import { CarouselModule, OwlOptions } from "ngx-owl-carousel-o";
-import { Subscription } from "rxjs";
-import { IService } from "../../../core/interfaces/IServices";
-import { IServicesDetails } from "../../../core/interfaces/IServicesDetails";
-import { SafeHtmlPipe } from "../../../core/pipes/safe-html.pipe";
-import { DetailsService } from "../../../core/services/details.service";
-import { PagesHeaderComponent } from "../../../shared/components/pages-header/pages-header.component";
-import { HDownloadPdfSectionComponent } from "../home/h-download-pdf-section/h-download-pdf-section.component";
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import {
+  LangChangeEvent,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { Subscription } from 'rxjs';
+import { IService } from '../../../core/interfaces/IServices';
+import { IServicesDetails } from '../../../core/interfaces/IServicesDetails';
+import { SafeHtmlPipe } from '../../../core/pipes/safe-html.pipe';
+import { DetailsService } from '../../../core/services/details.service';
+import { PagesHeaderComponent } from '../../../shared/components/pages-header/pages-header.component';
+import { HDownloadPdfSectionComponent } from '../home/h-download-pdf-section/h-download-pdf-section.component';
 
 @Component({
-  selector: "app-services-details",
+  selector: 'app-services-details',
   standalone: true,
-  imports: [TranslateModule, HDownloadPdfSectionComponent, PagesHeaderComponent, SafeHtmlPipe, CarouselModule],
-  templateUrl: "./services-details.component.html",
-  styleUrl: "./services-details.component.scss",
+  imports: [
+    TranslateModule,
+    HDownloadPdfSectionComponent,
+    PagesHeaderComponent,
+    SafeHtmlPipe,
+    CarouselModule,
+  ],
+  templateUrl: './services-details.component.html',
+  styleUrl: './services-details.component.css',
 })
 export class ServicesDetailsComponent implements OnInit {
   isRTL: boolean = false;
@@ -26,18 +42,23 @@ export class ServicesDetailsComponent implements OnInit {
   detailsService = inject(DetailsService);
   _TranslateService = inject(TranslateService);
   Subscription!: Subscription;
-  selectedImage: string = "";
+  selectedImage: string = '';
 
   ngOnInit(): void {
-    this.Subscription = this._TranslateService.onLangChange.subscribe((params: LangChangeEvent) => {
-      if (params.lang === "ar" || this._TranslateService.currentLang === "ar") {
-        this.isRTL = true;
-      } else {
-        this.isRTL = false;
+    this.Subscription = this._TranslateService.onLangChange.subscribe(
+      (params: LangChangeEvent) => {
+        if (
+          params.lang === 'ar' ||
+          this._TranslateService.currentLang === 'ar'
+        ) {
+          this.isRTL = true;
+        } else {
+          this.isRTL = false;
+        }
+        this.handleMeta();
       }
-      this.handleMeta();
-    });
-    if (this._TranslateService.currentLang === "ar") {
+    );
+    if (this._TranslateService.currentLang === 'ar') {
       this.isRTL = true;
     } else {
       this.isRTL = false;
@@ -46,19 +67,19 @@ export class ServicesDetailsComponent implements OnInit {
   }
   currentProject!: IService;
   handleMeta() {
-    if (this._TranslateService.currentLang === "ar") {
+    if (this._TranslateService.currentLang === 'ar') {
       this.isRTL = true;
       this.customOptions = {
         rtl: true,
         ...this.customOptions,
-        navText: ["السابق", "التالي"],
+        navText: ['السابق', 'التالي'],
       };
     } else {
       this.isRTL = false;
       this.customOptions = {
         rtl: false,
         ...this.customOptions,
-        navText: ["Prev", "Next"],
+        navText: ['Prev', 'Next'],
       };
     }
     if (this.servicesDetails) {
@@ -66,22 +87,22 @@ export class ServicesDetailsComponent implements OnInit {
         this.customOptions = {
           rtl: true,
           ...this.customOptions,
-          navText: ["السابق", "التالي"],
+          navText: ['السابق', 'التالي'],
         };
         this.title.setTitle(this.servicesDetails.service.ar_meta_title);
         this.meta.updateTag({
-          name: "description",
-          content: this.servicesDetails.service.ar_meta_text || "",
+          name: 'description',
+          content: this.servicesDetails.service.ar_meta_text || '',
         });
       } else {
         this.customOptions = {
           rtl: false,
           ...this.customOptions,
-          navText: ["Prev", "Next"],
+          navText: ['Prev', 'Next'],
         };
         this.title.setTitle(this.servicesDetails.service.en_meta_text);
         this.meta.updateTag({
-          name: "description",
+          name: 'description',
           content: this.servicesDetails.service.en_meta_text,
         });
       }
@@ -98,7 +119,7 @@ export class ServicesDetailsComponent implements OnInit {
     dotsData: true,
     dotsSpeed: 700,
     navSpeed: 700,
-    navText: ["Prev", "Next"], // Customize the navigation text
+    navText: ['Prev', 'Next'], // Customize the navigation text
     margin: 10,
     items: 1,
     nav: true,
@@ -107,7 +128,7 @@ export class ServicesDetailsComponent implements OnInit {
   getCurrentProjectId(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (response) => {
-        const ID = parseInt(response?.get("id") || "") as number;
+        const ID = parseInt(response?.get('id') || '') as number;
         // this.getCurrentProject(ID);
         this.getServicesDetails(ID);
       },
@@ -132,7 +153,7 @@ export class ServicesDetailsComponent implements OnInit {
   }
 
   closeModal() {
-    this.selectedImage = "";
+    this.selectedImage = '';
   }
   groupedImages: any[][] = [];
   groupImages() {
@@ -146,14 +167,14 @@ export class ServicesDetailsComponent implements OnInit {
     }
   }
 
-  @ViewChild("videoElement") video!: ElementRef<HTMLVideoElement>;
+  @ViewChild('videoElement') video!: ElementRef<HTMLVideoElement>;
 
   ngAfterViewInit() {
     setTimeout(() => {
       if (this.video?.nativeElement) {
         const video = this.video.nativeElement;
         video.muted = true; // Ensure it's muted
-        video.play().catch((err) => console.warn("Autoplay blocked:", err));
+        video.play().catch((err) => console.warn('Autoplay blocked:', err));
       }
     }, 500);
   }
@@ -163,7 +184,7 @@ export class ServicesDetailsComponent implements OnInit {
       if (this.video?.nativeElement) {
         const video = this.video.nativeElement;
         video.muted = true; // Ensure it's muted
-        video.play().catch((err) => console.warn("Autoplay blocked:", err));
+        video.play().catch((err) => console.warn('Autoplay blocked:', err));
       }
     }, 500);
   }

@@ -1,22 +1,38 @@
-/* Custom base styles that aren't available in Tailwind */
-
 .image_border {
-  box-shadow: 0 0 0 8px var(--main-color) inset;
-  border-radius: 0.625rem;
+  box-shadow: 0 0 0 8px #e7bf8c inset; /* Replace with actual color if not using CSS variables */
+  border-radius: 10px;
 }
 
-/* Blog card hover effects */
-.blog-card:hover .blog-image {
+.image_border img {
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+}
+
+figure .main_image {
+  transform: scale(1.5);
+  transition: 0.5s all;
+}
+
+figure:hover .main_image {
   transform: scale(1);
 }
 
-.blog-image {
-  transform: scale(1.5);
-  transition: transform 0.5s ease;
+.card_text {
+  background-color: #303030;
 }
 
-.blog-card:hover .card-hidden-content {
+.card .card_hidden_content {
+  opacity: 0;
+  transition: 0.5s all;
+}
+
+.card:hover .card_hidden_content {
   opacity: 1;
+}
+
+.rotate_moreDetails_Button {
+  transform: rotate(180deg);
 }
 
 /* Pagination custom styles */
@@ -28,12 +44,12 @@
 }
 
 :host ::ng-deep .ngx-pagination .current {
-  background-color: var(--main-color) !important;
+  background-color: #e7bf8c !important;
   border-radius: 50%;
 }
 
 :host ::ng-deep .ngx-pagination a:hover:not(:first-child, :last-child) {
-  background-color: var(--main-color) !important;
+  background-color: #e7bf8c !important;
   border-radius: 50%;
   color: white !important;
 }

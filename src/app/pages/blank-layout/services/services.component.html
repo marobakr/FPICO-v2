@@ -1,10 +1,10 @@
 @if (allServicesData) {
-<section class="text-capitalize my-5">
-  <h1 class="d-none">FIPCO OUR SERVICES</h1>
-  <div class="container text-white">
+<section class="capitalize my-5">
+  <h1 class="hidden">FIPCO OUR SERVICES</h1>
+  <div class="container mx-auto text-white">
     <!-- section and title -->
-    <div class="row justify-content-center">
-      <div class="col-12 row align-items-center">
+    <div class="grid grid-cols-1 justify-items-center">
+      <div class="w-full grid items-center">
         <app-pages-header
           [title]="'Pages.services.title'"
           [title02]="'Pages.services.title02'"
@@ -14,11 +14,11 @@
       </div>
 
       <!-- Home Main Image -->
-      <div class="col-12">
-        <div class="my-5">
+      <div class="w-full">
+        <div class="my-9">
           <img
             loading="lazy"
-            class="w-100 banner-animation"
+            class="w-full banner-animation"
             src="/images/services/page/main_image.webp"
             alt="FPICO"
           />
@@ -27,30 +27,30 @@
     </div>
 
     <!-- Second Section -->
-    <div class="row">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
       <!-- section Text -->
-      <div class="col-md-7 flex justify-content-center align-items-center">
+      <div class="md:col-span-7 grid place-items-center">
         <div>
           <h3
-            class="text-lighter fs-15 lh-lg mb-3"
+            class="text-lighter !text-[15px] leading-loose mb-3"
             [innerHTML]="
               'Pages.services.second-section.first-text' | translate | safeHtml
             "
           ></h3>
-          <p class="text-lighter fs-15 lh-lg">
+          <p class="text-lighter !text-[15px] leading-loose">
             {{ "Pages.services.second-section.second-text" | translate }}
           </p>
         </div>
       </div>
 
       <!-- section Image -->
-      <div class="col-md-5">
+      <div class="md:col-span-5 my-2">
         <div>
           <figure class="image_border p-2">
             <img
               loading="lazy"
               src="/images/services/page/second_image.webp"
-              class="w-100"
+              class="w-full"
               alt="FPICO"
             />
           </figure>
@@ -58,33 +58,32 @@
       </div>
     </div>
 
-    <div class="row g-4 my-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-9">
       @for (slider of allServicesData.services; track slider.id) {
-      <div class="col-md-6 col-lg-3 rounded-2 mb-4">
-        <div class="h-100">
+      <div class="rounded-lg mb-4">
+        <div class="h-full">
           <figure
-            style="height: 250px"
-            class="images_carousel border-radius-10 card bg-transparent h-100"
+            class="h-[250px] card border-radius-10 images_carousel shadow-md rounded-lg overflow-hidden relative bg-transparent"
           >
-            <div #card_container class="overflow-hidden border-radius-10 h-100">
+            <div
+              #card_container
+              class="overflow-hidden border-radius-10 h-full"
+            >
               <img
                 #img
                 loading="lazy"
                 (load)="imageLoaded(card_container)"
-                class="w-100 h-100 rounded-2 main_image border-radius-10 object-fit-cover"
+                class="w-full h-full main_image rounded-lg object-cover transition-transform duration-300 hover:scale-110"
                 [src]="
                   'https://fpico.org/fipcoapi/service/' + slider.main_image
                 "
                 [alt]="slider.en_service_title"
               />
             </div>
-            <span
-              class="placeholder bg-opacity-100 absolute top-0 start-0 end-0 bottom-0"
-            ></span>
-            <figcaption class="card-img-overlay">
+            <span class="placeholder bg-opacity-100 absolute inset-0"></span>
+            <figcaption class="absolute inset-0 grid items-end justify-center">
               <span
-                style="width: 80%; font-size: 13px"
-                class="bg-white rounded-3 text-center absolute bottom-0 start-50 translate-middle-x px-3 py-2 fs-13 mb-3 fw-bold line-clamp-1"
+                class="bg-white text-black rounded-md text-center absolute bottom-0 left-1/2 -translate-x-1/2 px-3 py-2 text-[13px] mb-3 font-bold w-[80%]"
               >
                 @if (isRTL) {
                 {{ slider.ar_service_title }}
@@ -93,9 +92,9 @@
                 }
               </span>
               <div
-                class="card_hidden_content w-100 absolute bottom-0 start-0 p-3 card_text border-radius-10 text-capitalize"
+                class="card_hidden_content w-full absolute bottom-0 left-0 p-3 card_text rounded-lg capitalize"
               >
-                <p class="text-white mb-1 line-clamp-1">
+                <p class="text-white mb-2">
                   @if (isRTL) {
                   {{ slider.ar_service_title }}
                   } @else {
@@ -104,12 +103,12 @@
                 </p>
                 @if (isRTL) {
                 <p
-                  class="text-lighter fs-13 line-clamp-2"
+                  class="text-lighter text-[13px] line-clamp-2 mb-4"
                   [innerHTML]="slider.ar_service_text | safeHtml"
                 ></p>
                 }@else {
                 <p
-                  class="text-lighter fs-13 line-clamp-2"
+                  class="text-lighter text-[13px] line-clamp-2 mb-4"
                   [innerHTML]="slider.en_service_text | safeHtml"
                 ></p>
                 }
@@ -121,9 +120,9 @@
                     slider.id
                   ]"
                   href="#"
-                  class="btn btn-main w-100 flex justify-content-between align-items-center text-decoration-none"
+                  class="btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none"
                 >
-                  {{ "More Details" | translate }}
+                  <span>{{ "More Details" | translate }}</span>
                   <img
                     loading="lazy"
                     [class]="{ rotate_moreDetails_Button: isRTL }"
@@ -146,5 +145,4 @@
     </div>
   </div>
 </section>
-
 }

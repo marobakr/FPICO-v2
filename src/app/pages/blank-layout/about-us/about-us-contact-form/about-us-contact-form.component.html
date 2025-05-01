@@ -1,9 +1,11 @@
-<div class="row g-4 align-items-center">
-  <div class="col-lg-6 order-1 order-lg-0">
+<div class="flex flex-wrap justify-between gap-3">
+  <div class="w-full md:w-[49%] order-2 md:order-1">
     <div>
       <div class="p-3">
-        <h2 class="h3">{{ "Page.about-us.form.title" | translate }}</h2>
-        <p class="text-lighter">
+        <h2 class="!text-[28px] mb-4">
+          {{ "Page.about-us.form.title" | translate }}
+        </h2>
+        <p class="text-lighter mb-4">
           {{ "Page.about-us.form.desc" | translate }}
         </p>
       </div>
@@ -12,13 +14,14 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6 order-0 order-lg-1">
-    <div>
+  <div class="w-full md:w-[49%] order-1 md:order-2">
+    <div class="w-full h-full">
       <img
         loading="lazy"
-        class="w-100 h-100 object-fit-cover"
+        class="w-full h-full object-fit-cover"
         src="/images/about-us-page/about-us-form-image.png"
-        alt="FPICO" />
+        alt="FPICO"
+      />
     </div>
   </div>
 </div>

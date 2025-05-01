@@ -1,4 +1,4 @@
-<div class="p-3">
+<div class="p-4">
   <div class="mb-3">
     <p class="my-1 font-bold title__fonts__normal text-2xl">
       {{ "Pages.contact-us-page.form.title" | translate }}
@@ -51,7 +51,7 @@
         </div>
       </div>
       <!-- input field: userEmail  -->
-      <div class="w-full">
+      <div class="w-full mt-4">
         <div>
           <div class="text-right">
             @if (messagesForm.get('email')?.getError("required") &&
@@ -88,7 +88,7 @@
         </div>
       </div>
       <!-- input field: userPhone  -->
-      <div class="w-full">
+      <div class="w-full mt-4">
         <div>
           <div class="text-right">
             @if (messagesForm.get('phone')?.getError("required") &&
@@ -111,9 +111,9 @@
             #phone
             [cssClass]="
               startValidation && messagesForm.get('phone')?.errors
-                ? 'form-control h-100 py-3 is-invalid ' +
+                ? 'form-control h-full py-3 is-invalid ' +
                   (isRTL ? 'text-end' : 'text-start')
-                : 'form-control h-100 py-3 ' +
+                : 'form-control h-full py-3 ' +
                   (isRTL ? 'text-end' : 'text-start')
             "
             [preferredCountries]="[CountryISO.SaudiArabia]"
@@ -135,7 +135,7 @@
         </div>
       </div>
       <!-- input field: userServices  -->
-      <div class="w-full">
+      <div class="w-full mt-4">
         <div>
           <div class="text-right">
             @if (messagesForm.get('service_id')?.getError("required") &&
@@ -178,7 +178,7 @@
         </div>
       </div>
       <!-- input field: userMessage  -->
-      <div class="w-full">
+      <div class="w-full mt-4">
         <div>
           <div class="text-right">
             @if (messagesForm.get('message')?.getError("required") &&
@@ -213,9 +213,10 @@
         </div>
       </div>
       <!-- submit button  -->
-      <div class="w-full text-center md:text-left">
+      <div class="w-full mt-4 text-center md:text-left">
+        <!-- btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none -->
         <button
-          class="btn-main btn px-4 title__fonts font-normal rounded-sm py-3 uppercase text-sm w-full"
+          class="btn-main btn py-4 px-6 title__fonts font-normal rounded-sm uppercase w-full"
         >
           {{ "Pages.contact-us-page.form.button" | translate }}
         </button>
