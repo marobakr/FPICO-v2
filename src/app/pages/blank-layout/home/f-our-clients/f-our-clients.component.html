@@ -1,8 +1,12 @@
-<section class="capitalize mx-auto my-4 md:my-20">
+<section
+  class="capitalize mx-auto my-4 md:my-20"
+  aria-labelledby="clients-title"
+>
   <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
       <div class="md:col-span-4">
         <header
+          id="clients-title"
           [class]="{ 'text-lg-end': isRTL(), 'text-lg-start': !isRTL() }"
           class=""
           [innerHTML]="'home.clients.text' | translate | safeHtml"
@@ -18,10 +22,15 @@
               class="image_container w-full h-full flex justify-center items-center bg-white p-2 rounded-[50px]"
             >
               <img
-                loading="lazy"
-                [src]="'https://fpico.org/fipcoapi/Partner/' + item.main_image"
+                [ngSrc]="
+                  'https://fpico.org/fipcoapi/Partner/' + item.main_image
+                "
+                [alt]="isRTL() ? item.ar_partner_title : item.en_partner_title"
+                [width]="imageSize()"
+                [height]="imageSize()"
                 class="block mb-3 object-contain w-full"
-                alt="FPICO"
+                loading="lazy"
+                priority="false"
               />
             </div>
           </div>

@@ -28,7 +28,9 @@
           href="#"
           class="cursor-pointer"
           [attr.aria-label]="
-            isRTL() ? project.ar_service_title : project.en_service_title
+            isRTL()
+              ? 'View details of ' + project.ar_service_title
+              : 'View details of ' + project.en_service_title
           "
         >
           <div class="project-card relative bg-transparent rounded-xl">
