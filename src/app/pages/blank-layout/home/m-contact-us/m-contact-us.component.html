@@ -4,7 +4,7 @@
       <div class="capitalize">
         <h2
           [innerHTML]="'home.contactus' | translate | safeHtml"
-          class="text-6xl text-white font-light mt-20"
+          class="!text-[80px] text-white font-light mt-20"
         >
           <!-- Ready To
           <span class="block"> Build Together </span> -->
@@ -16,7 +16,7 @@
               languageService.selectedLanguage$ | async,
               'contact-us'
             ]"
-            class="capitalize btn-third mx-2 mb-3"
+            class="cursor-pointer capitalize btn-third mx-2 mb-3"
           >
             {{ "home.contact-us.btn01" | translate }}
             <!-- build a project with us -->

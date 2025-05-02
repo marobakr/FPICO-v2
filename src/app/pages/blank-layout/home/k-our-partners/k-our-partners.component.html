@@ -1,20 +1,13 @@
-<section class="capitalize my-20">
+<section class="capitalize my-20" aria-labelledby="partners-title">
   <div class="container mx-auto">
     <div class="flex flex-wrap">
       <div class="w-full md:w-4/12 px-1 mb-4 md:mb-0">
         <header
+          id="partners-title"
           [class]="{ 'lg:text-right': isRTL(), 'lg:text-left': !isRTL() }"
           [innerHTML]="'home.partners.text' | translate | safeHtml"
           class="text-center"
-        >
-          <!-- <h2 class="text-white">
-            <span class="text-primary">our</span> partners
-          </h2>
-          <p class="text-lighter">
-            our partners who contributed to the distinguished success we have
-            achieved and who trusted us
-          </p> -->
-        </header>
+        ></header>
       </div>
       <div
         [class]="{
@@ -30,7 +23,9 @@
             loading="lazy"
             [src]="'https://fpico.org/fipcoapi/Partner/' + item.main_image"
             class="block w-full mx-auto mb-3 md:mb-0"
-            alt="FPICO"
+            [alt]="isRTL() ? item.ar_partner_title : item.en_partner_title"
+            width="200"
+            height="100"
           />
         </div>
         }

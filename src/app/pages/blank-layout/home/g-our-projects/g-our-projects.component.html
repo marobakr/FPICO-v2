@@ -1,7 +1,8 @@
-<section class="capitalize">
+<section class="capitalize" aria-labelledby="projects-title">
   <div class="container mx-auto text-center">
     <header class="mb-4">
       <h2
+        id="projects-title"
         class="text-white"
         [innerHTML]="
           'Pages.Home.our-projects-section.title' | translate | safeHtml
@@ -25,16 +26,24 @@
             project.id
           ]"
           href="#"
+          class="cursor-pointer"
+          [attr.aria-label]="
+            isRTL() ? project.ar_service_title : project.en_service_title
+          "
         >
           <div class="project-card relative bg-transparent rounded-xl">
             <img
               loading="lazy"
               class="rounded-[10px] w-full h-[250px]"
               [src]="'https://fpico.org/fipcoapi/service/' + project.main_image"
-              [alt]="'FPICO ' + project.en_service_title"
+              [alt]="
+                isRTL() ? project.ar_service_title : project.en_service_title
+              "
+              width="400"
+              height="250"
             />
             <div
-              class="project-overlay absolute inset-0 w-full h-full flex justify-center items-center bg-black/50"
+              class="project-overlay absolute inset-0 w-full h-full flex justify-center items-center bg-black/50 transition-opacity duration-300"
             >
               @if (isRTL()) {
               <h3 class="text-white">
@@ -53,25 +62,3 @@
     </div>
   </div>
 </section>
-<!--
-.card {
-  figcaption {
-    opacity: 0;
-    transition: 0.5s all;
-  }
-  &:hover {
-    figcaption {
-      opacity: 1;
-    }
-  }
-}
-.card .card-img-overlay {
-  opacity: 0;
-  transition: 0.5s all;
-  cursor: pointer;
-}
-.card:hover .card-img-overlay {
-  opacity: 1;
-}
-
- -->

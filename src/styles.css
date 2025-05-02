@@ -15,6 +15,15 @@
 @import "./styles-css/typography.css";
 @import "./styles-css/utilities.css";
 
+/* Custom container configuration for large screens */
+@layer components {
+  @media (min-width: 96rem) {
+    .container {
+      max-width: 85rem !important;
+    }
+  }
+}
+
 :root,
 html[dir="ltr"] {
   font-family: "Inter", Arial, sans-serif !important;

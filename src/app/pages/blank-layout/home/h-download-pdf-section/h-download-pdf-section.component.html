@@ -1,53 +1,62 @@
-<section>
+<section aria-labelledby="download-title">
   <div class="container mx-auto">
     <div class="relative">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-0">
         <div>
           <img
             loading="lazy"
-            class="w-full h-[500px]"
+            class="w-full h-[500px] object-cover"
             src="/images/DownloadSection/1.webp"
-            alt="FPICO"
+            alt="FPICO project showcase 1"
+            width="300"
+            height="500"
           />
         </div>
         <div class="hidden md:block">
           <img
             loading="lazy"
-            class="w-full h-[500px]"
+            class="w-full h-[500px] object-cover"
             src="/images/DownloadSection/2.webp"
-            alt="FPICO"
+            alt="FPICO project showcase 2"
+            width="300"
+            height="500"
           />
         </div>
         <div class="hidden md:block">
           <img
             loading="lazy"
-            class="w-full h-[500px]"
+            class="w-full h-[500px] object-cover"
             src="/images/DownloadSection/3.webp"
-            alt="FPICO"
+            alt="FPICO project showcase 3"
+            width="300"
+            height="500"
           />
         </div>
         <div class="hidden md:block">
           <img
             loading="lazy"
-            class="w-full h-[500px]"
+            class="w-full h-[500px] object-cover"
             src="/images/DownloadSection/4.webp"
-            alt="FPICO"
+            alt="FPICO project showcase 4"
+            width="300"
+            height="500"
           />
         </div>
       </div>
-      <span class="absolute inset-0 bg-black/50"></span>
-      <!-- :🔻🔻🔻🔻🔻 -->
+      <span class="absolute inset-0 bg-black/50" aria-hidden="true"></span>
       <div
         class="absolute inset-0 flex justify-center items-center text-center capitalize"
       >
         <div>
           <h2
+            id="download-title"
             class="text-white text-[48px] font-extrabold mb-2"
             [innerHTML]="
               'Pages.Home.download-pdf-section.title' | translate | safeHtml
             "
           ></h2>
           <div
+            class="see-more-pic"
             [innerHTML]="
               'Pages.Home.download-pdf-section.see-more-pic'
                 | translate
@@ -58,16 +67,20 @@
             loading="lazy"
             class="block my-2"
             src="/images/DownloadSection/arrow.svg"
-            alt="FPICO"
+            alt="Download arrow"
+            width="24"
+            height="24"
           />
           <div>
             <a
-              class="bg-main text-black rounded px-12 py-4 btn-animation custom-btn"
+              class="bg-main text-black rounded px-12 py-4 btn-animation custom-btn cursor-pointer"
               href="https://drive.google.com/file/d/1oH8rIe8oZq1aGJm01nndjpOjVyFiAGZz/view"
               target="_blank"
               download
               rel="noopener noreferrer"
-              aria-label="Download PDF"
+              [attr.aria-label]="
+                'Pages.Home.download-pdf-section.click-btn' | translate
+              "
             >
               {{ "Pages.Home.download-pdf-section.click-btn" | translate }}
             </a>
