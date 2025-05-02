@@ -1,24 +1,37 @@
-import { Component, inject } from "@angular/core";
-import { RouterLink } from "@angular/router";
-import { LangChangeEvent, TranslateModule, TranslateService } from "@ngx-translate/core";
-import { SafeHtmlPipe } from "../../../core/pipes/safe-html.pipe";
-import { OurServicesContentService } from "../../../core/services/our-services-content.service";
-import { PagesHeaderComponent } from "../../../shared/components/pages-header/pages-header.component";
-import { HDownloadPdfSectionComponent } from "../home/h-download-pdf-section/h-download-pdf-section.component";
-import { IServices } from "../../../core/interfaces/IServicesData";
-import { ServicesDataService } from "../../../core/services/services/services-data.service";
-import { AsyncPipe } from "@angular/common";
-import { LanguageService } from "../../../core/services/services/language.service";
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import {
+  LangChangeEvent,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
+import { IServices } from '../../../core/interfaces/IServicesData';
+import { SafeHtmlPipe } from '../../../core/pipes/safe-html.pipe';
+import { OurServicesContentService } from '../../../core/services/our-services-content.service';
+import { LanguageService } from '../../../core/services/services/language.service';
+import { ServicesDataService } from '../../../core/services/services/services-data.service';
+import { PagesHeaderComponent } from '../../../shared/components/pages-header/pages-header.component';
+import { HDownloadPdfSectionComponent } from '../home/h-download-pdf-section/h-download-pdf-section.component';
 
 @Component({
-  selector: "app-services",
+  selector: 'app-services',
   standalone: true,
-  imports: [HDownloadPdfSectionComponent, TranslateModule, RouterLink, SafeHtmlPipe, PagesHeaderComponent, AsyncPipe],
-  templateUrl: "./services.component.html",
-  styleUrl: "./services.component.scss",
+  imports: [
+    HDownloadPdfSectionComponent,
+    TranslateModule,
+    RouterLink,
+    SafeHtmlPipe,
+    PagesHeaderComponent,
+    AsyncPipe,
+  ],
+  templateUrl: './services.component.html',
+  styleUrl: './services.component.css',
 })
 export class ServicesComponent {
-  servicesContent: OurServicesContentService = inject(OurServicesContentService);
+  servicesContent: OurServicesContentService = inject(
+    OurServicesContentService
+  );
   languageService = inject(LanguageService);
   _TranslateService: TranslateService = inject(TranslateService);
 
@@ -30,13 +43,13 @@ export class ServicesComponent {
 
   ngOnInit(): void {
     this._TranslateService.onLangChange.subscribe((params: LangChangeEvent) => {
-      if (params.lang === "ar") {
+      if (params.lang === 'ar') {
         this.isRTL = true;
       } else {
         this.isRTL = false;
       }
     });
-    if (this._TranslateService.currentLang === "ar") {
+    if (this._TranslateService.currentLang === 'ar') {
       this.isRTL = true;
     } else {
       this.isRTL = false;

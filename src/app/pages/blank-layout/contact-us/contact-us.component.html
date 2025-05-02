@@ -1,26 +1,26 @@
 <section class="text-capitalize my-5">
-  <div class="container text-white">
-    <div class="row justify-content-center">
-      <div class="col-12 row">
-        <div class="col-lg-6">
+  <div class="container mx-auto text-white">
+    <div class="flex flex-wrap justify-center">
+      <div class="w-full flex flex-wrap">
+        <div class="w-full lg:w-1/2">
           <div>
-            <header class="flex align-items-center gap-2">
+            <header class="flex items-center gap-2">
               <img
                 loading="lazy"
                 width="130px"
                 height="130px"
-                src="/images/DownloadSection/logo-light.png"
+                src="/images/DownloadSection/logo-light.webp"
                 alt="FPICO"
               />
               <h2>
-                <span class="text-main" style="font-size: 45px">{{
+                <span class="text-main text-[45px]">{{
                   "Pages.contact-us-page.title" | translate
                 }}</span>
-                <span class="flex align-items-center gap-2">
-                  <span style="font-size: 45px">{{
+                <span class="flex items-center gap-2">
+                  <span class="text-[45px]">{{
                     "Pages.contact-us-page.title02" | translate
                   }}</span>
-                  <div class="fs-13 text-lighter">
+                  <div class="text-[13px] text-lighter">
                     <span class="block">
                       {{ "Pages.contact-us-page.title-desc01" | translate }}
                     </span>
@@ -33,10 +33,10 @@
             </header>
           </div>
         </div>
-        <div class="col-lg-6 relative flex justify-content-center">
-          <div>
+        <div class="w-full lg:w-1/2 relative flex justify-center">
+          <div class="flex-grow-1">
             <div
-              class="p-4 py-5 bg-third top-0 start-50 form_Wrapper rounded-2 bg-fourth"
+              class="p-5 py-12 bg-third top-0 start-50 form_Wrapper rounded-xl"
             >
               <div class="form_container">
                 <app-contact-us-form></app-contact-us-form>
@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="w-full">
         <div class="my-5">
           <img
             loading="lazy"
@@ -56,20 +56,20 @@
         </div>
       </div>
     </div>
-    <div class="my-5">
-      <h3 class="text-lighter display-6 fw-semibold">
+    <div class="my-7">
+      <h3 class="text-lighter text-[40px] font-semibold leading-none mb-4">
         {{ "Pages.contact-us-page.map-section.title03" | translate }}
         <span class="text-white">{{
           "Pages.contact-us-page.map-section.title02" | translate
         }}</span>
         {{ "Pages.contact-us-page.map-section.title" | translate }}
       </h3>
-      <div class="flex align-items-center gap-2">
-        <h4 class="text-white display-6 fw-semibold">
+      <div class="flex items-center gap-2">
+        <h4 class="text-white text-[40px] font-semibold">
           {{ "Pages.contact-us-page.map-section.title04" | translate }}
         </h4>
         <button
-          class="btn btn-main"
+          class="cursor-pointer btn-main inline-flex items-center justify-center px-6 py-2 font-medium text-white"
           [routerLink]="[
             '/',
             languageService.selectedLanguage$ | async,
