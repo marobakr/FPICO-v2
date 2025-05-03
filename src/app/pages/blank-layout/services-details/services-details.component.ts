@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -30,6 +31,7 @@ import { HDownloadPdfSectionComponent } from '../home/h-download-pdf-section/h-d
     PagesHeaderComponent,
     SafeHtmlPipe,
     CarouselModule,
+    NgClass,
   ],
   templateUrl: './services-details.component.html',
   styleUrl: './services-details.component.css',
@@ -160,6 +162,7 @@ export class ServicesDetailsComponent implements OnInit {
     if (this.servicesDetails?.service?.images) {
       const images = this.servicesDetails.service.images;
       this.groupedImages = [];
+      console.log('ssssssss', this.groupedImages);
 
       for (let i = 0; i < images.length; i += 5) {
         this.groupedImages.push(images.slice(i, i + 5));

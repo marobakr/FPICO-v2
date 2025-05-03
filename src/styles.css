@@ -22,6 +22,12 @@
       max-width: 85rem !important;
     }
   }
+  @media (max-width: 700px) {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }
 
 :root,

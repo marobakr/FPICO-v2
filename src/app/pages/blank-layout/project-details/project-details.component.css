@@ -86,3 +86,7 @@
 :host ::ng-deep .owl-next:hover {
   background-color: var(--main-color);
 }
+
+:host ::ng-deep p {
+  margin-bottom: 16px;
+}

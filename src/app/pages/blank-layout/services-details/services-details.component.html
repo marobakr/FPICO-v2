@@ -1,7 +1,7 @@
 @if (servicesDetails) {
-<section class="capitalize mx-auto my-5 relative z-10 overflow-hidden">
+<section class="capitalize my-5 relative z-10 overflow-hidden">
   <!-- video -->
-  <div class="absolute inset-x-0 top-0 bg-dark text-center bg-opacity-75">
+  <div class="absolute inset-x-0 top-0 bg-black/75 text-center">
     <!-- <video
           class="object-fit-cover relative z-n1 h-100"
           src="/images/details/NVideo.mp4"
@@ -17,16 +17,17 @@
       muted
       playsinline
       preload="metadata"
-      class="object-cover relative -z-10 max-h-[174px] w-full"
+      class="object-cover relative -z-10 h-[174px]"
     >
       <source src="/images/1.mp4" type="video/mp4" />
     </video>
   </div>
-  <div class="container mx-auto text-white">
+  <div class="container mx-auto px-4 text-white">
     <!-- section and title -->
-    <div class="grid grid-cols-1 justify-items-center mb-12">
-      <div class="w-full grid items-center">
+    <div class="flex flex-col justify-center mb-8">
+      <div class="w-full flex items-center flex-grow-1">
         <app-pages-header
+          class="w-full"
           [title]="'Pages.services.title'"
           [title02]="'Pages.services.title02'"
           [desc01]="'Pages.services.title-desc01'"
@@ -122,7 +123,7 @@
                         </div>
                       </div>
                       } @if (imageGroup[3]) {
-                      <div class="h-[275px] md:col-span-1 flex-grow">
+                      <div class="h-[275px] flex-grow">
                         <div
                           (click)="
                             openModal(
@@ -166,7 +167,7 @@
                         </div>
                       </div>
                       } @if (imageGroup[1]) {
-                      <div class="h-[275px] md:col-span-1 flex-grow-1">
+                      <div class="h-[275px] md:col-span-2 flex-grow-1">
                         <div
                           (click)="
                             openModal(
@@ -197,7 +198,7 @@
                       }"
                   >
                     <div
-                      class="imageContainer-hover"
+                      class="imageContainer-hover h-full"
                       (click)="
                         openModal(
                           'https://fpico.org/fipcoapi/service/' +
@@ -208,8 +209,7 @@
                       @if (imageGroup[0]) {
                       <img
                         loading="lazy"
-                        height="524px"
-                        class="w-full object-cover rounded-[10px]"
+                        class="w-full object-cover h-full rounded-[10px]"
                         [src]="
                           'https://fpico.org/fipcoapi/service/' +
                           imageGroup[0].main_image

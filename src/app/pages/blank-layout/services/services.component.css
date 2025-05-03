@@ -32,7 +32,6 @@ figure:hover .main_image {
 .card:hover .card_hidden_content {
   opacity: 1;
 }
-
 .rotate_moreDetails_Button {
   transform: rotate(180deg);
 }

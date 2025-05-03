@@ -1,8 +1,8 @@
 <div
-  class="w-full my-5 lg:my-0 flex flex-1 flex-col lg:flex-row items-center relative main"
+  class="w-full flex items-center justify-end md:justify-between gap-y-5 flex-wrap relative lg:h-[162px] mb-5"
 >
   <!-- Header -->
-  <div class="w-full lg:w-2/3">
+  <div>
     <div>
       <header class="flex items-center gap-2">
         <img
@@ -16,9 +16,9 @@
 
         <h2>
           <div class="flex items-center gap-2">
-            <span class="text-main" style="font-size: 45px">{{
-              title | translate
-            }}</span>
+            <span class="text-main text-[45px]">
+              {{ title | translate }}
+            </span>
 
             @if (!order) {
             <div class="text-sm text-lighter font-medium mt-2">
@@ -32,7 +32,9 @@
             }
           </div>
           <span class="flex items-center gap-2">
-            <span style="font-size: 45px">{{ title02 | translate }}</span>
+            <span class="text-[45px]">
+              {{ title02 | translate }}
+            </span>
             @if (order) {
             <div class="text-sm text-lighter mt-2">
               <span class="block">
@@ -50,11 +52,11 @@
   </div>
 
   <!-- button -->
-  <div class="w-full lg:w-1/3 flex justify-end">
+  <div class="flex justify-end">
     <div>
       @if ( !isProjects) {
       <a
-        class="btn-pages no-underline"
+        class="btn-pages no-underline my-5"
         [routerLink]="[
           '/',
           languageService.selectedLanguage$ | async,
@@ -66,7 +68,7 @@
       </a>
       } @else {
       <a
-        class="btn-pages no-underline"
+        class="btn-pages no-underline my-5"
         [routerLink]="[
           '/',
           languageService.selectedLanguage$ | async,
@@ -74,7 +76,7 @@
         ]"
         href="#"
       >
-        {{ "Pages.Projects.main-btn" | translate }}
+        {{ "Pages.projects.main-btn" | translate }}
       </a>
 
       }

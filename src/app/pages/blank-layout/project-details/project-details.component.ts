@@ -162,6 +162,7 @@ export class ProjectDetailsComponent implements OnInit {
     if (this.projectDetails?.project?.images) {
       const images = this.projectDetails.project.images;
       this.groupedImages = [];
+      console.log('this.groupedImages', this.groupedImages);
 
       for (let i = 0; i < images.length; i += 5) {
         this.groupedImages.push(images.slice(i, i + 5));

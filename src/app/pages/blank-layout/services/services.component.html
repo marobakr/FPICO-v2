@@ -1,6 +1,6 @@
 @if (allServicesData) {
-<section class="capitalize my-5">
-  <h1 class="hidden">FIPCO OUR SERVICES</h1>
+<section class="capitalize my-5" role="main" aria-label="FIPCO Services">
+  <h1 class="sr-only">FIPCO Services - Comprehensive Industrial Solutions</h1>
   <div class="container mx-auto text-white">
     <!-- section and title -->
     <div class="grid grid-cols-1 justify-items-center">
@@ -20,7 +20,10 @@
             loading="lazy"
             class="w-full banner-animation"
             src="/images/services/page/main_image.webp"
-            alt="FPICO"
+            [alt]="'FIPCO Main Services Banner'"
+            [width]="1200"
+            [height]="600"
+            priority
           />
         </div>
       </div>
@@ -31,12 +34,12 @@
       <!-- section Text -->
       <div class="md:col-span-7 grid place-items-center">
         <div>
-          <h3
+          <h2
             class="text-lighter !text-[15px] leading-loose mb-3"
             [innerHTML]="
               'Pages.services.second-section.first-text' | translate | safeHtml
             "
-          ></h3>
+          ></h2>
           <p class="text-lighter !text-[15px] leading-loose">
             {{ "Pages.services.second-section.second-text" | translate }}
           </p>
@@ -51,16 +54,22 @@
               loading="lazy"
               src="/images/services/page/second_image.webp"
               class="w-full"
-              alt="FPICO"
+              [alt]="'FIPCO Services Overview'"
+              [width]="600"
+              [height]="400"
             />
           </figure>
         </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-9">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-9"
+      role="list"
+      aria-label="FIPCO Services List"
+    >
       @for (slider of allServicesData.services; track slider.id) {
-      <div class="rounded-lg mb-4">
+      <div class="rounded-lg mb-4" role="listitem">
         <div class="h-full">
           <figure
             class="h-[250px] card border-radius-10 images_carousel shadow-md rounded-lg overflow-hidden relative bg-transparent"
@@ -71,9 +80,8 @@
             >
               <img
                 #img
-                loading="lazy"
                 (load)="imageLoaded(card_container)"
-                class="w-full h-full main_image rounded-lg object-cover transition-transform duration-300 hover:scale-110"
+                class="w-full h-full rounded-lg main_image border-radius-10 object-fit-cover"
                 [src]="
                   'https://fpico.org/fipcoapi/service/' + slider.main_image
                 "
@@ -94,21 +102,23 @@
               <div
                 class="card_hidden_content w-full absolute bottom-0 left-0 p-3 card_text rounded-lg capitalize"
               >
-                <p class="text-white mb-2">
+                <h3
+                  class="text-white !text-center !line-clamp-2 !text-[16px] mb-4"
+                >
                   @if (isRTL) {
                   {{ slider.ar_service_title }}
                   } @else {
                   {{ slider.en_service_title }}
                   }
-                </p>
+                </h3>
                 @if (isRTL) {
                 <p
-                  class="text-lighter text-[13px] line-clamp-2 mb-4"
+                  class="!items-center !line-clamp-2 text-lighter text-[13px] mb-4"
                   [innerHTML]="slider.ar_service_text | safeHtml"
                 ></p>
                 }@else {
                 <p
-                  class="text-lighter text-[13px] line-clamp-2 mb-4"
+                  class="line-clamp-1 text-lighter text-[13px] mb-4"
                   [innerHTML]="slider.en_service_text | safeHtml"
                 ></p>
                 }
@@ -121,14 +131,19 @@
                   ]"
                   href="#"
                   class="btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none"
+                  [attr.aria-label]="
+                    'More details about ' +
+                    (isRTL ? slider.ar_service_title : slider.en_service_title)
+                  "
                 >
                   <span>{{ "More Details" | translate }}</span>
                   <img
                     loading="lazy"
                     [class]="{ rotate_moreDetails_Button: isRTL }"
-                    src="/images/services/arrow-right.webp"
-                    width="25px"
-                    alt="button arrow right"
+                    ngSrc="/images/services/arrow-right.webp"
+                    [width]="25"
+                    [height]="25"
+                    [alt]="'Arrow icon'"
                   />
                 </a>
               </div>
