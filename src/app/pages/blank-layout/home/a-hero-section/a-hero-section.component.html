@@ -62,6 +62,12 @@
       <!-- Rush Logo - Lazy loaded as it's not critical -->
       <img
         src="/images/rush.webp"
+        srcset="
+          /images/rush-300.webp 300w,
+          /images/rush-600.webp 600w,
+          /images/rush.webp     900w
+        "
+        sizes="(max-width: 768px) 300px, (max-width: 1200px) 600px, 900px"
         width="300"
         height="120"
         class="absolute z-50 w-[300px] h-[120px] left-1/2 top-0 -translate-x-1/2"
@@ -72,10 +78,16 @@
       <!-- Main Hero Image - Priority loaded as it's the LCP element -->
       <img
         src="/images/hero/Kingdom-Centre_1200x500.webp"
+        srcset="
+          /images/hero/Kingdom-Centre_600x250.webp   600w,
+          /images/hero/Kingdom-Centre_900x375.webp   900w,
+          /images/hero/Kingdom-Centre_1200x500.webp 1200w
+        "
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
         width="1200"
         height="500"
-        class="mx-auto w-full h-[500px]"
-        priority
+        class="mx-auto w-full h-[500px] object-cover"
+        fetchpriority="high"
         alt="FPICO Kingdom Centre project showcase"
       />
 
