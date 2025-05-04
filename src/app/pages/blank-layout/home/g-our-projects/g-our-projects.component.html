@@ -37,7 +37,10 @@
             <img
               loading="lazy"
               class="rounded-[10px] w-full h-[250px]"
-              [src]="'https://fpico.org/fipcoapi/service/' + project.main_image"
+              [src]="
+                'http://cooo0k0oo8o88o0sgg4cso84.92.112.192.93.sslip.io/service/' +
+                project.main_image
+              "
               [alt]="
                 isRTL() ? project.ar_service_title : project.en_service_title
               "

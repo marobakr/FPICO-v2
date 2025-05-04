@@ -28,7 +28,6 @@ import { LanguageService } from '../../../../core/services/services/language.ser
 })
 export class DOurServicesComponent {
   isRTL = input(false);
-
   Service = input.required<Service[]>();
   languageService = inject(LanguageService);
   _OurServicesContentService = inject(OurServicesContentService);

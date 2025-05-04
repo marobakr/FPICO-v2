@@ -21,7 +21,10 @@
         <div class="w-8/12 md:w-3/12">
           <img
             loading="lazy"
-            [src]="'https://fpico.org/fipcoapi/Partner/' + item.main_image"
+            [src]="
+              'http://cooo0k0oo8o88o0sgg4cso84.92.112.192.93.sslip.io/Partner/' +
+              item.main_image
+            "
             class="block w-full mx-auto mb-3 md:mb-0"
             [alt]="isRTL() ? item.ar_partner_title : item.en_partner_title"
             width="200"
