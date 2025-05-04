@@ -1,4 +1,4 @@
-import { AsyncPipe, NgOptimizedImage, SlicePipe } from '@angular/common';
+import { AsyncPipe, SlicePipe } from '@angular/common';
 import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -27,7 +27,6 @@ import { PagesHeaderComponent } from '../../../../shared/components/pages-header
     AsyncPipe,
     SlicePipe,
     TranslateModule,
-    NgOptimizedImage,
   ],
   templateUrl: './blogs-all.component.html',
   styleUrl: './blogs-all.component.css',
