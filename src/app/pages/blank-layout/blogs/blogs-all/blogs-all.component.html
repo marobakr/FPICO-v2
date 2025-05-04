@@ -15,105 +15,111 @@
       </div>
     </div>
 
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 my-11 mx-auto lg:justify-items-center"
-    >
-      <div class="lg:col-span-3 w-full flex flex-wrap justify-center gap-4">
-        @for (blog of allBlogsData.rows.data|slice: 0: (isDesktop ?9:8) |
-        paginate: { id:'some_id', itemsPerPage: 9, currentPage:
-        currentPage,totalItems: totalItems }; track blog.id) {
-        <div
-          class="rounded-md mb-4 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]"
-        >
-          <div class="h-full">
-            <figure
-              style="min-height: 300px"
-              class="card images_carousel h-full relative overflow-hidden rounded-lg bg-transparent"
+    <div class="w-full flex flex-wrap justify-center gap-4">
+      @for (blog of allBlogsData.rows.data|slice: 0: (isDesktop ?9:8) |
+      paginate: { id:'some_id', itemsPerPage: 9, currentPage:
+      currentPage,totalItems: totalItems }; track blog.id) {
+      <div
+        class="rounded-md mb-4 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]"
+      >
+        <div class="h-full">
+          <figure
+            style="min-height: 300px"
+            class="card images_carousel h-full relative overflow-hidden rounded-lg bg-transparent"
+          >
+            <div
+              #card_container
+              class="overflow-hidden rounded-lg h-full w-full"
             >
-              <div #card_container class="overflow-hidden rounded-lg h-full">
-                <img
-                  #img
-                  loading="lazy"
-                  (load)="imageLoaded(card_container)"
-                  class="w-full h-full rounded-md main_image object-cover blog-image"
-                  [src]="'https://fpico.org/fipcoapi/blogs/' + blog.main_image"
-                  [alt]="blog.en_blog_title"
-                />
-              </div>
-              <span
-                class="placeholder block absolute h-full inset-0 bg-opacity-100"
-              ></span>
-              <figcaption class="absolute inset-0">
-                <p
-                  style="width: 80%"
-                  class="bg-white text-black rounded-lg absolute bottom-0 left-1/2 transform -translate-x-1/2 px-3 py-2 mb-3 text-[16px] font-bold line-clamp-blogs-2"
-                >
+              <img
+                #img
+                loading="lazy"
+                (load)="imageLoaded(card_container)"
+                class="w-full h-full rounded-md main_image object-cover blog-image transition-opacity duration-300"
+                [src]="'https://fpico.org/fipcoapi/blogs/' + blog.main_image"
+                [alt]="blog.en_blog_title"
+                width="400"
+                height="300"
+              />
+            </div>
+            <div class="skeleton-loader absolute h-full w-full inset-0">
+              <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+              <div
+                class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-12 bg-gray-300 rounded-lg animate-pulse"
+              ></div>
+            </div>
+            <figcaption class="absolute inset-0">
+              <p
+                style="width: 80%"
+                class="bg-white text-black rounded-lg absolute bottom-0 left-1/2 transform -translate-x-1/2 px-3 py-2 mb-3 text-[16px] font-bold line-clamp-blogs-2"
+              >
+                @if (isRTL) {
+                {{ blog.ar_blog_title }}
+                } @else {
+                {{ blog.en_blog_title }}
+                }
+              </p>
+              <div
+                class="card_hidden_content w-full absolute bottom-0 left-0 p-4 rounded-lg bg-[#303030] text-capitalize opacity-0 transition-opacity duration-500"
+              >
+                <p class="text-white mb-1 text-[16px] font-bold line-clamp-2">
                   @if (isRTL) {
                   {{ blog.ar_blog_title }}
                   } @else {
                   {{ blog.en_blog_title }}
                   }
                 </p>
-                <div
-                  class="card_hidden_content w-full absolute bottom-0 left-0 p-4 rounded-lg bg-[#303030] text-capitalize opacity-0 transition-opacity duration-500"
-                >
-                  <p class="text-white mb-1 text-[16px] font-bold line-clamp-2">
-                    @if (isRTL) {
-                    {{ blog.ar_blog_title }}
-                    } @else {
-                    {{ blog.en_blog_title }}
-                    }
-                  </p>
 
-                  @if(isRTL) {
-                  <a
-                    [routerLink]="[
-                      '/',
-                      languageService.selectedLanguage$ | async,
-                      'blogs',
-                      blog.ar_slug
-                    ]"
-                    href="#"
-                    class="btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none"
-                  >
-                    {{ "More Details" | translate }}
-                    <img
-                      loading="lazy"
-                      [class]="{ 'rotate-180': isRTL }"
-                      src="/images/services/arrow-right.webp"
-                      width="25px"
-                      alt="button arrow right"
-                    />
-                  </a>
-                  } @else {
-                  <a
-                    [routerLink]="[
-                      '/',
-                      languageService.selectedLanguage$ | async,
-                      'blogs',
-                      'blogs-details',
-                      blog.en_slug
-                    ]"
-                    href="#"
-                    class="btn-main w-full flex justify-between items-center no-underline"
-                  >
-                    {{ "More Details" | translate }}
-                    <img
-                      loading="lazy"
-                      [class]="{ 'rotate-180': isRTL }"
-                      src="/images/services/arrow-right.png"
-                      width="25px"
-                      alt="button arrow right"
-                    />
-                  </a>
-                  }
-                </div>
-              </figcaption>
-            </figure>
-          </div>
+                @if(isRTL) {
+                <a
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'blogs',
+                    blog.ar_slug
+                  ]"
+                  href="#"
+                  class="btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none"
+                >
+                  {{ "More Details" | translate }}
+                  <img
+                    loading="lazy"
+                    [class]="{ 'rotate-180': isRTL }"
+                    src="/images/services/arrow-right.webp"
+                    width="25px"
+                    height="25px"
+                    alt="button arrow right"
+                  />
+                </a>
+                } @else {
+                <a
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'blogs',
+                    'blogs-details',
+                    blog.en_slug
+                  ]"
+                  href="#"
+                  class="btn-main w-full flex justify-between items-center no-underline"
+                >
+                  {{ "More Details" | translate }}
+                  <img
+                    loading="lazy"
+                    [class]="{ 'rotate-180': isRTL }"
+                    src="/images/services/arrow-right.png"
+                    width="25px"
+                    height="25px"
+                    alt="button arrow right"
+                  />
+                </a>
+                }
+              </div>
+            </figcaption>
+          </figure>
         </div>
-        }
       </div>
+      }
     </div>
   </div>
 </section>

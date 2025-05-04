@@ -1,4 +1,15 @@
-@if (servicesDetails) {
+@if (!servicesDetails) {
+<div class="min-h-screen flex items-center justify-center">
+  <div class="animate-pulse space-y-4 w-full max-w-4xl mx-auto">
+    <div class="h-8 bg-gray-200 rounded w-3/4"></div>
+    <div class="h-4 bg-gray-200 rounded w-1/2"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="h-64 bg-gray-200 rounded"></div>
+      <div class="h-64 bg-gray-200 rounded"></div>
+    </div>
+  </div>
+</div>
+} @if (servicesDetails) {
 <section class="capitalize my-5 relative z-10 overflow-hidden">
   <!-- video -->
   <div class="absolute inset-x-0 top-0 bg-black/75 text-center">
@@ -17,7 +28,10 @@
       muted
       playsinline
       preload="metadata"
-      class="object-cover relative -z-10 h-[174px]"
+      class="object-cover relative -z-10 h-[174px] w-full"
+      width="1920"
+      height="174"
+      style="aspect-ratio: 11/1"
     >
       <source src="/images/1.mp4" type="video/mp4" />
     </video>
@@ -82,7 +96,9 @@
                   'service/' +
                   servicesDetails.service.main_image
                 "
-                class="w-full h-[500px] object-cover"
+                class="w-full aspect-[4/3] object-cover"
+                width="800"
+                height="600"
                 alt="FPICO"
               />
             </figure>
@@ -115,12 +131,14 @@
                         >
                           <img
                             loading="lazy"
-                            class="w-full h-full object-cover rounded-[10px]"
+                            class="w-full h-full object-cover rounded-[10px] aspect-[4/3]"
                             [src]="
                               WEB_SITE_BASE_URL_IMAGE +
                               'service/' +
                               imageGroup[4].main_image
                             "
+                            width="400"
+                            height="300"
                             alt="FPICO"
                           />
                         </div>
@@ -139,12 +157,14 @@
                         >
                           <img
                             loading="lazy"
-                            class="w-full h-full object-cover rounded-[10px]"
+                            class="w-full h-full object-cover rounded-[10px] aspect-[4/3]"
                             [src]="
                               WEB_SITE_BASE_URL_IMAGE +
                               'service/' +
                               imageGroup[3].main_image
                             "
+                            width="400"
+                            height="300"
                             alt="FPICO"
                           />
                         </div>
@@ -163,12 +183,14 @@
                         >
                           <img
                             loading="lazy"
-                            class="w-full h-full object-cover rounded-[10px]"
+                            class="w-full h-full object-cover rounded-[10px] aspect-[4/3]"
                             [src]="
                               WEB_SITE_BASE_URL_IMAGE +
                               'service/' +
                               imageGroup[2].main_image
                             "
+                            width="400"
+                            height="300"
                             alt="FPICO"
                           />
                         </div>
@@ -187,12 +209,14 @@
                         >
                           <img
                             loading="lazy"
-                            class="w-full h-full object-cover rounded-[10px]"
+                            class="w-full h-full object-cover rounded-[10px] aspect-[4/3]"
                             [src]="
                               WEB_SITE_BASE_URL_IMAGE +
                               'service/' +
                               imageGroup[1].main_image
                             "
+                            width="400"
+                            height="300"
                             alt="FPICO"
                           />
                         </div>
@@ -219,12 +243,14 @@
                       @if (imageGroup[0]) {
                       <img
                         loading="lazy"
-                        class="w-full object-cover h-full rounded-[10px]"
+                        class="w-full object-cover h-full rounded-[10px] aspect-[4/3]"
                         [src]="
                           WEB_SITE_BASE_URL_IMAGE +
                           'service/' +
                           imageGroup[0].main_image
                         "
+                        width="400"
+                        height="300"
                         alt="FPICO"
                       />
                       }
@@ -258,7 +284,9 @@
     <img
       loading="lazy"
       [src]="selectedImage"
-      class="w-full h-auto"
+      class="w-full h-auto max-h-[90vh] object-contain"
+      width="1200"
+      height="800"
       role="presentation"
     />
   </div>
