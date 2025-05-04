@@ -59,26 +59,34 @@
       </h3>
     </div>
     <div class="relative pt-24 text-center">
+      <!-- Rush Logo - Lazy loaded as it's not critical -->
       <img
         src="/images/rush.webp"
+        width="300"
+        height="120"
         class="absolute z-50 w-[300px] h-[120px] left-1/2 top-0 -translate-x-1/2"
         alt="FPICO rush logo"
         loading="lazy"
-        priority
       />
+
+      <!-- Main Hero Image - Priority loaded as it's the LCP element -->
       <img
-        src="/images/hero/Kingdom Centre_1200x500.webp"
+        src="/images/hero/Kingdom-Centre_1200x500.webp"
+        width="1200"
+        height="500"
         class="mx-auto w-full h-[500px]"
-        loading="lazy"
         priority
         alt="FPICO Kingdom Centre project showcase"
       />
+
+      <!-- Background Logo - Lazy loaded as it's decorative -->
       <img
         src="/images/hero/Projects_Logo 1.webp"
-        class="absolute w-[795px] h-[242px] -bottom-[70%] -left-[115px] -z-10 hero_image"
+        width="795"
+        height="242"
+        class="absolute -bottom-[70%] -left-[115px] -z-10 hero_image"
         alt="FPICO projects logo"
         loading="lazy"
-        priority
         role="presentation"
       />
     </div>
