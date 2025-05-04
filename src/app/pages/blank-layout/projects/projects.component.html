@@ -87,7 +87,7 @@
                   loading="lazy"
                   class="w-full h-full rounded-lg object-cover project-image"
                   [src]="
-                    'https://fpico.org/fipcoapi/service/' + project.main_image
+                    WEB_SITE_BASE_URL_IMAGE + 'service/' + project.main_image
                   "
                   [alt]="
                     isRTL ? project.ar_service_title : project.en_service_title

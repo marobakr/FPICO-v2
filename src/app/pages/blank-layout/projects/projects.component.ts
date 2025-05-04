@@ -7,6 +7,7 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import { WEB_SITE_BASE_URL_IMAGE } from '../../../core/constants/WEB_SITE_BASE_URL';
 import { IProjects } from '../../../core/interfaces/IProjectsData';
 import { SafeHtmlPipe } from '../../../core/pipes/safe-html.pipe';
 import { ProjectsService } from '../../../core/services/projects.service';
@@ -16,7 +17,6 @@ import { PagesHeaderComponent } from '../../../shared/components/pages-header/pa
 import { ContactUsMapComponent } from '../contact-us/contact-us-map/contact-us-map.component';
 import { HDownloadPdfSectionComponent } from '../home/h-download-pdf-section/h-download-pdf-section.component';
 import { AboutBannerSectionComponent } from './about-banner-section/about-banner-section.component';
-
 @Component({
   selector: 'app-projects',
   standalone: true,
@@ -39,7 +39,7 @@ export class ProjectsComponent {
   languageService = inject(LanguageService);
   projectsDataService = inject(ProjectsDataService);
   _TranslateService = inject(TranslateService);
-
+  WEB_SITE_BASE_URL_IMAGE = WEB_SITE_BASE_URL_IMAGE;
   isRTL: boolean = false;
 
   Subscription!: Subscription;
