@@ -4,30 +4,37 @@
       {{ "Pages.contact-us-page.form.title" | translate }}
     </p>
   </div>
-  <form [formGroup]="messagesForm" (ngSubmit)="onSubmit()">
+  <form
+    [formGroup]="messagesForm"
+    (ngSubmit)="onSubmit()"
+    aria-label="Contact Us Form"
+  >
     <div class="grid grid-cols-1 gap-3">
       <!-- input field: full_name  -->
       <div class="w-full">
         <div>
+          <label for="name" class="sr-only">
+            {{ isRTL ? "الاسم بالكامل" : "Full Name" }}
+          </label>
           <div class="text-right">
             @if (messagesForm.get('full_name')?.getError("required") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.required" | translate
               }}*</small
             >
             } @if (messagesForm.get('full_name')?.getError("pattern") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.name" | translate
               }}*</small
             >
             } @if (messagesForm.get('full_name')?.getError("minlength") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.name02" | translate
               }}*</small
             >
@@ -46,6 +53,12 @@
               id="name"
               [placeholder]="isRTL ? 'الاسم بالكامل' : 'full name'"
               formControlName="full_name"
+              aria-required="true"
+              [attr.aria-invalid]="
+                startValidation &&
+                (messagesForm.get('full_name')?.getError('required') ||
+                  messagesForm.get('full_name')?.getError('pattern'))
+              "
             />
           </div>
         </div>
@@ -53,18 +66,21 @@
       <!-- input field: userEmail  -->
       <div class="w-full mt-4">
         <div>
+          <label for="email" class="sr-only">
+            {{ isRTL ? "البريد الالكترونى" : "Email" }}
+          </label>
           <div class="text-right">
             @if (messagesForm.get('email')?.getError("required") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.required" | translate
               }}*</small
             >
             } @if (messagesForm.get('email')?.getError("pattern") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.email" | translate
               }}*</small
             >
@@ -83,6 +99,12 @@
               id="email"
               formControlName="email"
               [placeholder]="isRTL ? 'البريد الالكترونى' : 'e-mail'"
+              aria-required="true"
+              [attr.aria-invalid]="
+                startValidation &&
+                (messagesForm.get('email')?.getError('required') ||
+                  messagesForm.get('email')?.getError('pattern'))
+              "
             />
           </div>
         </div>
@@ -90,18 +112,21 @@
       <!-- input field: userPhone  -->
       <div class="w-full mt-4">
         <div>
+          <label for="phone" class="sr-only">
+            {{ isRTL ? "رقم الهاتف" : "Phone Number" }}
+          </label>
           <div class="text-right">
             @if (messagesForm.get('phone')?.getError("required") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.required" | translate
               }}*</small
             >
             } @if (messagesForm.get('phone')?.errors && startValidation &&
             phone.value?.length || 0 > 0) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.phone" | translate
               }}*</small
             >
@@ -131,17 +156,24 @@
             [phoneValidation]="true"
             name="phone"
             formControlName="phone"
+            aria-required="true"
+            [attr.aria-invalid]="
+              startValidation && messagesForm.get('phone')?.errors
+            "
           ></ngx-intl-tel-input>
         </div>
       </div>
       <!-- input field: userServices  -->
       <div class="w-full mt-4">
         <div>
+          <label for="services" class="sr-only">
+            {{ isRTL ? "الخدمة" : "Service" }}
+          </label>
           <div class="text-right">
             @if (messagesForm.get('service_id')?.getError("required") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.required" | translate
               }}*</small
             >
@@ -159,6 +191,11 @@
               class="form-select w-full"
               name="services"
               id="services"
+              aria-required="true"
+              [attr.aria-invalid]="
+                startValidation &&
+                messagesForm.get('service_id')?.getError('required')
+              "
             >
               <option value="" selected disabled>
                 {{ isRTL ? "الخدمة" : "service" }}
@@ -180,18 +217,21 @@
       <!-- input field: userMessage  -->
       <div class="w-full mt-4">
         <div>
+          <label for="message" class="sr-only">
+            {{ isRTL ? "الرسالة" : "Message" }}
+          </label>
           <div class="text-right">
             @if (messagesForm.get('message')?.getError("required") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.required" | translate
               }}*</small
             >
             } @if (messagesForm.get('message')?.getError("minlength") &&
             startValidation) {
-            <small class="text-red-500 italic"
-              >{{
+            <small class="text-red-500 italic" role="alert">
+              {{
                 "Pages.contact-us-page.form.validation.message" | translate
               }}*</small
             >
@@ -208,20 +248,26 @@
               [placeholder]="isRTL ? 'اكتب رسالتك...' : 'message...'"
               id="message"
               formControlName="message"
+              aria-required="true"
+              [attr.aria-invalid]="
+                startValidation &&
+                messagesForm.get('message')?.getError('required')
+              "
             ></textarea>
           </div>
         </div>
       </div>
       <!-- submit button  -->
       <div class="w-full mt-4 text-center md:text-left">
-        <!-- btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none -->
         <button
+          type="submit"
           class="cursor-pointer btn-main btn py-4 px-6 title__fonts font-normal rounded-sm uppercase w-full"
+          [attr.aria-busy]="isSubmitting"
         >
           {{ "Pages.contact-us-page.form.button" | translate }}
         </button>
         @if (successMessage) {
-        <p class="mt-2 text-green-500 text-center">
+        <p class="mt-2 text-green-500 text-center" role="status">
           {{ "successMessage" | translate }}
         </p>
         }

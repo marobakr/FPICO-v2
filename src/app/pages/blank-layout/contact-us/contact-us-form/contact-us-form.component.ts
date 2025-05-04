@@ -41,6 +41,7 @@ export class ContactUsFormComponent {
   PhoneNumberFormat = PhoneNumberFormat;
   isRTL: boolean = false;
   successMessage: boolean = false;
+  isSubmitting: boolean = false;
 
   _Router = inject(Router);
   _PLATFORM_ID = inject(PLATFORM_ID);
@@ -84,17 +85,22 @@ export class ContactUsFormComponent {
       phone: this.messagesForm.value['phone'].e164Number,
     };
     if (this.messagesForm.valid) {
+      this.isSubmitting = true;
       this.contactUsService.sendUserData(USER_DATA).subscribe({
         next: (response) => {
           this.messagesForm.reset();
           this.successMessage = true;
           this.messagesForm.get('service_id')?.setValue('');
+          this.isSubmitting = false;
         },
-        error: (error) => {},
+        error: (error) => {
+          this.isSubmitting = false;
+        },
       });
       this.messagesForm.reset();
       this.startValidation = false;
     } else {
+      this.isSubmitting = false;
     }
   }
 
