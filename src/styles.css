@@ -16,6 +16,7 @@
 @import "./styles-css/utilities.css";
 
 /* Custom container configuration for large screens */
+
 @layer components {
   @media (min-width: 96rem) {
     .container {
