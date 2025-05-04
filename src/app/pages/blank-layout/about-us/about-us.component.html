@@ -21,7 +21,7 @@
 
       <!--Home Main Image-->
       <div class="w-full">
-        <div class="my-12 relative images_parent">
+        <div class="my-12 relative images_parent aspect-[12/5]">
           <img
             src="/images/rush.webp"
             srcset="
@@ -36,15 +36,23 @@
             alt="FPICO rush logo"
             fetchpriority="high"
             loading="eager"
+            style="
+              content-visibility: auto;
+              contain-intrinsic-size: 300px 120px;
+            "
           />
           <img
-            class="w-full banner-animation"
+            class="w-full h-full object-cover banner-animation"
             src="/images/hero/Kingdom_Centre_1200x500.webp"
             alt="Kingdom Centre project by FPICO"
             width="1200"
             height="500"
             fetchpriority="high"
             loading="eager"
+            style="
+              content-visibility: auto;
+              contain-intrinsic-size: 1200px 500px;
+            "
           />
           <div class="main-text translate-middle-y w-11/12 ml-auto">
             <h2 class="inline !text-[16px] mr-1">

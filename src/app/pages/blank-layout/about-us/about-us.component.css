@@ -11,6 +11,7 @@
   -moz-border-radius: var(--border-radius);
   -ms-border-radius: var(--border-radius);
   -o-border-radius: var(--border-radius);
+  contain: layout paint;
 }
 .w-hero-fast {
   width: 300px;
@@ -21,7 +22,38 @@
   left: 50%;
   top: 0;
   transform: translateX(-50%);
+  contain: layout paint;
 }
 .images_parent {
   padding-top: 6rem;
+  contain: layout paint;
+  position: relative;
+}
+
+.banner-animation {
+  contain: layout paint;
+  will-change: transform;
+}
+
+/* Prevent layout shifts during image loading */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: auto;
+}
+
+/* Ensure proper aspect ratio maintenance */
+.aspect-ratio-container {
+  position: relative;
+  width: 100%;
+  padding-top: 41.67%; /* 5:12 aspect ratio */
+  contain: layout paint;
+}
+
+.aspect-ratio-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

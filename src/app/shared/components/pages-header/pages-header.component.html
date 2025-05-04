@@ -1,85 +1,72 @@
-<div
+<header
   class="w-full flex items-center justify-end md:justify-between gap-y-5 flex-wrap relative lg:h-[162px] mb-5"
 >
-  <!-- Header -->
-  <div>
-    <div>
-      <header class="flex items-center gap-2">
-        <img
-          loading="lazy"
-          class="transform-logo-animation"
-          width="130px"
-          height="130px"
-          src="/images/DownloadSection/logo-light.webp"
-          alt="FPICO"
-        />
+  <!-- Logo and Title Section -->
+  <div class="flex items-center gap-4">
+    <img
+      loading="eager"
+      fetchpriority="high"
+      class="transform-logo-animation w-[130px] h-[130px] object-contain"
+      width="130"
+      height="130"
+      src="/images/DownloadSection/logo-light.webp"
+      alt="FPICO"
+      decoding="async"
+    />
 
-        <h2>
-          <div class="flex items-center gap-2">
-            <span class="text-main text-[45px]">
-              {{ title | translate }}
-            </span>
+    <div class="flex flex-col">
+      <h1 class="text-main text-[25px] lg:text-[45px] font-bold">
+        {{ title | translate }}
+      </h1>
 
-            @if (!order) {
-            <div class="text-sm text-lighter font-medium mt-2">
-              <span class="block">
-                {{ desc01 | translate }}
-              </span>
-              <span class="block">
-                {{ desc02 | translate }}
-              </span>
-            </div>
-            }
-          </div>
-          <span class="flex items-center gap-2">
-            <span class="text-[45px]">
-              {{ title02 | translate }}
-            </span>
-            @if (order) {
-            <div class="text-sm text-lighter mt-2">
-              <span class="block">
-                {{ desc01 | translate }}
-              </span>
-              <span class="block">
-                {{ desc02 | translate }}
-              </span>
-            </div>
-            }
-          </span>
-        </h2>
-      </header>
-    </div>
-  </div>
+      @if (!order) {
+      <div class="text-sm text-lighter font-medium mt-2">
+        <p>{{ desc01 | translate }}</p>
+        <p>{{ desc02 | translate }}</p>
+      </div>
+      }
 
-  <!-- button -->
-  <div class="flex justify-end">
-    <div>
-      @if ( !isProjects) {
-      <a
-        class="btn-pages no-underline my-5"
-        [routerLink]="[
-          '/',
-          languageService.selectedLanguage$ | async,
-          'services'
-        ]"
-        href="#"
-      >
-        {{ "Pages.projects.main-btn" | translate }}
-      </a>
-      } @else {
-      <a
-        class="btn-pages no-underline my-5"
-        [routerLink]="[
-          '/',
-          languageService.selectedLanguage$ | async,
-          'projects'
-        ]"
-        href="#"
-      >
-        {{ "Pages.projects.main-btn" | translate }}
-      </a>
+      <h2 class="text-[25px] lg:text-[45px] font-bold">
+        {{ title02 | translate }}
+      </h2>
 
+      @if (order) {
+      <div class="text-sm text-lighter mt-2">
+        <p>{{ desc01 | translate }}</p>
+        <p>{{ desc02 | translate }}</p>
+      </div>
       }
     </div>
   </div>
-</div>
+
+  <!-- Navigation Button -->
+  <nav class="flex justify-end">
+    @if (!isProjects) {
+    <a
+      class="btn-pages p-5 lg:py-[33px] lg:px-[35px] no-underline my-5 inline-block"
+      [routerLink]="[
+        '/',
+        languageService.selectedLanguage$ | async,
+        'services'
+      ]"
+      role="button"
+      [attr.aria-label]="'Pages.projects.main-btn' | translate"
+    >
+      {{ "Pages.projects.main-btn" | translate }}
+    </a>
+    } @else {
+    <a
+      class="btn-pages p-5 lg:p-[35px] no-underline my-5 inline-block"
+      [routerLink]="[
+        '/',
+        languageService.selectedLanguage$ | async,
+        'projects'
+      ]"
+      role="button"
+      [attr.aria-label]="'Pages.projects.main-btn' | translate"
+    >
+      {{ "Pages.projects.main-btn" | translate }}
+    </a>
+    }
+  </nav>
+</header>
