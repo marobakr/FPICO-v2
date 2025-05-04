@@ -23,11 +23,17 @@
       <div class="w-full">
         <div class="my-12 relative images_parent">
           <img
-            class="w-hero-fast"
-            src="/images/rush.png"
-            alt="FPICO company logo"
+            src="/images/rush.webp"
+            srcset="
+              /images/rush-300.webp 300w,
+              /images/rush-600.webp 600w,
+              /images/rush.webp     900w
+            "
+            sizes="(max-width: 768px) 300px, (max-width: 1200px) 600px, 900px"
             width="300"
             height="120"
+            class="absolute z-50 w-[300px] h-[120px] left-1/2 top-0 -translate-x-1/2"
+            alt="FPICO rush logo"
             loading="lazy"
           />
           <img
