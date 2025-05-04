@@ -6,6 +6,7 @@ import {
   TranslateModule,
   TranslateService,
 } from '@ngx-translate/core';
+import { WEB_SITE_BASE_URL_IMAGE } from '../../../core/constants/WEB_SITE_BASE_URL';
 import { IServices } from '../../../core/interfaces/IServicesData';
 import { SafeHtmlPipe } from '../../../core/pipes/safe-html.pipe';
 import { OurServicesContentService } from '../../../core/services/our-services-content.service';
@@ -13,7 +14,6 @@ import { LanguageService } from '../../../core/services/services/language.servic
 import { ServicesDataService } from '../../../core/services/services/services-data.service';
 import { PagesHeaderComponent } from '../../../shared/components/pages-header/pages-header.component';
 import { HDownloadPdfSectionComponent } from '../home/h-download-pdf-section/h-download-pdf-section.component';
-
 @Component({
   selector: 'app-services',
   standalone: true,
@@ -32,6 +32,7 @@ export class ServicesComponent {
   servicesContent: OurServicesContentService = inject(
     OurServicesContentService
   );
+  WEB_SITE_BASE_URL_IMAGE = WEB_SITE_BASE_URL_IMAGE;
   languageService = inject(LanguageService);
   _TranslateService: TranslateService = inject(TranslateService);
 

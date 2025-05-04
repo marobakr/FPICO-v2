@@ -82,9 +82,7 @@
                 #img
                 (load)="imageLoaded(card_container)"
                 class="w-full h-full rounded-lg main_image border-radius-10 object-fit-cover"
-                [src]="
-                  'https://fpico.org/fipcoapi/service/' + slider.main_image
-                "
+                [src]="WEB_SITE_BASE_URL_IMAGE + 'service/' + slider.main_image"
                 [alt]="slider.en_service_title"
               />
             </div>
@@ -111,17 +109,19 @@
                   {{ slider.en_service_title }}
                   }
                 </h3>
-                @if (isRTL) {
-                <p
-                  class="!items-center !line-clamp-2 text-lighter text-[13px] mb-4"
-                  [innerHTML]="slider.ar_service_text | safeHtml"
-                ></p>
-                }@else {
-                <p
-                  class="line-clamp-1 text-lighter text-[13px] mb-4"
-                  [innerHTML]="slider.en_service_text | safeHtml"
-                ></p>
-                }
+                <div class="service-text-container">
+                  @if (isRTL) {
+                  <p
+                    class="!items-center !line-clamp-2 text-lighter text-[13px] mb-4"
+                    [innerHTML]="slider.ar_service_text | safeHtml"
+                  ></p>
+                  }@else {
+                  <p
+                    class="line-clamp-1 text-lighter text-[13px] mb-4"
+                    [innerHTML]="slider.en_service_text | safeHtml"
+                  ></p>
+                  }
+                </div>
                 <a
                   [routerLink]="[
                     '/',
