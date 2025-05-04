@@ -1,4 +1,3 @@
-import { IMAGE_CONFIG, provideNetlifyLoader } from '@angular/common';
 import {
   provideHttpClient,
   withFetch,
@@ -53,13 +52,5 @@ export const appConfig: ApplicationConfig = {
         retryInterceptor,
       ])
     ),
-    {
-      provide: IMAGE_CONFIG,
-      useValue: {
-        disableImageSizeWarning: true,
-        disableImageLazyLoadWarning: true,
-      },
-    },
-    provideNetlifyLoader('http://localhost:43665/.netlify/images'),
   ],
 };

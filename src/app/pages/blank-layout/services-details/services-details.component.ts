@@ -15,13 +15,13 @@ import {
 } from '@ngx-translate/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { Subscription } from 'rxjs';
+import { WEB_SITE_BASE_URL_IMAGE } from '../../../core/constants/WEB_SITE_BASE_URL';
 import { IService } from '../../../core/interfaces/IServices';
 import { IServicesDetails } from '../../../core/interfaces/IServicesDetails';
 import { SafeHtmlPipe } from '../../../core/pipes/safe-html.pipe';
 import { DetailsService } from '../../../core/services/details.service';
 import { PagesHeaderComponent } from '../../../shared/components/pages-header/pages-header.component';
 import { HDownloadPdfSectionComponent } from '../home/h-download-pdf-section/h-download-pdf-section.component';
-
 @Component({
   selector: 'app-services-details',
   standalone: true,
@@ -46,6 +46,7 @@ export class ServicesDetailsComponent implements OnInit {
   Subscription!: Subscription;
   selectedImage: string = '';
 
+  WEB_SITE_BASE_URL_IMAGE = WEB_SITE_BASE_URL_IMAGE;
   ngOnInit(): void {
     this.Subscription = this._TranslateService.onLangChange.subscribe(
       (params: LangChangeEvent) => {

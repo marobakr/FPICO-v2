@@ -22,10 +22,7 @@
               class="image_container w-full h-full flex justify-center items-center bg-white p-2 rounded-[50px]"
             >
               <img
-                [ngSrc]="
-                  'http://cooo0k0oo8o88o0sgg4cso84.92.112.192.93.sslip.io/Partner/' +
-                  item.main_image
-                "
+                [ngSrc]="WEB_SITE_BASE_URL_IMAGE + 'Partner/' + item.main_image"
                 [alt]="isRTL() ? item.ar_partner_title : item.en_partner_title"
                 [width]="imageSize()"
                 [height]="imageSize()"

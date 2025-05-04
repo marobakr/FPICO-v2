@@ -2,6 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgOptimizedImage } from '@angular/common';
 import { Component, inject, input, signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { WEB_SITE_BASE_URL_IMAGE } from '../../../../core/constants/WEB_SITE_BASE_URL';
 import { Client } from '../../../../core/interfaces/IAboutData';
 import { SafeHtmlPipe } from '../../../../core/pipes/safe-html.pipe';
 
@@ -15,7 +16,7 @@ import { SafeHtmlPipe } from '../../../../core/pipes/safe-html.pipe';
 export class FOurClientsComponent {
   isRTL = input(false);
   Client = input.required<Client[]>();
-
+  WEB_SITE_BASE_URL_IMAGE = WEB_SITE_BASE_URL_IMAGE;
   breakpointObserver = inject(BreakpointObserver);
   imageSize = signal(96); // Default size for mobile
 
