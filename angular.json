@@ -22,7 +22,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/robots.txt"
             ],
             "styles": [
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
@@ -87,6 +88,7 @@
             "assets": [
               {
                 "glob": "**/*",
+
                 "input": "public"
               }
             ],
