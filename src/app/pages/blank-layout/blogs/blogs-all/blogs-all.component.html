@@ -24,12 +24,11 @@
       >
         <div class="h-full">
           <figure
-            style="min-height: 300px"
             class="card images_carousel h-full relative overflow-hidden rounded-lg bg-transparent"
           >
             <div
               #card_container
-              class="overflow-hidden rounded-lg h-full w-full"
+              class="overflow-hidden rounded-lg h-full w-full aspect-[4/3]"
             >
               <img
                 #img
@@ -40,6 +39,7 @@
                 [alt]="blog.en_blog_title"
                 width="400"
                 height="300"
+                fetchpriority="low"
               />
             </div>
             <div class="skeleton-loader absolute h-full w-full inset-0">
@@ -86,9 +86,11 @@
                     loading="lazy"
                     [class]="{ 'rotate-180': isRTL }"
                     src="/images/services/arrow-right.webp"
-                    width="25px"
-                    height="25px"
+                    width="25"
+                    height="25"
                     alt="button arrow right"
+                    fetchpriority="high"
+                    loading="eager"
                   />
                 </a>
                 } @else {
@@ -108,9 +110,11 @@
                     loading="lazy"
                     [class]="{ 'rotate-180': isRTL }"
                     src="/images/services/arrow-right.png"
-                    width="25px"
-                    height="25px"
+                    width="25"
+                    height="25"
                     alt="button arrow right"
+                    fetchpriority="high"
+                    loading="eager"
                   />
                 </a>
                 }
