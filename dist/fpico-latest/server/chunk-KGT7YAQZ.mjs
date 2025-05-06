@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{c as s}from"./chunk-SAK3UA4M.mjs";import"./chunk-PG34YBUQ.mjs";import{Fb as n,eb as t}from"./chunk-VU5RPBKC.mjs";import"./chunk-S6KH3LOX.mjs";var p=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["app-blogs"]],decls:1,vars:0,template:function(e,a){e&1&&n(0,"router-outlet")},dependencies:[s],encapsulation:2})};export{p as BlogsComponent};

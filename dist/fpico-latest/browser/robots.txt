@@ -1,0 +1,22 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://fpico.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /public/private/
+
+# Allow access to public assets
+Allow: /public/
+Allow: /public/images/
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 10
+
+# Host directive
+Host: https://fpico.com

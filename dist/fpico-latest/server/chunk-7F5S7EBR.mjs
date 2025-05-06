@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{a as m}from"./chunk-PW2DJ5YX.mjs";import{B as a}from"./chunk-PG34YBUQ.mjs";import{U as o,_ as e,g as r,wa as i}from"./chunk-VU5RPBKC.mjs";var c=class t{footerServices=new r([]);http=e(a);_PLATFORM_ID=e(i);getHomeData(){return this.http.get(`${m}home`)}static \u0275fac=function(n){return new(n||t)};static \u0275prov=o({token:t,factory:t.\u0275fac,providedIn:"root"})};export{c as a};
