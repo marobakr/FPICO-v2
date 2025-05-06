@@ -1,0 +1,72 @@
+export default `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <title>شركة FPICO | خدمات المقاولات | شركة مقاولات عامة سعودية</title>
+    <meta name="description" content="شركة FPICO شركة سعودية رائدة في خدمات المقاولات باحترافية، متخصصة في تنفيذ مشاريع البناء والتشييد. اكتشف حلولنا المتكاملة مع أفضل شركة مقاولات عامة في المملكة"/>
+    <meta charset="utf-8"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="author" content="FPICO Team"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://fpico.org/ar/"/>
+    <meta property="og:title" content="FPICO"/>
+    <meta property="og:description" content="FPICO"/>
+    <meta property="og:image" content="/images/my-fav.ico/favicon-96x96.png"/>
+    <meta name="google-site-verification" content="BFXMCPB1nDB9_DAmjG23FEbgUPWdq_L_ecdlmJseHNM"/>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="/images/my-fav.ico/"/>
+    <meta property="twitter:title" content="FPICO"/>
+    <meta property="twitter:description" content="FPICO"/>
+    <meta property="twitter:image" content="/images/my-fav.ico/favicon-96x96.png"/>
+
+    <!-- Alternate Links -->
+    <link rel="alternate" hreflang="ar" href="https://fpico.org/ar/"/>
+    <link rel="alternate" hreflang="en" href="https://fpico.org/en/"/>
+
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/png" href="/images/my-fav.ico/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/svg+xml" href="/images/my-fav.ico/favicon.svg"/>
+    <link rel="shortcut icon" href="/images/my-fav.ico/favicon.ico"/>
+    <link rel="apple-touch-icon" href="/images/my-fav.ico/apple-touch-icon.png"/>
+    <link rel="manifest" href="/images/my-fav.ico/site.webmanifest"/>
+    <!-- Preconnect to Speed Up External Resources -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin=""/>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin=""/>
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" media="print" onload="this.media='all'"/>
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      />
+    </noscript>
+    <!-- intl tel input -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'"/>
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css"
+      />
+    </noscript>
+
+    <link rel="canonical" href="https://fpico.org/ar/"/>
+    <base href="/"/>
+
+    <!-- Preload critical assets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="/images/hero/Kingdom_Centre_1200x500.webp"/>
+  <link rel="stylesheet" href="styles-KJAQBUR5.css"></head>
+  <body><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
+</script>
+    <app-root></app-root>
+  <link rel="modulepreload" href="chunk-B3R5RXRG.js"><link rel="modulepreload" href="chunk-PUISLTRY.js"><link rel="modulepreload" href="chunk-2XIHY57S.js"><link rel="modulepreload" href="chunk-24JKLLPN.js"><link rel="modulepreload" href="chunk-XBWOIZ7E.js"><link rel="modulepreload" href="chunk-GZGX2KL6.js"><link rel="modulepreload" href="chunk-PLP4INNL.js"><link rel="modulepreload" href="chunk-TXKSPNZM.js"><link rel="modulepreload" href="chunk-Y3AFWCD6.js"><link rel="modulepreload" href="chunk-ZGU2ZED2.js"><script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-W5EJRTI4.js" type="module"></script></body>
+</html>
+`;
