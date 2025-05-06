@@ -1,3 +1,4 @@
+import { APP_BASE_HREF } from '@angular/common';
 import {
   provideHttpClient,
   withFetch,
@@ -52,5 +53,6 @@ export const appConfig: ApplicationConfig = {
         retryInterceptor,
       ])
     ),
+    { provide: APP_BASE_HREF, useValue: '/' },
   ],
 };
