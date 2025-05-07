@@ -63,10 +63,10 @@ export default `<!DOCTYPE html>
 
     <!-- Preload hero image -->
     <link rel="preload" as="image" href="/images/hero/Kingdom_Centre_1200x500.webp"/>
-  <link rel="stylesheet" href="styles-KJAQBUR5.css"></head>
+  <link rel="stylesheet" href="styles-3XDMC3F2.css"></head>
   <body><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
 </script>
     <app-root></app-root>
-  <link rel="modulepreload" href="chunk-B3R5RXRG.js"><link rel="modulepreload" href="chunk-PUISLTRY.js"><link rel="modulepreload" href="chunk-2XIHY57S.js"><link rel="modulepreload" href="chunk-24JKLLPN.js"><link rel="modulepreload" href="chunk-XBWOIZ7E.js"><link rel="modulepreload" href="chunk-GZGX2KL6.js"><link rel="modulepreload" href="chunk-PLP4INNL.js"><link rel="modulepreload" href="chunk-TXKSPNZM.js"><link rel="modulepreload" href="chunk-Y3AFWCD6.js"><link rel="modulepreload" href="chunk-ZGU2ZED2.js"><script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-W5EJRTI4.js" type="module"></script></body>
+  <link rel="modulepreload" href="chunk-B3R5RXRG.js"><link rel="modulepreload" href="chunk-PUISLTRY.js"><link rel="modulepreload" href="chunk-2XIHY57S.js"><link rel="modulepreload" href="chunk-24JKLLPN.js"><link rel="modulepreload" href="chunk-XBWOIZ7E.js"><link rel="modulepreload" href="chunk-GZGX2KL6.js"><link rel="modulepreload" href="chunk-PLP4INNL.js"><link rel="modulepreload" href="chunk-TXKSPNZM.js"><link rel="modulepreload" href="chunk-Y3AFWCD6.js"><link rel="modulepreload" href="chunk-ZGU2ZED2.js"><script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-QVQ366QD.js" type="module"></script></body>
 </html>
 `;
