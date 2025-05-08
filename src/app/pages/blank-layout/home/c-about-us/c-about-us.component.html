@@ -1,5 +1,6 @@
 @if (aboutData) {
-<section>
+<section aria-labelledby="about-us-title">
+  <h2 id="about-us-title" class="sr-only">About Us</h2>
   <div class="container mx-auto text-white capitalize">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <div class="relative flex justify-center items-center">
@@ -29,7 +30,7 @@
             loading="lazy"
             [class]="{ 'left-0': isRTL(), 'right-0': !isRTL() }"
             class="absolute top-0 m-3"
-            src="/images/DownloadSection/logo-light.png"
+            src="/images/DownloadSection/logo-light.webp"
             alt="FPICO"
           />
         </div>

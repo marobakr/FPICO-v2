@@ -1,11 +1,12 @@
 @if (allBlogsData) {
-<section class="text-capitalize my-5">
-  <h1 class="d-none">FIPCO OUR Blogs</h1>
-  <div class="container text-white">
+<section class="capitalize my-5">
+  <h1 class="hidden">FIPCO OUR Blogs</h1>
+  <div class="container mx-auto px-4 text-white">
     <!-- section and title -->
-    <div class="row justify-content-center">
-      <div class="col-12 row align-items-center">
+    <div class="flex flex-col justify-center">
+      <div class="flex items-center">
         <app-pages-header
+          class="w-full"
           [title]="'Pages.blogs.title'"
           [title02]="'Pages.blogs.title-desc02'"
           [desc01]="''"
@@ -14,33 +15,43 @@
       </div>
     </div>
 
-    <div class="row g-4 my-5 justify-content-center">
+    <div class="w-full flex flex-wrap justify-center gap-4">
       @for (blog of allBlogsData.rows.data|slice: 0: (isDesktop ?9:8) |
       paginate: { id:'some_id', itemsPerPage: 9, currentPage:
       currentPage,totalItems: totalItems }; track blog.id) {
-      <div class="col-6 col-lg-4 rounded-2 mb-4">
-        <div class="h-100">
+      <div
+        class="rounded-md mb-4 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]"
+      >
+        <div class="h-full">
           <figure
-            style="min-height: 300px"
-            class="images_carousel border-radius-10 card bg-transparent h-100"
+            class="card images_carousel h-full relative overflow-hidden rounded-lg bg-transparent"
           >
-            <div #card_container class="overflow-hidden border-radius-10 h-100">
+            <div
+              #card_container
+              class="overflow-hidden rounded-lg h-full w-full aspect-[4/3]"
+            >
               <img
                 #img
                 loading="lazy"
                 (load)="imageLoaded(card_container)"
-                class="w-100 h-100 rounded-2 main_image border-radius-10 object-fit-cover"
+                class="w-full h-full rounded-md main_image object-cover blog-image transition-opacity duration-300"
                 [src]="'https://fpico.org/fipcoapi/blogs/' + blog.main_image"
                 [alt]="blog.en_blog_title"
+                width="400"
+                height="300"
+                fetchpriority="low"
               />
             </div>
-            <span
-              class="placeholder block bg-opacity-100 absolute h-100 top-0 start-0 end-0 bottom-0"
-            ></span>
-            <figcaption class="card-img-overlay">
+            <div class="skeleton-loader absolute h-full w-full inset-0">
+              <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+              <div
+                class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-12 bg-gray-300 rounded-lg animate-pulse"
+              ></div>
+            </div>
+            <figcaption class="absolute inset-0">
               <p
-                style="width: 80%;font-size:13px;'"
-                class="bg-white rounded-3 absolute bottom-0 start-50 translate-middle-x px-3 py-2 fs-13 mb-3 fw-bold line-clamp-blogs-2"
+                style="width: 80%"
+                class="bg-white text-black rounded-lg absolute bottom-0 left-1/2 transform -translate-x-1/2 px-3 py-2 mb-3 text-[16px] font-bold line-clamp-blogs-2"
               >
                 @if (isRTL) {
                 {{ blog.ar_blog_title }}
@@ -49,20 +60,16 @@
                 }
               </p>
               <div
-                class="card_hidden_content w-100 absolute bottom-0 start-0 p-3 card_text border-radius-10 text-capitalize"
+                class="card_hidden_content w-full absolute bottom-0 left-0 p-4 rounded-lg bg-[#303030] text-capitalize opacity-0 transition-opacity duration-500"
               >
-                <p class="text-white mb-1 line-clamp-2">
+                <p class="text-white mb-1 text-[16px] font-bold line-clamp-2">
                   @if (isRTL) {
                   {{ blog.ar_blog_title }}
                   } @else {
                   {{ blog.en_blog_title }}
                   }
                 </p>
-                <!-- @if (isRTL) {
-                <div class="text-lighter fs-13 line-clamp-2" [innerHTML]="blog.ar_blog_text | safeHtml"></div>
-                }@else {
-                <div class="text-lighter fs-13 line-clamp-2" [innerHTML]="blog.en_blog_text | safeHtml"></div>
-                } -->
+
                 @if(isRTL) {
                 <a
                   [routerLink]="[
@@ -72,15 +79,18 @@
                     blog.ar_slug
                   ]"
                   href="#"
-                  class="btn btn-main w-100 flex justify-content-between align-items-center text-decoration-none"
+                  class="btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none"
                 >
                   {{ "More Details" | translate }}
                   <img
                     loading="lazy"
-                    [class]="{ rotate_moreDetails_Button: isRTL }"
-                    src="/images/services/arrow-right.png"
-                    width="25px"
+                    [class]="{ 'rotate-180': isRTL }"
+                    src="/images/services/arrow-right.webp"
+                    width="25"
+                    height="25"
                     alt="button arrow right"
+                    fetchpriority="high"
+                    loading="eager"
                   />
                 </a>
                 } @else {
@@ -93,15 +103,18 @@
                     blog.en_slug
                   ]"
                   href="#"
-                  class="btn btn-main w-100 flex justify-content-between align-items-center text-decoration-none"
+                  class="btn-main w-full flex justify-between items-center no-underline"
                 >
                   {{ "More Details" | translate }}
                   <img
                     loading="lazy"
-                    [class]="{ rotate_moreDetails_Button: isRTL }"
+                    [class]="{ 'rotate-180': isRTL }"
                     src="/images/services/arrow-right.png"
-                    width="25px"
+                    width="25"
+                    height="25"
                     alt="button arrow right"
+                    fetchpriority="high"
+                    loading="eager"
                   />
                 </a>
                 }
@@ -116,7 +129,7 @@
 </section>
 
 @if (totalItems > 0) {
-<div class="flex justify-content-center my-4">
+<div class="flex justify-center my-4">
   <pagination-controls
     id="some_id"
     (pageChange)="pageChanged($event)"

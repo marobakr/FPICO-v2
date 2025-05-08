@@ -1,10 +1,11 @@
-<section class="my-20">
+<section class="my-20" aria-labelledby="contact-us-title">
+  <h2 id="contact-us-title" class="sr-only">Contact Us</h2>
   <div class="container mx-auto">
     <div class="section_bg p-3 my-20 flex items-center min-h-[500px]">
       <div class="capitalize">
         <h2
           [innerHTML]="'home.contactus' | translate | safeHtml"
-          class="text-6xl text-white font-light mt-20"
+          class="!text-[80px] text-white font-light mt-20"
         >
           <!-- Ready To
           <span class="block"> Build Together </span> -->
@@ -16,7 +17,7 @@
               languageService.selectedLanguage$ | async,
               'contact-us'
             ]"
-            class="capitalize btn-third mx-2 mb-3"
+            class="cursor-pointer capitalize btn-third mx-2 mb-3"
           >
             {{ "home.contact-us.btn01" | translate }}
             <!-- build a project with us -->

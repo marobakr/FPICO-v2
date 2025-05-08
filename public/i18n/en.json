@@ -26,7 +26,7 @@
   "Pages.Home.contact-us-section.title": "",
   "Pages.Home.contact-us-section.title-desc": "",
   "Pages.Home.download-pdf-section.click-btn": "Download PDF",
-  "Pages.Home.download-pdf-section.see-more-pic": "<img src=\"/images/DownloadSection/see_more.png\" alt=\"FPICO\" />",
+  "Pages.Home.download-pdf-section.see-more-pic": "<img class='w-full' src=\"/images/DownloadSection/see_more.png\" alt=\"FPICO\" />",
   "Pages.Home.download-pdf-section.title": "would you like to know more about\n<span class=\"text-uppercase text-main fw-bold\">fPICO</span> ?",
   "Pages.Home.download-pdf-section.title-colored": "",
   "Pages.Home.hero-section.col01.T01": "best construction",

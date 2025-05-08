@@ -1,6 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { IProjects } from '../../../../core/interfaces/IProjectsData';
 import { Feature } from '../../../../core/interfaces/IAboutData';
 
 @Component({
@@ -8,7 +7,7 @@ import { Feature } from '../../../../core/interfaces/IAboutData';
   standalone: true,
   imports: [TranslateModule],
   templateUrl: './about-banner-section.component.html',
-  styleUrl: './about-banner-section.component.scss',
+  styleUrl: './about-banner-section.component.css',
 })
 export class AboutBannerSectionComponent {
   @Input() features!: Feature[];

@@ -1,11 +1,12 @@
 @if (allProjectsData) {
-<section class="text-capitalize my-5">
-  <h1 class="d-none">FIPCO OUR PROJECTS</h1>
-  <div class="container text-white">
+<section class="capitalize my-5" aria-labelledby="projects-main-title">
+  <h1 id="projects-main-title" class="sr-only">FIPCO Our Projects</h1>
+  <div class="container mx-auto px-4 text-white">
     <!-- section and title -->
-    <div class="row justify-content-center">
-      <div class="col-12 row align-items-center">
+    <div class="flex flex-col justify-between">
+      <div class="w-full flex items-center">
         <app-pages-header
+          class="w-full"
           [title]="'Pages.projects.title'"
           [title02]="'Pages.projects.title02'"
           [desc01]="'Pages.projects.title-desc01'"
@@ -14,13 +15,18 @@
       </div>
 
       <!-- Home Main Image -->
-      <div class="col-12">
+      <div class="w-full">
         <div class="my-5">
           <img
-            loading="lazy"
-            class="w-100 banner-animation"
+            class="w-full banner-animation"
             src="/images/projects/page/main_banner.png"
-            alt="FPICO"
+            alt="FPICO Projects Showcase"
+            role="presentation"
+            fetchpriority="high"
+            loading="eager"
+            width="1200"
+            height="600"
+            style="aspect-ratio: 2/1"
           />
         </div>
       </div>
@@ -30,19 +36,21 @@
     <app-about-banner-section
       [isRTL]="isRTL"
       [features]="allProjectsData.features"
+      aria-labelledby="about-banner-title"
     ></app-about-banner-section>
 
     <!-- Projects -->
-    <div class="text-center my-5">
+    <div class="text-center my-5" aria-labelledby="projects-section-title">
       <!-- header -->
       <div>
-        <h3
+        <h2
+          id="projects-section-title"
           class="text-light"
           [innerHTML]="
             'Pages.Home.our-projects-section.title' | translate | safeHtml
           "
-        ></h3>
-        <p class="text-lighter">
+        ></h2>
+        <p class="text-lighter mb-4">
           {{ "Pages.Home.our-projects-section.title-desc" | translate }}
           <span class="block">{{
             "Pages.Home.our-projects-section.title-desc02" | translate
@@ -51,48 +59,55 @@
       </div>
 
       <!-- all Projects -->
-      <div class="row g-3">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3" role="list">
         @for (project of allProjectsData.projects; track project.id) {
         <div
-          [class]="{
-            'col-md-8': $index === 6
+          [ngClass]="{
+            'md:col-span-2': $index === 6
           }"
-          class="col-md-4 bg-transparent"
+          class="bg-transparent"
+          role="listitem"
         >
-          <div class="card bg-transparent h-100">
+          <div class="h-full bg-transparent">
             <a
-              class="text-decoration-none h-100"
+              class="no-underline h-full"
               [routerLink]="[
                 '/',
                 languageService.selectedLanguage$ | async,
                 'projects-details',
                 project.id
               ]"
-              href="#"
+              [attr.aria-label]="
+                isRTL
+                  ? 'View details of ' + project.ar_service_title
+                  : 'View details of ' + project.en_service_title
+              "
             >
               <figure
-                class="m-0 p-0 border-radius-10 bg-transparent h-100"
+                class="project-card relative bg-transparent rounded-xl m-0 p-0 h-full"
                 style="height: 250px !important"
               >
                 <img
                   loading="lazy"
-                  class="w-100 h-100 rounded-2 main_image border-radius-10 object-fit-cover"
+                  class="w-full h-full rounded-lg object-cover project-image"
                   [src]="
-                    'https://fpico.org/fipcoapi/service/' + project.main_image
+                    WEB_SITE_BASE_URL_IMAGE + 'service/' + project.main_image
                   "
-                  [alt]="project.en_service_title"
+                  [alt]="
+                    isRTL ? project.ar_service_title : project.en_service_title
+                  "
                 />
                 <figcaption
-                  class="card-img-overlay flex justify-content-center align-items-center bg-dark bg-opacity-50 text-white fw-bold display-4"
+                  class="project-overlay absolute inset-0 w-full h-full flex justify-center items-center bg-black/50"
                 >
                   @if (isRTL) {
-                  <h4>
-                    {{ project.ar_service_title }}
-                  </h4>
+                  <h3 class="text-white">
+                    {{ project.ar_service_title | translate }}
+                  </h3>
                   }@else {
-                  <h4>
-                    {{ project.en_service_title }}
-                  </h4>
+                  <h3 class="text-white">
+                    {{ project.en_service_title | translate }}
+                  </h3>
                   }
                 </figcaption>
               </figure>

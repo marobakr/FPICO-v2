@@ -1,7 +1,7 @@
 @if (projectDetails) {
-<section class="text-capitalize my-5 relative z-1 overflow-hidden">
+<section class="capitalize my-5 relative z-10 overflow-hidden">
   <!-- video -->
-  <div class="absolute start-0 end-0 top-0 bg-dark text-center bg-opacity-75">
+  <div class="absolute inset-x-0 top-0 bg-black/75 text-center">
     <!-- #videoElement -->
     <video
       #videoElement
@@ -10,16 +10,20 @@
       muted
       playsinline
       preload="metadata"
-      class="object-fit-cover relative z-n1 h-100"
+      class="object-cover relative -z-10 h-[174px] w-full"
+      width="1920"
+      height="174"
+      style="aspect-ratio: 11/1"
     >
       <source src="/images/1.mp4" type="video/mp4" />
     </video>
   </div>
-  <div class="container text-white">
+  <div class="container mx-auto px-4 text-white">
     <!-- section and title -->
-    <div class="row justify-content-center mb-5">
-      <div class="col-12 row align-items-center">
+    <div class="flex flex-col justify-center mb-8">
+      <div class="w-full flex items-center flex-grow-1">
         <app-pages-header
+          class="w-full"
           [title]="'Pages.projects.title'"
           [title02]="'Pages.projects.title02'"
           [desc01]="'Pages.projects.title-desc01'"
@@ -30,9 +34,9 @@
 
     <div class="Details_related_images_bg">
       <!-- Second Section -->
-      <div class="row">
+      <div class="flex flex-col md:flex-row">
         <!-- section Text -->
-        <div class="col-md-7 flex justify-content-start align-items-center">
+        <div class="w-full md:w-7/12 flex justify-start items-center">
           <div>
             <!-- <h1>{{ currentProject.project_name | translate }}</h1> -->
             <h1>
@@ -42,15 +46,15 @@
               {{ projectDetails.project.en_service_title }}
               }
             </h1>
-            <h3 class="text-white fs-15 lh-lg mb-3"></h3>
+            <h2 class="text-white text-sm leading-relaxed mb-3"></h2>
             @if (isRTL) {
             <div
-              class="text-lighter fs-15 lh-lg"
+              class="text-gray-400 text-sm leading-relaxed"
               [innerHTML]="projectDetails.project.ar_service_text | safeHtml"
             ></div>
             } @else {
             <div
-              class="text-lighter fs-15 lh-lg"
+              class="text-gray-400 text-sm leading-relaxed"
               [innerHTML]="projectDetails.project.en_service_text | safeHtml"
             ></div>
 
@@ -59,17 +63,17 @@
         </div>
 
         <!-- section Image -->
-        <div class="col-md-5">
+        <div class="w-full md:w-5/12 mt-4 md:mt-0">
           <div>
-            <figure class="image_border main_Image_Animation p-2">
+            <figure class="image_border main_image_animation p-2">
               <img
                 loading="lazy"
                 [src]="
-                  'https://fpico.org/fipcoapi/service/' +
+                  WEB_SITE_BASE_URL_IMAGE +
+                  'service/' +
                   projectDetails.project.main_image
                 "
-                class="w-100 object-fit-cover"
-                height="500px"
+                class="w-full h-[500px] object-cover"
                 alt="FPICO"
               />
             </figure>
@@ -81,25 +85,29 @@
         <ng-template carouselSlide>
           <!-- Details Image -->
           <div class="my-5">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="row overflow-hidden g-4">
+            <div class="flex flex-col gap-x-3 md:flex-row">
+              <div class="w-full md:w-1/2">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden h-full"
+                >
                   @if (imageGroup[4]) {
-                  <div style="height: 250px" class="col-md-6 flex-grow-1">
+                  <div class="md:col-span-1 flex-grow">
                     <div
                       (click)="
                         openModal(
-                          'https://fpico.org/fipcoapi/service/' +
+                          WEB_SITE_BASE_URL_IMAGE +
+                            'service/' +
                             imageGroup[4].main_image
                         )
                       "
-                      class="h-100 imageContainer-hover"
+                      class="h-full imageContainer-hover"
                     >
                       <img
                         loading="lazy"
-                        class="w-100 object-fit-cover h-100 border-radius-10"
+                        class="w-full object-cover h-full rounded-lg"
                         [src]="
-                          'https://fpico.org/fipcoapi/service/' +
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'service/' +
                           imageGroup[4].main_image
                         "
                         alt="FPICO"
@@ -107,21 +115,23 @@
                     </div>
                   </div>
                   } @if (imageGroup[3]) {
-                  <div style="height: 250px" class="col-md-6 flex-grow-1">
+                  <div class="md:col-span-1 flex-grow">
                     <div
                       (click)="
                         openModal(
-                          'https://fpico.org/fipcoapi/service/' +
+                          WEB_SITE_BASE_URL_IMAGE +
+                            'service/' +
                             imageGroup[3].main_image
                         )
                       "
-                      class="h-100 imageContainer-hover"
+                      class="h-full imageContainer-hover"
                     >
                       <img
                         loading="lazy"
-                        class="w-100 object-fit-cover h-100 border-radius-10"
+                        class="w-full object-cover h-full rounded-lg"
                         [src]="
-                          'https://fpico.org/fipcoapi/service/' +
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'service/' +
                           imageGroup[3].main_image
                         "
                         alt="FPICO"
@@ -129,21 +139,23 @@
                     </div>
                   </div>
                   } @if (imageGroup[2]) {
-                  <div style="height: 250px" class="col-md-6 flex-grow-1">
+                  <div class="md:col-span-1 flex-grow">
                     <div
                       (click)="
                         openModal(
-                          'https://fpico.org/fipcoapi/service/' +
+                          WEB_SITE_BASE_URL_IMAGE +
+                            'service/' +
                             imageGroup[2].main_image
                         )
                       "
-                      class="h-100 imageContainer-hover"
+                      class="h-full imageContainer-hover"
                     >
                       <img
                         loading="lazy"
-                        class="w-100 object-fit-cover h-100 border-radius-10"
+                        class="w-full object-cover h-full rounded-lg"
                         [src]="
-                          'https://fpico.org/fipcoapi/service/' +
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'service/' +
                           imageGroup[2].main_image
                         "
                         alt="FPICO"
@@ -151,21 +163,23 @@
                     </div>
                   </div>
                   } @if (imageGroup[1]) {
-                  <div style="height: 250px" class="col-md-6 flex-grow-1">
+                  <div class="md:col-span-1 flex-grow">
                     <div
                       (click)="
                         openModal(
-                          'https://fpico.org/fipcoapi/service/' +
+                          WEB_SITE_BASE_URL_IMAGE +
+                            'service/' +
                             imageGroup[1].main_image
                         )
                       "
-                      class="h-100 imageContainer-hover"
+                      class="h-full imageContainer-hover"
                     >
                       <img
                         loading="lazy"
-                        class="w-100 object-fit-cover h-100 border-radius-10"
+                        class="w-full object-cover h-full rounded-lg"
                         [src]="
-                          'https://fpico.org/fipcoapi/service/' +
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'service/' +
                           imageGroup[1].main_image
                         "
                         alt="FPICO"
@@ -176,16 +190,18 @@
                 </div>
               </div>
               <div
-                [class]="{
-                  'col-12': imageGroup.length == 1,
-                  'col-6': imageGroup.length != 1,
+                class="h-full"
+                [ngClass]="{
+                  'w-full': imageGroup.length == 1,
+                  'w-full md:w-1/2': imageGroup.length != 1
                 }"
               >
                 <div
                   class="imageContainer-hover"
                   (click)="
                     openModal(
-                      'https://fpico.org/fipcoapi/service/' +
+                      WEB_SITE_BASE_URL_IMAGE +
+                        'service/' +
                         imageGroup[0].main_image
                     )
                   "
@@ -194,10 +210,10 @@
 
                   <img
                     loading="lazy"
-                    height="524px"
-                    class="w-100 object-fit-cover border-radius-10"
+                    class="w-full h-[524px] object-cover rounded-lg"
                     [src]="
-                      'https://fpico.org/fipcoapi/service/' +
+                      WEB_SITE_BASE_URL_IMAGE +
+                      'service/' +
                       imageGroup[0].main_image
                     "
                     alt="FPICO"
@@ -225,13 +241,13 @@
 @if (selectedImage.length > 0) {
 <div
   (click)="closeModal()"
-  class="LightBoxContainer p-5 fixed z-3 top-0 start-0 w-100 h-100 bg-black bg-opacity-75 flex justify-content-center align-items-center"
+  class="fixed inset-0 z-30 p-5 bg-black/75 flex justify-center items-center"
 >
   <div class="lightBoxContnet">
     <img
       loading="lazy"
       [src]="selectedImage"
-      class="img-fluid"
+      class="max-w-full max-h-[80vh]"
       role="presentation"
     />
   </div>

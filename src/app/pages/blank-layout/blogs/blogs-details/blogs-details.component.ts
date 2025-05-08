@@ -1,41 +1,59 @@
-import { AsyncPipe, isPlatformBrowser, NgOptimizedImage, SlicePipe } from "@angular/common";
-import { afterNextRender, Component, HostListener, inject, PLATFORM_ID } from "@angular/core";
-import { Meta, platformBrowser, Title } from "@angular/platform-browser";
-import { ActivatedRoute, Router, RouterLink } from "@angular/router";
-import { LangChangeEvent, TranslateModule, TranslateService } from "@ngx-translate/core";
-import { IGetBlogById } from "../../../../core/interfaces/IGetBlogById";
-import { RemoveInlineStylesPipe } from "../../../../core/pipes/remove-inline-styles.pipe";
-import { SafeHtmlPipe } from "../../../../core/pipes/safe-html.pipe";
-import { LanguageService } from "../../../../core/services/services/language.service";
-import { InsertAdPipe } from "../../../../core/pipes/insert-ad.pipe";
+import {
+  AsyncPipe,
+  isPlatformBrowser,
+  NgStyle,
+  SlicePipe,
+} from '@angular/common';
+import {
+  Component,
+  HostListener,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import {
+  LangChangeEvent,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
+import { IGetBlogById } from '../../../../core/interfaces/IGetBlogById';
+import { InsertAdPipe } from '../../../../core/pipes/insert-ad.pipe';
+import { RemoveInlineStylesPipe } from '../../../../core/pipes/remove-inline-styles.pipe';
+import { SafeHtmlPipe } from '../../../../core/pipes/safe-html.pipe';
+import { LanguageService } from '../../../../core/services/services/language.service';
 
 @Component({
-  selector: "app-blogs-details",
+  selector: 'app-blogs-details',
   standalone: true,
-  imports: [TranslateModule, SafeHtmlPipe, SlicePipe, RouterLink, AsyncPipe, RemoveInlineStylesPipe, InsertAdPipe],
-  templateUrl: "./blogs-details.component.html",
-  styleUrl: "./blogs-details.component.scss",
+  imports: [
+    TranslateModule,
+    SafeHtmlPipe,
+    SlicePipe,
+    RouterLink,
+    AsyncPipe,
+    RemoveInlineStylesPipe,
+    InsertAdPipe,
+    NgStyle,
+  ],
+  templateUrl: './blogs-details.component.html',
+  styleUrl: './blogs-details.component.css',
 })
-export class BlogsDetailsComponent {
+export class BlogsDetailsComponent implements OnInit {
   isRTL: boolean = true;
-
   title = inject(Title);
-
   languageService = inject(LanguageService);
-
   private _PLATFORM_ID = inject(PLATFORM_ID);
-
   meta = inject(Meta);
-
   activatedRoute = inject(ActivatedRoute);
-
   route = inject(Router);
-
   translateService = inject(TranslateService);
-
   blogDetails!: IGetBlogById;
-
   processedContent: any[] = [];
+  isMainImageLoaded = false;
+  isRelatedImageLoaded: { [key: number]: boolean } = {};
+  isDesktop = true;
 
   ngOnInit(): void {
     this.getBlogDetails();
@@ -44,14 +62,14 @@ export class BlogsDetailsComponent {
     }
 
     this.translateService.onLangChange.subscribe((params: LangChangeEvent) => {
-      if (params.lang === "ar" || this.translateService.currentLang === "ar") {
+      if (params.lang === 'ar' || this.translateService.currentLang === 'ar') {
         this.isRTL = true;
       } else {
         this.isRTL = false;
       }
       this.handleMeta(this.blogDetails);
     });
-    if (this.translateService.currentLang === "ar") {
+    if (this.translateService.currentLang === 'ar') {
       this.isRTL = true;
     } else {
       this.isRTL = false;
@@ -59,15 +77,17 @@ export class BlogsDetailsComponent {
   }
 
   handleMeta(blogDetails: IGetBlogById): void {
-    console.log(blogDetails);
+    console.log('blogDetails', blogDetails);
     if (blogDetails?.blog) {
       const blog = blogDetails.blog;
       const title = this.isRTL ? blog.ar_meta_title : blog.en_meta_title;
       const description = this.isRTL ? blog.ar_meta_text : blog.en_meta_text;
-      const imageUrl = blog.main_image.startsWith("http")
+      const imageUrl = blog.main_image.startsWith('http')
         ? blog.main_image
         : `https://fpico.org/fipcoapi/blogs/${blog.main_image}`;
-      const url = `https://fpico.org/${this.isRTL ? blog.ar_slug : blog.en_slug}`;
+      const url = `https://fpico.org/${
+        this.isRTL ? blog.ar_slug : blog.en_slug
+      }`;
 
       // Add preload hint for the main image
       if (isPlatformBrowser(this._PLATFORM_ID)) {
@@ -84,27 +104,27 @@ export class BlogsDetailsComponent {
 
       // ✅ Update Page Title & Meta Description
       this.title.setTitle(title);
-      this.meta.updateTag({ name: "description", content: description });
+      this.meta.updateTag({ name: 'description', content: description });
 
       // ✅ Open Graph Meta Tags
-      this.meta.updateTag({ property: "og:title", content: title });
-      this.meta.updateTag({ property: "og:description", content: description });
-      this.meta.updateTag({ property: "og:image", content: imageUrl });
-      this.meta.updateTag({ property: "og:url", content: url });
-      this.meta.updateTag({ property: "og:type", content: "article" });
+      this.meta.updateTag({ property: 'og:title', content: title });
+      this.meta.updateTag({ property: 'og:description', content: description });
+      this.meta.updateTag({ property: 'og:image', content: imageUrl });
+      this.meta.updateTag({ property: 'og:url', content: url });
+      this.meta.updateTag({ property: 'og:type', content: 'article' });
 
       // ✅ Twitter Meta Tags
-      this.meta.updateTag({ name: "twitter:title", content: title });
+      this.meta.updateTag({ name: 'twitter:title', content: title });
       this.meta.updateTag({
-        name: "twitter:description",
+        name: 'twitter:description',
         content: description,
       });
-      this.meta.updateTag({ name: "twitter:image", content: imageUrl });
+      this.meta.updateTag({ name: 'twitter:image', content: imageUrl });
       this.meta.updateTag({
-        name: "twitter:card",
-        content: "summary_large_image",
+        name: 'twitter:card',
+        content: 'summary_large_image',
       });
-      this.meta.updateTag({ name: "twitter:url", content: url });
+      this.meta.updateTag({ name: 'twitter:url', content: url });
 
       // ✅ Update Canonical URL
       this.updateCanonicalUrl(url);
@@ -119,16 +139,16 @@ export class BlogsDetailsComponent {
       existingAlts.forEach((link) => link.remove());
 
       const langs: { code: string; slug: string | null }[] = [
-        { code: "ar", slug: blog.ar_slug },
-        { code: "en", slug: blog.en_slug },
+        { code: 'ar', slug: blog.ar_slug },
+        { code: 'en', slug: blog.en_slug },
       ];
 
       langs.forEach(({ code, slug }) => {
         if (slug && slug.trim()) {
-          const altLink = document.createElement("link");
-          altLink.setAttribute("rel", "alternate");
-          altLink.setAttribute("hreflang", code);
-          altLink.setAttribute("href", `https://fpico.org/${code}/${slug}`);
+          const altLink = document.createElement('link');
+          altLink.setAttribute('rel', 'alternate');
+          altLink.setAttribute('hreflang', code);
+          altLink.setAttribute('href', `https://fpico.org/${code}/${slug}`);
           document.head.appendChild(altLink);
         }
       });
@@ -140,17 +160,17 @@ export class BlogsDetailsComponent {
    */
   private removeMetaTags(): void {
     const metaTagsToRemove = [
-      "description",
-      "og:title",
-      "og:description",
-      "og:image",
-      "og:url",
-      "og:type",
-      "twitter:title",
-      "twitter:description",
-      "twitter:image",
-      "twitter:card",
-      "twitter:url",
+      'description',
+      'og:title',
+      'og:description',
+      'og:image',
+      'og:url',
+      'og:type',
+      'twitter:title',
+      'twitter:description',
+      'twitter:image',
+      'twitter:card',
+      'twitter:url',
     ];
 
     metaTagsToRemove.forEach((tag) => {
@@ -165,13 +185,15 @@ export class BlogsDetailsComponent {
   private updateCanonicalUrl(url: string): void {
     if (isPlatformBrowser(this._PLATFORM_ID)) {
       const canonicalSelector = 'link[rel="canonical"]';
-      let existingCanonical = document.querySelector(canonicalSelector) as HTMLLinkElement;
+      let existingCanonical = document.querySelector(
+        canonicalSelector
+      ) as HTMLLinkElement;
 
       if (existingCanonical) {
         existingCanonical.href = url;
       } else {
-        const link = document.createElement("link");
-        link.rel = "canonical";
+        const link = document.createElement('link');
+        link.rel = 'canonical';
         link.href = url;
         document.head.appendChild(link);
       }
@@ -180,13 +202,28 @@ export class BlogsDetailsComponent {
 
   getBlogDetails(): void {
     this.activatedRoute.data.subscribe(({ blogDetails }) => {
+      // Reset loading states when new data is received
+      this.isMainImageLoaded = false;
+      this.isRelatedImageLoaded = {};
+
       this.handleMeta(blogDetails);
       this.blogDetails = blogDetails;
     });
   }
 
-  isDesktop = true;
-  @HostListener("window:resize", ["$event"])
+  onMainImageLoad() {
+    setTimeout(() => {
+      this.isMainImageLoaded = true;
+    }, 300);
+  }
+
+  onRelatedImageLoad(blogId: number) {
+    setTimeout(() => {
+      this.isRelatedImageLoaded[blogId] = true;
+    }, 300);
+  }
+
+  @HostListener('window:resize', ['$event'])
   onResize() {
     this.isDesktop = window.innerWidth > 992;
   }

@@ -7,12 +7,12 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { WEB_SITE_BASE_URL_IMAGE } from '../../../../core/constants/WEB_SITE_BASE_URL';
 import { Service } from '../../../../core/interfaces/IHomeData';
 import { SafeHtmlPipe } from '../../../../core/pipes/safe-html.pipe';
 import { HomeDataService } from '../../../../core/services/home/home-data.service';
 import { OurServicesContentService } from '../../../../core/services/our-services-content.service';
 import { LanguageService } from '../../../../core/services/services/language.service';
-
 @Component({
   selector: 'app-d-our-services',
   standalone: true,
@@ -28,13 +28,12 @@ import { LanguageService } from '../../../../core/services/services/language.ser
 })
 export class DOurServicesComponent {
   isRTL = input(false);
-
   Service = input.required<Service[]>();
   languageService = inject(LanguageService);
   _OurServicesContentService = inject(OurServicesContentService);
   _TranslateService = inject(TranslateService);
   homeServices = inject(HomeDataService);
-
+  WEB_SITE_BASE_URL_IMAGE = WEB_SITE_BASE_URL_IMAGE;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,

@@ -1,19 +1,11 @@
-<section>
+<section aria-label="Why Choose Us">
   <div
     class="container mx-auto relative overflow-hidden z-10 capitalize rounded"
   >
     <header
       [innerHTML]="'home.about.us.two.title' | translate | safeHtml"
       class="text-center pb-2 pt-5 md:py-20"
-    >
-      <!-- <h2 class="text-white">
-        why choose <span class="text-primary">fpico</span> ?
-      </h2>
-      <p class="text-lighter">
-        we offer a comprehensive range of construction services designed to meet
-        <span class="block">your needs</span>
-      </p> -->
-    </header>
+    ></header>
     <div class="pb-4">
       @defer {
       <div class="pb-20 mb-20 w-11/12 mx-auto">
@@ -30,7 +22,7 @@
                       " -->
                 <div>
                   <div class="images_carousel">
-                    <p class="text-lighter text-3xl font-semibold mb-0">
+                    <p class="text-lighter text-main-font mb-0">
                       0{{ $index + 1 }}
                     </p>
                     <h2 class="text-white text-2xl">
@@ -47,10 +39,6 @@
                       {{ item.en_why_us_text }}
                       }
                     </p>
-                    <!-- <p class="text-lighter">
-                        thus, we are always committed to delivering the highest
-                        quality the first time around
-                      </p> -->
                   </div>
                 </div>
               </div>

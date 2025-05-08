@@ -1,18 +1,29 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from "@angular/core";
-import { Meta, Title } from "@angular/platform-browser";
-import { ActivatedRoute } from "@angular/router";
-import { LangChangeEvent, TranslateModule, TranslateService } from "@ngx-translate/core";
-import { CarouselModule, OwlOptions } from "ngx-owl-carousel-o";
-import { Subscription } from "rxjs";
-import { IProject } from "../../../core/interfaces/IPorjects";
-import { IProjectDetails } from "../../../core/interfaces/IProjectDetails";
-import { SafeHtmlPipe } from "../../../core/pipes/safe-html.pipe";
-import { DetailsService } from "../../../core/services/details.service";
-import { PagesHeaderComponent } from "../../../shared/components/pages-header/pages-header.component";
-import { HDownloadPdfSectionComponent } from "../home/h-download-pdf-section/h-download-pdf-section.component";
-
+import { NgClass } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import {
+  LangChangeEvent,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { Subscription } from 'rxjs';
+import { WEB_SITE_BASE_URL_IMAGE } from '../../../core/constants/WEB_SITE_BASE_URL';
+import { IProject } from '../../../core/interfaces/IPorjects';
+import { IProjectDetails } from '../../../core/interfaces/IProjectDetails';
+import { SafeHtmlPipe } from '../../../core/pipes/safe-html.pipe';
+import { DetailsService } from '../../../core/services/details.service';
+import { PagesHeaderComponent } from '../../../shared/components/pages-header/pages-header.component';
+import { HDownloadPdfSectionComponent } from '../home/h-download-pdf-section/h-download-pdf-section.component';
 @Component({
-  selector: "app-project-details",
+  selector: 'app-project-details',
   standalone: true,
   imports: [
     TranslateModule,
@@ -21,9 +32,10 @@ import { HDownloadPdfSectionComponent } from "../home/h-download-pdf-section/h-d
     TranslateModule,
     SafeHtmlPipe,
     CarouselModule,
+    NgClass,
   ],
-  templateUrl: "./project-details.component.html",
-  styleUrl: "./project-details.component.scss",
+  templateUrl: './project-details.component.html',
+  styleUrl: './project-details.component.css',
 })
 export class ProjectDetailsComponent implements OnInit {
   currentProject!: IProject;
@@ -34,16 +46,21 @@ export class ProjectDetailsComponent implements OnInit {
   detailsService = inject(DetailsService);
   _TranslateService = inject(TranslateService);
   Subscription!: Subscription;
-
+  WEB_SITE_BASE_URL_IMAGE = WEB_SITE_BASE_URL_IMAGE;
   ngOnInit(): void {
-    this.Subscription = this._TranslateService.onLangChange.subscribe((params: LangChangeEvent) => {
-      if (params.lang === "ar" || this._TranslateService.currentLang === "ar") {
-        this.isRTL = true;
-      } else {
-        this.isRTL = false;
+    this.Subscription = this._TranslateService.onLangChange.subscribe(
+      (params: LangChangeEvent) => {
+        if (
+          params.lang === 'ar' ||
+          this._TranslateService.currentLang === 'ar'
+        ) {
+          this.isRTL = true;
+        } else {
+          this.isRTL = false;
+        }
+        this.handleMeta();
       }
-      this.handleMeta();
-    });
+    );
 
     this.getCurrentProjectId();
   }
@@ -51,7 +68,7 @@ export class ProjectDetailsComponent implements OnInit {
   getCurrentProjectId(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (response) => {
-        const ID = parseInt(response?.get("id") || "") as number;
+        const ID = parseInt(response?.get('id') || '') as number;
         // this.getCurrentProject(ID);
         this.getServicesDetails(ID);
       },
@@ -59,11 +76,11 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   handleMeta() {
-    if (this._TranslateService.currentLang === "ar") {
+    if (this._TranslateService.currentLang === 'ar') {
       this.isRTL = true;
       this.customOptions = {
         ...this.customOptions,
-        navText: ["السابق", "التالي"],
+        navText: ['السابق', 'التالي'],
         rtl: true,
       };
     } else {
@@ -71,7 +88,7 @@ export class ProjectDetailsComponent implements OnInit {
       this.customOptions = {
         ...this.customOptions,
         rtl: false,
-        navText: ["Prev", "Next"],
+        navText: ['Prev', 'Next'],
       };
     }
     if (this.projectDetails) {
@@ -79,22 +96,22 @@ export class ProjectDetailsComponent implements OnInit {
         this.customOptions = {
           ...this.customOptions,
           rtl: true,
-          navText: ["السابق", "التالي"],
+          navText: ['السابق', 'التالي'],
         };
         this.title.setTitle(this.projectDetails.project.ar_meta_title);
         this.meta.updateTag({
-          name: "description",
-          content: this.projectDetails.project.ar_meta_text || "",
+          name: 'description',
+          content: this.projectDetails.project.ar_meta_text || '',
         });
       } else {
         this.customOptions = {
           rtl: false,
           ...this.customOptions,
-          navText: ["Prev", "Next"],
+          navText: ['Prev', 'Next'],
         };
         this.title.setTitle(this.projectDetails.project.en_meta_text);
         this.meta.updateTag({
-          name: "description",
+          name: 'description',
           content: this.projectDetails.project.en_meta_text,
         });
       }
@@ -114,7 +131,7 @@ export class ProjectDetailsComponent implements OnInit {
       },
     });
   }
-  selectedImage: string = "";
+  selectedImage: string = '';
 
   customOptions: OwlOptions = {
     loop: true,
@@ -126,7 +143,7 @@ export class ProjectDetailsComponent implements OnInit {
     dotsData: true,
     dotsSpeed: 700,
     navSpeed: 700,
-    navText: ["Prev", "Next"], // Customize the navigation text
+    navText: ['Prev', 'Next'], // Customize the navigation text
     margin: 10,
     items: 1,
     nav: true,
@@ -138,13 +155,14 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   closeModal() {
-    this.selectedImage = "";
+    this.selectedImage = '';
   }
   groupedImages: any[][] = [];
   groupImages() {
     if (this.projectDetails?.project?.images) {
       const images = this.projectDetails.project.images;
       this.groupedImages = [];
+      console.log('this.groupedImages', this.groupedImages);
 
       for (let i = 0; i < images.length; i += 5) {
         this.groupedImages.push(images.slice(i, i + 5));
@@ -152,14 +170,14 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
 
-  @ViewChild("videoElement") video!: ElementRef<HTMLVideoElement>;
+  @ViewChild('videoElement') video!: ElementRef<HTMLVideoElement>;
 
   ngAfterViewInit() {
     setTimeout(() => {
       if (this.video?.nativeElement) {
         const video = this.video.nativeElement;
         video.muted = true; // Ensure it's muted
-        video.play().catch((err) => console.warn("Autoplay blocked:", err));
+        video.play().catch((err) => console.warn('Autoplay blocked:', err));
       }
     }, 500);
   }
@@ -169,7 +187,7 @@ export class ProjectDetailsComponent implements OnInit {
       if (this.video?.nativeElement) {
         const video = this.video.nativeElement;
         video.muted = true; // Ensure it's muted
-        video.play().catch((err) => console.warn("Autoplay blocked:", err));
+        video.play().catch((err) => console.warn('Autoplay blocked:', err));
       }
     }, 500);
   }

@@ -1,15 +1,17 @@
-<section class="overflow-hidden">
+<section class="overflow-hidden" aria-label="Manager's Message">
   <div class="container mx-auto my-20">
     <div class="flex flex-wrap justify-between">
       <div class="lg:w-5/12 xl:w-4/12">
         <div class="relative">
-          <img
-            loading="lazy"
-            [class]="{ rotateImage: isRTL() }"
-            class="relative z-20 mb-4 ml-4 manager_image h-[500px] w-[400px]"
-            src="/images/hero/master.png"
-            alt="fipco manager"
-          />
+          <div class="relative z-20 mb-4 ml-4 aspect-[4/5] w-[400px]">
+            <img
+              loading="lazy"
+              [class]="{ rotateImage: isRTL() }"
+              class="h-full w-full object-cover rounded-[10px]"
+              src="/images/hero/master.webp"
+              alt="fipco manager"
+            />
+          </div>
           <span
             class="absolute bottom-0 left-0 mb-4 ml-4 z-10 h-[449px] w-[379px] border-[3px] border-[#e7bf8c] rounded-[10px]"
           ></span>
@@ -24,7 +26,7 @@
       ></div> -->
       <div class="lg:w-7/12 xl:w-7/12 mt-20 master_message">
         <div class="capitalize pt-2">
-          <h2 class="text-white md:ml-4">
+          <h2 class="text-white md:ml-4 mb-2">
             {{ "home.chairman.message" | translate }}
           </h2>
           <div class="rounded-[10px] p-3 text-xl relative z-30 manager_title">

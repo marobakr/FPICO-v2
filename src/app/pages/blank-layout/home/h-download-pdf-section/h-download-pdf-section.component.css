@@ -10,3 +10,6 @@ img {
 .custom-btn {
   border-radius: 5px !important;
 }
+::ng-deep .see-more-pic img {
+  margin: auto;
+}
